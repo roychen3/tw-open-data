@@ -1,8 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Grid from '@material-ui/core/Grid';
 
-const Header = props => {
+const Header = () => {
   return (
     <Grid item xs={12}>
       <div className="header-container">

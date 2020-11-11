@@ -1,10 +1,9 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Grid from '@material-ui/core/Grid';
 
 import Header from './Header'
 
-const index = props => {
+const index = () => {
   return (
     <Grid container spacing={0}>
       <Header />

@@ -8,9 +8,6 @@ const index = () => {
     <Grid container spacing={0}>
       <Header />
       <Grid item xs={12}>
-        menu
-      </Grid>
-      <Grid item xs={12}>
         content
       </Grid>
       <Grid item xs={12}>

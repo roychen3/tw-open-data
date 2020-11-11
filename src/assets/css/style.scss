@@ -1,17 +1,32 @@
+$black: #000000;
+$oxfordBlue: #14213d;
+$orangeWeb: #fca311;
+$platinum: #e5e5e5;
+$white: #ffffff;
+
 * {
   margin: 0;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: $white;
+
+  &:hover {
+    color: $orangeWeb;
+  }
 }
 
 /* === Header === */
 .header-container {
   padding: 2rem;
-  background-color: #000000;
-}
+  background-color: $black;
 
-.header-container .title {
-  font-size: xx-large;
-  font-weight: bolder;
-  color: #FCA311;
+  .title {
+    font-size: x-large;
+    font-weight: bolder;
+    color: $orangeWeb;
+  }
 }

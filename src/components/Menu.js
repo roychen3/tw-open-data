@@ -1,10 +1,11 @@
 import React from 'react'
+import {Link} from "react-router-dom";
 
 const Menu = () => {
   return (
     <div className="menu">
-      <a href="#">國定假日</a>
-      <a href="#">全國天氣</a>
+      <Link to="/holiday">國定假日</Link>
+      <Link to="/weather">全國天氣</Link>
     </div>
   )
 }

@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useMemo, forwardRef } from 'react'
 import PropTypes from 'prop-types'
+import { Link as RouterLink } from "react-router-dom";
+
 import { makeStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
 import List from '@material-ui/core/List';
@@ -33,10 +35,38 @@ const useStyles = makeStyles({
     },
     listitem: {
         '&:hover': {
+            color: WEB_COLOR_WHITE,
             backgroundColor: WEB_COLOR_DARK_HOVER,
         }
     }
 })
+
+const ListItemLink = ({ icon, primary, to, closeMenu }) => {
+    const classes = useStyles()
+
+    const forwardRefLink = (itemProps, ref) => (<RouterLink to={to} ref={ref} {...itemProps} />)
+
+    const renderLink = useMemo(() => (
+        forwardRef(forwardRefLink)),
+        [to],
+    );
+
+    return (
+        <li>
+            <ListItem button className={classes.listitem} component={renderLink} onClick={closeMenu}>
+                {icon ? <ListItemIcon>{icon}</ListItemIcon> : null}
+                <ListItemText primary={primary} />
+            </ListItem>
+        </li>
+    );
+}
+
+ListItemLink.propTypes = {
+    icon: PropTypes.element,
+    primary: PropTypes.string.isRequired,
+    to: PropTypes.string.isRequired,
+    closeMenu: PropTypes.func.isRequired,
+};
 
 const MobilMenu = ({ closeMenu }) => {
     const classes = useStyles()
@@ -45,19 +75,23 @@ const MobilMenu = ({ closeMenu }) => {
         <div className={classes.root}>
             <div className={classes.close}>
                 <IconButton className={classes.iconButton} onClick={closeMenu}>
-                    <ChevronLeftIcon/>
+                    <ChevronLeftIcon />
                 </IconButton>
             </div>
             <List className={classes.root}>
                 <Divider />
-                <ListItem button className={classes.listitem} onClick={closeMenu}>
-                    <ListItemIcon><EventAvailableIcon style={{ color: WEB_COLOR_WHITE }} /></ListItemIcon>
-                    <ListItemText primary="國定假日" />
-                </ListItem>
-                <ListItem button className={classes.listitem} onClick={closeMenu}>
-                    <ListItemIcon><CloudIcon style={{ color: WEB_COLOR_WHITE }} /></ListItemIcon>
-                    <ListItemText primary="全國天氣" />
-                </ListItem>
+                <ListItemLink
+                    to="/holiday"
+                    primary="國定假日"
+                    icon={<EventAvailableIcon style={{ color: WEB_COLOR_WHITE }} />}
+                    closeMenu={closeMenu}
+                />
+                <ListItemLink
+                    to="/weather"
+                    primary="全國天氣"
+                    icon={<CloudIcon style={{ color: WEB_COLOR_WHITE }} />}
+                    closeMenu={closeMenu}
+                />
             </List>
         </div>
     )

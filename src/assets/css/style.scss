@@ -42,7 +42,7 @@ a {
       margin: auto 0;
       font-size: large;
       font-weight: bolder;
-      color: $orangeWeb;
+      color: $white;
     }
   }
 
@@ -67,7 +67,14 @@ a {
   background-color: $oxfordBlue;
   color: $white;
   min-height: 100%;
+  padding-top: 56px;
   margin-bottom: -47px;
+
+  .content-container {
+    width: 70%;
+    margin: 0 auto;
+    padding: 2rem 0;
+  }
 }
 
 /* === Footer === */

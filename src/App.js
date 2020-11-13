@@ -4,7 +4,7 @@ import Layout from './layout'
 
 const App = () => {
   return (
-    <div className="App">
+    <div className="app">
       <Layout />
     </div>
   )

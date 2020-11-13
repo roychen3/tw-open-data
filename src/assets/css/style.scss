@@ -10,23 +10,72 @@ $white: #ffffff;
   box-sizing: border-box;
 }
 
+html,
+body,
+#root,
+.app {
+  height: 100%;
+  margin: 0;
+}
+
 a {
   text-decoration: none;
   color: $white;
 
   &:hover {
     color: $orangeWeb;
+    cursor: pointer;
   }
 }
 
 /* === Header === */
 .header-container {
-  padding: 2rem;
+  width: 100%;
+  padding: 1rem;
   background-color: $black;
+  position: fixed;
 
-  .title {
-    font-size: x-large;
-    font-weight: bolder;
-    color: $orangeWeb;
+  .title-container {
+    display: flex;
+
+    .title {
+      margin: auto 0;
+      font-size: large;
+      font-weight: bolder;
+      color: $orangeWeb;
+    }
   }
+
+  .menu {
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    a {
+      margin-right: 1rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+/* === Content === */
+.content {
+  background-color: $oxfordBlue;
+  color: $white;
+  min-height: 100%;
+  margin-bottom: -47px;
+}
+
+/* === Footer === */
+footer {
+  width: 100%;
+  background-color: $black;
+  color: $platinum;
+  padding: 1rem;
+  font-size: small;
+  text-align: center;
 }

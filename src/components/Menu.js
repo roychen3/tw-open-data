@@ -1,11 +1,15 @@
 import React from 'react'
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+
+import { MENU_LIST } from '../constants/menuItem'
 
 const Menu = () => {
+  const linkList = MENU_LIST.map((item) => (
+    <Link key={item.hasName} to={`/${item.hasName}`}>{item.itemName}</Link>))
+
   return (
     <div className="menu">
-      <Link to="/holiday">國定假日</Link>
-      <Link to="/weather">全國天氣</Link>
+      {linkList}
     </div>
   )
 }

@@ -15,6 +15,7 @@ import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 import CloudIcon from '@material-ui/icons/Cloud';
 
 import { WEB_COLOR_WHITE, WEB_COLOR_DARK_HOVER } from '../constants/color'
+import { MENU_LIST } from '../constants/menuItem'
 
 const useStyles = makeStyles({
     root: {
@@ -71,6 +72,31 @@ ListItemLink.propTypes = {
 const MobilMenu = ({ closeMenu }) => {
     const classes = useStyles()
 
+    const linkList = MENU_LIST.map((item) => {
+        let icon = null;
+
+        switch (item.icon) {
+            case 'EventAvailableIcon':
+                icon = <EventAvailableIcon style={{ color: WEB_COLOR_WHITE }} />
+                break;
+            case 'CloudIcon':
+                icon = <CloudIcon style={{ color: WEB_COLOR_WHITE }} />
+                break;
+        
+            default:
+                break;
+        }
+
+        return <ListItemLink
+            key={item.hasName}
+            to={`/${item.hasName}`}
+            primary={item.itemName}
+            icon={icon}
+            closeMenu={closeMenu}
+        />
+    }
+    )
+
     return (
         <div className={classes.root}>
             <div className={classes.close}>
@@ -80,18 +106,7 @@ const MobilMenu = ({ closeMenu }) => {
             </div>
             <List className={classes.root}>
                 <Divider />
-                <ListItemLink
-                    to="/holiday"
-                    primary="國定假日"
-                    icon={<EventAvailableIcon style={{ color: WEB_COLOR_WHITE }} />}
-                    closeMenu={closeMenu}
-                />
-                <ListItemLink
-                    to="/weather"
-                    primary="全國天氣"
-                    icon={<CloudIcon style={{ color: WEB_COLOR_WHITE }} />}
-                    closeMenu={closeMenu}
-                />
+                {linkList}
             </List>
         </div>
     )

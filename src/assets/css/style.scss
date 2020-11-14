@@ -34,6 +34,7 @@ a {
   padding: 1rem;
   background-color: $black;
   position: fixed;
+  z-index: 110;
 
   .title-container {
     min-height: 30px;
@@ -58,7 +59,7 @@ a {
 
     a {
       margin-right: 1rem;
-      
+
       &:last-child {
         margin-right: 0;
       }
@@ -75,9 +76,15 @@ a {
   margin-bottom: -47px;
 
   .content-container {
-    width: 70%;
+    width: 95%;
     margin: 0 auto;
-    padding: 2rem 0;
+    padding: 4rem 0;
+
+    .page-title {
+      font-size: xx-large;
+      font-weight: bolder;
+      margin-bottom: 2rem;
+    }
   }
 }
 
@@ -90,3 +97,5 @@ footer {
   font-size: small;
   text-align: center;
 }
+
+

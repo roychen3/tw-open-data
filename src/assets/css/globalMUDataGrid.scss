@@ -1,0 +1,26 @@
+$black: #000000;
+$oxfordBlue: #14213d;
+$orangeWeb: #fca311;
+$platinum: #e5e5e5;
+$white: #ffffff;
+
+.MuiDataGrid-root {
+  .MuiDataGrid-mainGridContainer {
+    .MuiDataGrid-window {
+      .MuiDataGrid-dataContainer {
+        .MuiDataGrid-viewport {
+          .MuiDataGrid-row {
+            .MuiDataGrid-cell {
+              // overflow-x: scroll;
+              // text-overflow: initial;
+
+              // &::-webkit-scrollbar {
+              //   display: none;
+              // }
+            }
+          }
+        }
+      }
+    }
+  }
+}

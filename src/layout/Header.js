@@ -13,6 +13,7 @@ import MobileMenu from '../components/MobileMenu'
 
 const useStyles = makeStyles({
   iconButton: {
+    marginRight: 10,
     color: WEB_COLOR_WHITE,
 
     '&:hover': {
@@ -22,7 +23,7 @@ const useStyles = makeStyles({
   iconTitle: {
     color: WEB_COLOR_ORANGEWEB,
     margin: 'auto 0',
-    marginLeft: 10,
+
   },
   paper: {
     backgroundColor: WEB_COLOR_BLACK,

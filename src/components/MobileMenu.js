@@ -11,11 +11,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 import IconButton from '@material-ui/core/IconButton';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import EventAvailableIcon from '@material-ui/icons/EventAvailable';
-import CloudIcon from '@material-ui/icons/Cloud';
 
-import { WEB_COLOR_WHITE, WEB_COLOR_DARK_HOVER } from '../constants/color'
-import { MENU_LIST } from '../constants/menuItem'
+import { WEB_COLOR_WHITE, WEB_COLOR_DARK_HOVER, WEB_COLOR_OXFORDBLUE } from '../constants/color'
+import { menuList } from '../routes'
 
 const useStyles = makeStyles({
     root: {
@@ -25,7 +23,10 @@ const useStyles = makeStyles({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'flex-end',
-        padding: '0.5rem',
+        padding: '1rem',
+    },
+    divider: {
+        backgroundColor: WEB_COLOR_OXFORDBLUE,
     },
     iconButton: {
         color: WEB_COLOR_WHITE,
@@ -69,51 +70,35 @@ ListItemLink.propTypes = {
     closeMenu: PropTypes.func.isRequired,
 };
 
-const MobilMenu = ({ closeMenu }) => {
+const MobileMenu = ({ closeMenu }) => {
     const classes = useStyles()
 
-    const linkList = MENU_LIST.map((item) => {
-        let icon = null;
-
-        switch (item.icon) {
-            case 'EventAvailableIcon':
-                icon = <EventAvailableIcon style={{ color: WEB_COLOR_WHITE }} />
-                break;
-            case 'CloudIcon':
-                icon = <CloudIcon style={{ color: WEB_COLOR_WHITE }} />
-                break;
-        
-            default:
-                break;
-        }
-
-        return <ListItemLink
-            key={item.hasName}
-            to={`/${item.hasName}`}
+    const linkList = menuList.map((item) => (
+        <ListItemLink
+            key={item.hashName}
+            to={`/${item.hashName}`}
             primary={item.itemName}
-            icon={icon}
+            icon={item.icon}
             closeMenu={closeMenu}
-        />
-    }
-    )
+        />))
 
     return (
         <div className={classes.root}>
             <div className={classes.close}>
-                <IconButton className={classes.iconButton} onClick={closeMenu}>
+                <IconButton className={classes.iconButton} size="small" onClick={closeMenu}>
                     <ChevronLeftIcon />
                 </IconButton>
             </div>
+            <Divider className={classes.divider} />
             <List className={classes.root}>
-                <Divider />
                 {linkList}
             </List>
         </div>
     )
 }
 
-MobilMenu.propTypes = {
+MobileMenu.propTypes = {
     closeMenu: PropTypes.func.isRequired,
 }
 
-export default MobilMenu
+export default MobileMenu

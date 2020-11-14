@@ -7,14 +7,13 @@ import MenuIcon from '@material-ui/icons/Menu';
 import DataUsageIcon from '@material-ui/icons/DataUsage';
 import Drawer from '@material-ui/core/Drawer';
 
-import { WEB_COLOR_ORANGEWEB, WEB_COLOR_OXFORDBLUE, WEB_COLOR_WHITE, WEB_COLOR_DARK_HOVER } from '../constants/color'
+import { WEB_COLOR_ORANGEWEB, WEB_COLOR_WHITE, WEB_COLOR_BLACK, WEB_COLOR_OXFORDBLUE, WEB_COLOR_DARK_HOVER } from '../constants/color'
 import Menu from '../components/Menu'
-import MobilMenu from '../components/MobilMenu'
+import MobileMenu from '../components/MobileMenu'
 
 const useStyles = makeStyles({
   iconButton: {
     color: WEB_COLOR_WHITE,
-    padding: 0,
 
     '&:hover': {
       backgroundColor: WEB_COLOR_DARK_HOVER,
@@ -26,8 +25,10 @@ const useStyles = makeStyles({
     marginLeft: 10,
   },
   paper: {
-    backgroundColor: WEB_COLOR_OXFORDBLUE,
+    backgroundColor: WEB_COLOR_BLACK,
     color: WEB_COLOR_WHITE,
+    borderRight: `${WEB_COLOR_OXFORDBLUE} solid 1px`,
+    boxShadow: 'inset 0px 0px 0px -100px #ABABAB,13px 0px 18px 0px #00000080',
   }
 })
 
@@ -53,7 +54,7 @@ const Header = () => {
                 open={mobilMenuIsOpen}
                 onClose={() => toggleMobilMenuDrawer(false)}
               >
-                <MobilMenu closeMenu={() => toggleMobilMenuDrawer(false)} />
+                <MobileMenu closeMenu={() => toggleMobilMenuDrawer(false)} />
               </Drawer>
             </Hidden>
             <DataUsageIcon className={classes.iconTitle} />

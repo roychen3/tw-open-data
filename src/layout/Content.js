@@ -1,20 +1,18 @@
 import React from 'react'
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 
-import Holiday from '../pages/holiday'
-import Weather from '../pages/weather'
+import { menuList } from '../routes'
 
 const Content = () => {
+    const routeList = menuList.map((item) => (
+        <Route key={`${item.hashName}`} path={`/${item.hashName}`}>{item.page}</Route>))
+
     return (
         <div className="content">
             <div className="content-container">
                 <Switch>
-                    <Route path="/holiday">
-                        <Holiday />
-                    </Route>
-                    <Route path="/weather">
-                        <Weather />
-                    </Route>
+                    {routeList}
+                    <Redirect from="/" to={`/${menuList[0].hashName}`} />
                 </Switch>
             </div>
         </div>

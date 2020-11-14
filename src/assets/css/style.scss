@@ -36,7 +36,10 @@ a {
   position: fixed;
 
   .title-container {
+    min-height: 30px;
+    height: 100%;
     display: flex;
+    align-items: center;
 
     .title {
       margin: auto 0;
@@ -47,6 +50,7 @@ a {
   }
 
   .menu {
+    min-height: 30px;
     height: 100%;
     display: flex;
     justify-content: flex-end;
@@ -54,7 +58,7 @@ a {
 
     a {
       margin-right: 1rem;
-
+      
       &:last-child {
         margin-right: 0;
       }

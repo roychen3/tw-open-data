@@ -1,9 +1,19 @@
 import React, { useEffect } from 'react'
 import MULabelSelect from '../../components/MULabelSelect'
-import MUDataGrid from '../../components/MUDataGrid'
+import HolidayTable from './HolidayTable'
 import holidayFakeData from './fakeData.json'
 
-const filterData = holidayFakeData.result.records.filter((item) => item.holidayCategory !== '星期六、星期日')
+const yearKeys = {}
+
+const filterData = holidayFakeData.result.records.filter((item) => {
+    const year = String(new Date(item.date).getFullYear())
+    yearKeys[year] = year
+    return item.holidayCategory !== '星期六、星期日'
+})
+
+const yearList = Object.keys(yearKeys).map((key) => {
+    return { value: key, name: key }
+})
 
 const tableData = filterData.map((item) => {
     return {
@@ -16,29 +26,35 @@ const tableData = filterData.map((item) => {
     }
 })
 
-const yearList = [
-    { value: 2021, name: 2021 },
-    { value: 2020, name: 2020 },
-    { value: 2019, name: 2019 },
-    { value: 2018, name: 2018 },
-]
-
-const columns = [
-    { field: 'date', headerName: '日期', width: 110 },
-    { field: 'name', headerName: '放假名稱', width: 200 },
-    { field: 'holidayCategory', headerName: '類型', width: 200 },
-    { field: 'description', headerName: '其他資訊', width: 300 },
+const tableColumns = [
+    {
+        id: 'date',
+        name: '日期',
+    },
+    {
+        id: 'name',
+        name: '放假名稱',
+    },
+    {
+        id: 'holidayCategory',
+        name: '類型',
+    },
+    {
+        id: 'description',
+        name: '其他資訊'
+    },
 ];
 
 const index = () => {
-    const [year, setYear] = React.useState(new Date().getFullYear());
-    const [rows, setRows] = React.useState([]);
+    const thisYear = String(new Date().getFullYear());
+    const [year, setYear] = React.useState(thisYear);
+    const [tableRows, setTableRows] = React.useState([]);
 
     useEffect(() => {
-        const showTableData = tableData.filter((item) => new Date(item.date).getFullYear() === year)
-        setRows(showTableData)
+        const showTableData = tableData.filter((item) => String(new Date(item.date).getFullYear()) === year)
+        setTableRows(showTableData)
         return () => {
-            
+
         }
     }, [year])
 
@@ -53,7 +69,9 @@ const index = () => {
                 setValue={setYear}
                 selectionItems={yearList}
             />
-            <MUDataGrid rows={rows} columns={columns} />
+            <div className="table-container">
+                <HolidayTable columns={tableColumns} rows={tableRows} />
+            </div>
         </div>
     )
 }

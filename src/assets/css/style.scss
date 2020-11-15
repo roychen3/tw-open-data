@@ -78,12 +78,20 @@ a {
   .content-container {
     width: 95%;
     margin: 0 auto;
-    padding: 4rem 0;
+    padding: 4rem 0 8rem;
+
+    @media (min-width: 992px) {
+      width: 70%;
+    }
 
     .page-title {
       font-size: xx-large;
       font-weight: bolder;
       margin-bottom: 2rem;
+    }
+
+    .table-container {
+        margin: 1rem 0;
     }
   }
 }
@@ -97,5 +105,3 @@ footer {
   font-size: small;
   text-align: center;
 }
-
-

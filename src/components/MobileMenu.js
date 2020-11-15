@@ -1,16 +1,16 @@
 import React, { useMemo, forwardRef } from 'react'
 import PropTypes from 'prop-types'
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom"
 
-import { makeStyles } from '@material-ui/core/styles';
-import Divider from '@material-ui/core/Divider';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+import { makeStyles } from '@material-ui/core/styles'
+import Divider from '@material-ui/core/Divider'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import ListItemText from '@material-ui/core/ListItemText'
 
-import IconButton from '@material-ui/core/IconButton';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import IconButton from '@material-ui/core/IconButton'
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 
 import { WEB_COLOR_WHITE, WEB_COLOR_DARK_HOVER, WEB_COLOR_OXFORDBLUE } from '../constants/color'
 import { menuList } from '../routes'
@@ -51,7 +51,7 @@ const ListItemLink = ({ icon, primary, to, closeMenu }) => {
     const renderLink = useMemo(() => (
         forwardRef(forwardRefLink)),
         [to],
-    );
+    )
 
     return (
         <li>
@@ -60,7 +60,7 @@ const ListItemLink = ({ icon, primary, to, closeMenu }) => {
                 <ListItemText primary={primary} />
             </ListItem>
         </li>
-    );
+    )
 }
 
 ListItemLink.propTypes = {
@@ -68,7 +68,7 @@ ListItemLink.propTypes = {
     primary: PropTypes.string.isRequired,
     to: PropTypes.string.isRequired,
     closeMenu: PropTypes.func.isRequired,
-};
+}
 
 const MobileMenu = ({ closeMenu }) => {
     const classes = useStyles()

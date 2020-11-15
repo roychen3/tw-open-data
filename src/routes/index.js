@@ -1,5 +1,5 @@
-import EventAvailableIcon from '@material-ui/icons/EventAvailable';
-import CloudIcon from '@material-ui/icons/Cloud';
+import EventAvailableIcon from '@material-ui/icons/EventAvailable'
+import CloudIcon from '@material-ui/icons/Cloud'
 
 import { WEB_COLOR_WHITE } from '../constants/color'
 

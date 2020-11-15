@@ -1,14 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
+import Table from '@material-ui/core/Table'
+import TableBody from '@material-ui/core/TableBody'
+import TableCell from '@material-ui/core/TableCell'
+import TableContainer from '@material-ui/core/TableContainer'
+import TableHead from '@material-ui/core/TableHead'
+import TableRow from '@material-ui/core/TableRow'
+import Paper from '@material-ui/core/Paper'
 
 import { WEB_COLOR_BLACK, WEB_COLOR_OXFORDBLUE, WEB_COLOR_ORANGEWEB, WEB_COLOR_PLATINUM, WEB_COLOR_WHITE, WEB_COLOR_DARK_HOVER } from '../../constants/color'
 
@@ -48,7 +48,7 @@ const theme = createMuiTheme({
             },
         },
     },
-});
+})
 
 const HolidayTable = ({ columns, rows }) => {
     const tableCellColumns = columns.map((column) => <TableCell key={column.id} align="center">{column.name}</TableCell>)

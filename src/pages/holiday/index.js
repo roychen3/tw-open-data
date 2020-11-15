@@ -43,12 +43,12 @@ const tableColumns = [
         id: 'description',
         name: '其他資訊'
     },
-];
+]
 
 const index = () => {
-    const thisYear = String(new Date().getFullYear());
-    const [year, setYear] = React.useState(thisYear);
-    const [tableRows, setTableRows] = React.useState([]);
+    const thisYear = String(new Date().getFullYear())
+    const [year, setYear] = React.useState(thisYear)
+    const [tableRows, setTableRows] = React.useState([])
 
     useEffect(() => {
         const showTableData = tableData.filter((item) => String(new Date(item.date).getFullYear()) === year)

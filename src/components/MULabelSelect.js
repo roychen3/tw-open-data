@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
+import InputLabel from '@material-ui/core/InputLabel'
+import MenuItem from '@material-ui/core/MenuItem'
+import FormControl from '@material-ui/core/FormControl'
+import Select from '@material-ui/core/Select'
 
 import { WEB_COLOR_BLACK, WEB_COLOR_OXFORDBLUE, WEB_COLOR_ORANGEWEB, WEB_COLOR_PLATINUM, WEB_COLOR_WHITE, WEB_COLOR_DARK_HOVER } from '../constants/color'
 
@@ -67,7 +67,7 @@ const theme = createMuiTheme({
             }
         }
     },
-});
+})
 
 const MULabelSelect = ({
     labelId,
@@ -77,19 +77,19 @@ const MULabelSelect = ({
     setValue,
     selectionItems,
 }) => {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(false)
 
     const handleChange = (event) => {
-        setValue(event.target.value);
-    };
+        setValue(event.target.value)
+    }
 
     const handleClose = () => {
-        setOpen(false);
-    };
+        setOpen(false)
+    }
 
     const handleOpen = () => {
-        setOpen(true);
-    };
+        setOpen(true)
+    }
 
     const selectionMenuItemList = selectionItems.map((item) => (
         <MenuItem key={item.value} value={item.value}>{item.name}</MenuItem>))

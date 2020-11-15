@@ -7,8 +7,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
-import { WEB_COLOR_PLATINUM, WEB_COLOR_WHITE, WEB_COLOR_BLACK, WEB_COLOR_DARK_HOVER } from '../constants/color'
-import '../assets/css/globalMULabelSelect.scss'
+import { WEB_COLOR_BLACK, WEB_COLOR_OXFORDBLUE, WEB_COLOR_ORANGEWEB, WEB_COLOR_PLATINUM, WEB_COLOR_WHITE, WEB_COLOR_DARK_HOVER } from '../constants/color'
 
 const theme = createMuiTheme({
     overrides: {
@@ -16,11 +15,27 @@ const theme = createMuiTheme({
             root: {
                 margin: '0.5rem',
                 minWidth: 100,
+
+                '&.MuiFormControl-root .MuiInput-underline:after': {
+                    borderBottom: `${WEB_COLOR_ORANGEWEB} 1px solid`,
+                },
+                '&:hover': {
+                    '&.MuiFormControl-root .MuiInputLabel-root': {
+                        color: WEB_COLOR_ORANGEWEB,
+                    },
+                    '&.MuiFormControl-root .MuiInput-underline::before': {
+                        borderBottom: `${WEB_COLOR_ORANGEWEB} 1px solid`,
+                    }
+                }
             },
         },
         MuiInputLabel: {
             root: {
                 color: WEB_COLOR_PLATINUM,
+
+                '&.MuiFormLabel-root.Mui-focused': {
+                    color: WEB_COLOR_ORANGEWEB,
+                },
             },
         },
         MuiSelect: {
@@ -37,11 +52,20 @@ const theme = createMuiTheme({
                 color: WEB_COLOR_PLATINUM,
                 backgroundColor: WEB_COLOR_BLACK,
 
+                '&.Mui-selected': {
+                    color: WEB_COLOR_ORANGEWEB,
+                    backgroundColor: WEB_COLOR_OXFORDBLUE,
+                },
                 '&:hover': {
                     backgroundColor: WEB_COLOR_DARK_HOVER,
                 }
             },
         },
+        MuiPaper: {
+            root: {
+                backgroundColor: WEB_COLOR_BLACK,
+            }
+        }
     },
 });
 

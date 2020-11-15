@@ -55,7 +55,10 @@ const HolidayTable = ({ columns, rows }) => {
 
     const tableBadyRowList = rows.map((row, index) => (
         <TableRow key={index} className={row.isHoliday === '否' ? 'table-row-highlight' : ''}>
-            <TableCell align="left">{`${row.date} (${new Date(row.date).toLocaleString(window.navigator.language, { weekday: 'long' })})`}</TableCell>
+            <TableCell align="left">
+                {`${row.date}`}
+                <p>{new Date(row.date).toLocaleString(window.navigator.language, { weekday: 'long' })}</p>
+            </TableCell>
             <TableCell align="left">{row.name}</TableCell>
             <TableCell align="left">{row.holidayCategory}</TableCell>
             <TableCell align="left">{row.description}</TableCell>

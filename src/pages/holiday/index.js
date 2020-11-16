@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 
 import MULabelSelect from '../../components/MULabelSelect'
@@ -10,29 +10,6 @@ import {
     getHolidaySuccess,
     getHolidayFailure,
 } from '../../redux/actions'
-
-const yearKeys = {}
-
-const filterData = holidayFakeData.result.records.filter((item) => {
-    const year = String(new Date(item.date).getFullYear())
-    yearKeys[year] = year
-    return item.holidayCategory !== '星期六、星期日'
-})
-
-const yearList = Object.keys(yearKeys).map((key) => {
-    return { value: key, name: key }
-})
-
-const tableData = filterData.map((item) => {
-    return {
-        id: item.date,
-        date: item.date,
-        name: item.name,
-        isHoliday: item.isHoliday,
-        holidayCategory: item.holidayCategory,
-        description: item.description,
-    }
-})
 
 const tableColumns = [
     {
@@ -54,30 +31,72 @@ const tableColumns = [
 ]
 
 const index = () => {
+    const dispatch = useDispatch()
+    const holidayYearList = useSelector((state) => state.holiday.holidayYearList)
+    const holidayData = useSelector((state) => state.holiday.holiday)
+
     const thisYear = String(new Date().getFullYear())
-    const [year, setYear] = React.useState(thisYear)
+    const [selectedYear, setSelectedYear] = React.useState(thisYear)
     const [tableRows, setTableRows] = React.useState([])
 
-    useEffect(() => {
-        const showTableData = tableData.filter((item) => String(new Date(item.date).getFullYear()) === year)
-        setTableRows(showTableData)
-        return () => {
+    const produceApiResultData = (data) => {
+        const filterData = data.filter((item) => item.holidayCategory !== '星期六、星期日')
 
+        return filterData.map((item) => ({
+            id: item.date,
+            date: item.date,
+            name: item.name,
+            isHoliday: item.isHoliday,
+            holidayCategory: item.holidayCategory,
+            description: item.description,
+        }))
+    }
+
+    const produceHolidayYearList = (data) => {
+        const yearKeys = {}
+        data.forEach((item) => {
+            const year = String(new Date(item.date).getFullYear())
+            yearKeys[year] = year
+        })
+        return Object.keys(yearKeys).map((key) => ({ value: key, name: key }))
+    }
+
+    useEffect(() => {
+        if (holidayData.length > 0 && selectedYear) {
+            const showTableData = holidayData.filter((item) => String(new Date(item.date).getFullYear()) === selectedYear)
+            setTableRows(showTableData)
         }
-    }, [year])
-
-    const dispatch = useDispatch()
+    }, [selectedYear, holidayData])
 
     useEffect(() => {
-        dispatch(getHoliday())
-        // 備用網頁，手動下載用：
-        // https://data.ntpc.gov.tw/datasets/308DCD75-6434-45BC-A95F-584DA4FED251
-        // axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
-        axios.get('https://cors-anywhere.herokuapp.com/http://data.ntpc.gov.tw/api/v1/rest/datastore/382000000A-000077-002')
-            .then((data) => {
-                dispatch(getHolidaySuccess([data.result.records]))
-            })
-            .catch((err) => dispatch(getHolidayFailure(err)))
+        if (holidayData.length === 0) {
+            dispatch(getHoliday())
+            // 備用網頁，手動下載用：
+            // https://data.ntpc.gov.tw/datasets/308DCD75-6434-45BC-A95F-584DA4FED251
+            // axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
+            axios.get('https://cors-anywhere.herokuapp.com/http://data.ntpc.gov.tw/api/v1/rest/datastore/382000000A-000077-002')
+                .then((resultData) => {
+                    console.log(resultData)
+                    const tableData = produceApiResultData(holidayFakeData.result.records)
+                    const yearList = produceHolidayYearList(tableData)
+                    dispatch(getHolidaySuccess({
+                        holidayYearList: yearList,
+                        holiday: tableData,
+                    }))
+                })
+                .catch((err) => {
+                    dispatch(getHolidayFailure(err))
+
+                    // 因為 api 壞掉，所以用假資料代替，
+                    // 故多了此步驟
+                    const tableData = produceApiResultData(holidayFakeData.result.records)
+                    const yearList = produceHolidayYearList(tableData)
+                    dispatch(getHolidaySuccess({
+                        holidayYearList: yearList,
+                        holiday: tableData,
+                    }))
+                })
+        }
     }, [])
 
     return (
@@ -87,9 +106,9 @@ const index = () => {
                 labelId="year-select-label"
                 labelText="Year"
                 SelectId="year-select"
-                value={year}
-                setValue={setYear}
-                selectionItems={yearList}
+                value={selectedYear}
+                setValue={setSelectedYear}
+                selectionItems={holidayYearList}
             />
             <div className="table-container">
                 <HolidayTable columns={tableColumns} rows={tableRows} />

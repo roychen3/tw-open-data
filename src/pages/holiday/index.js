@@ -2,7 +2,8 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 
-import MULabelSelect from '../../components/MULabelSelect'
+import MuiLabelSelect from '../../components/MuiLabelSelect'
+import { MuiPageSpinner } from '../../components/muiCircularProgress'
 import HolidayTable from './HolidayTable'
 import holidayFakeData from './fakeData.json'
 import {
@@ -34,6 +35,8 @@ const index = () => {
     const dispatch = useDispatch()
     const holidayYearList = useSelector((state) => state.holiday.holidayYearList)
     const holidayData = useSelector((state) => state.holiday.holiday)
+    const holidayDataError = useSelector((state) => state.holiday.holidayError)
+    const holidayDataLoading = useSelector((state) => state.holiday.holidayLoading)
 
     const thisYear = String(new Date().getFullYear())
     const [selectedYear, setSelectedYear] = React.useState(thisYear)
@@ -76,8 +79,7 @@ const index = () => {
             // axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
             axios.get('https://cors-anywhere.herokuapp.com/http://data.ntpc.gov.tw/api/v1/rest/datastore/382000000A-000077-002')
                 .then((resultData) => {
-                    console.log(resultData)
-                    const tableData = produceApiResultData(holidayFakeData.result.records)
+                    const tableData = produceApiResultData(resultData.result.records)
                     const yearList = produceHolidayYearList(tableData)
                     dispatch(getHolidaySuccess({
                         holidayYearList: yearList,
@@ -86,33 +88,45 @@ const index = () => {
                 })
                 .catch((err) => {
                     dispatch(getHolidayFailure(err))
-
-                    // 因為 api 壞掉，所以用假資料代替，
-                    // 故多了此步驟
-                    const tableData = produceApiResultData(holidayFakeData.result.records)
-                    const yearList = produceHolidayYearList(tableData)
-                    dispatch(getHolidaySuccess({
-                        holidayYearList: yearList,
-                        holiday: tableData,
-                    }))
                 })
         }
     }, [])
 
+    // 因為 api 壞掉，所以用假資料代替，
+    // 故多了此步驟
+    useEffect(() => {
+        if (holidayDataError !== null && holidayData.length === 0) {
+            console.log('use fake data')
+            const tableData = produceApiResultData(holidayFakeData.result.records)
+            const yearList = produceHolidayYearList(tableData)
+            dispatch(getHolidaySuccess({
+                holidayYearList: yearList,
+                holiday: tableData,
+            }))
+        }
+    }, [holidayDataError])
+
     return (
         <div>
             <div className="page-title">國定假日</div>
-            <MULabelSelect
-                labelId="year-select-label"
-                labelText="Year"
-                SelectId="year-select"
-                value={selectedYear}
-                setValue={setSelectedYear}
-                selectionItems={holidayYearList}
-            />
-            <div className="table-container">
-                <HolidayTable columns={tableColumns} rows={tableRows} />
-            </div>
+            {holidayDataLoading &&
+                <MuiPageSpinner />
+            }
+            {holidayDataLoading === false && tableRows.length > 0 &&
+                <>
+                    <MuiLabelSelect
+                        labelId="year-select-label"
+                        labelText="Year"
+                        SelectId="year-select"
+                        value={selectedYear}
+                        setValue={setSelectedYear}
+                        selectionItems={holidayYearList}
+                    />
+                    <div className="table-container">
+                        <HolidayTable columns={tableColumns} rows={tableRows} />
+                    </div>
+                </>
+            }
         </div>
     )
 }

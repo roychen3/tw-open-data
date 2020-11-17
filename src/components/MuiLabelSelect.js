@@ -69,7 +69,7 @@ const theme = createMuiTheme({
     },
 })
 
-const MULabelSelect = ({
+const MuiLabelSelect = ({
     labelId,
     labelText,
     SelectId,
@@ -114,7 +114,7 @@ const MULabelSelect = ({
     )
 }
 
-MULabelSelect.propTypes = {
+MuiLabelSelect.propTypes = {
     labelId: PropTypes.string.isRequired,
     labelText: PropTypes.string.isRequired,
     SelectId: PropTypes.string.isRequired,
@@ -123,4 +123,4 @@ MULabelSelect.propTypes = {
     selectionItems: PropTypes.instanceOf(Array).isRequired,
 }
 
-export default MULabelSelect
+export default MuiLabelSelect

@@ -5,10 +5,13 @@ import Modal from '@material-ui/core/Modal'
 
 import { WEB_COLOR_BLACK, WEB_COLOR_ORANGEWEB, WEB_COLOR_WHITE } from '../constants/color'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   paper: {
     position: 'absolute',
-    width: '50%',
+    width: '90%',
+    [theme.breakpoints.up('sm')]: {
+      width: '50%',
+    },
     textAlign: 'center',
     color: WEB_COLOR_WHITE,
     backgroundColor: WEB_COLOR_BLACK,
@@ -21,7 +24,7 @@ const useStyles = makeStyles({
   icon: {
     color: WEB_COLOR_ORANGEWEB,
   },
-})
+}))
 
 const MuiModal = ({
   open,

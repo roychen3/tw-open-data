@@ -2,34 +2,19 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 
-import MuiLabelSelect from '../../components/MuiLabelSelect'
-import { MuiPageSpinner } from '../../components/muiCircularProgress'
-import HolidayTable from './HolidayTable'
-import holidayFakeData from './fakeData.json'
 import {
     getHoliday,
     getHolidaySuccess,
     getHolidayFailure,
 } from '../../redux/actions'
 
-const tableColumns = [
-    {
-        id: 'date',
-        name: '日期',
-    },
-    {
-        id: 'name',
-        name: '放假名稱',
-    },
-    {
-        id: 'holidayCategory',
-        name: '類型',
-    },
-    {
-        id: 'description',
-        name: '其他資訊'
-    },
-]
+import MuiLabelSelect from '../../components/MuiLabelSelect'
+import { MuiPageSpinner } from '../../components/muiCircularProgress'
+import MuiModal from '../../components/MuiModal'
+
+import HolidayTable from './HolidayTable'
+import MessageModal from './MessageModal'
+import holidayFakeData from './fakeData.json'
 
 const index = () => {
     const dispatch = useDispatch()
@@ -41,6 +26,10 @@ const index = () => {
     const thisYear = String(new Date().getFullYear())
     const [selectedYear, setSelectedYear] = React.useState(thisYear)
     const [tableRows, setTableRows] = React.useState([])
+    const [messageModalIsOpen, setMessageModalIsOpen] = React.useState(false)
+
+    const handaleMessageModalOpen = () => { setMessageModalIsOpen(true) }
+    const handaleMessageModalClose = () => { setMessageModalIsOpen(false) }
 
     const produceApiResultData = (data) => {
         const filterData = data.filter((item) => item.holidayCategory !== '星期六、星期日')
@@ -76,7 +65,6 @@ const index = () => {
             dispatch(getHoliday())
             // 備用網頁，手動下載用：
             // https://data.ntpc.gov.tw/datasets/308DCD75-6434-45BC-A95F-584DA4FED251
-            // axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
             axios.get('https://cors-anywhere.herokuapp.com/http://data.ntpc.gov.tw/api/v1/rest/datastore/382000000A-000077-002')
                 .then((resultData) => {
                     const tableData = produceApiResultData(resultData.result.records)
@@ -103,6 +91,7 @@ const index = () => {
                 holidayYearList: yearList,
                 holiday: tableData,
             }))
+            handaleMessageModalOpen()
         }
     }, [holidayDataError])
 
@@ -123,10 +112,16 @@ const index = () => {
                         selectionItems={holidayYearList}
                     />
                     <div className="table-container">
-                        <HolidayTable columns={tableColumns} rows={tableRows} />
+                        <HolidayTable rows={tableRows} />
                     </div>
                 </>
             }
+            <MuiModal
+                open={messageModalIsOpen}
+                handaleClose={handaleMessageModalClose}
+            >
+                <MessageModal />
+            </MuiModal>
         </div>
     )
 }

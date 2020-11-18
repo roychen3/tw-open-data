@@ -50,7 +50,27 @@ const theme = createMuiTheme({
     },
 })
 
-const HolidayTable = ({ columns, rows }) => {
+const columns = [
+    {
+        id: 'date',
+        name: '日期',
+    },
+    {
+        id: 'name',
+        name: '放假名稱',
+    },
+    {
+        id: 'holidayCategory',
+        name: '類型',
+    },
+    {
+        id: 'description',
+        name: '其他資訊'
+    },
+]
+
+
+const HolidayTable = ({ rows }) => {
     const tableCellColumns = columns.map((column) => <TableCell key={column.id} align="center">{column.name}</TableCell>)
 
     const tableBadyRowList = rows.map((row, index) => (
@@ -83,7 +103,6 @@ const HolidayTable = ({ columns, rows }) => {
 }
 
 HolidayTable.propTypes = {
-    columns: PropTypes.instanceOf(Array).isRequired,
     rows: PropTypes.instanceOf(Array).isRequired,
 }
 

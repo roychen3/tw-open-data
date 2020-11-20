@@ -1,13 +1,14 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import Header from './Header'
 import Content from './Content'
 import Footer from './Footer'
 
-const index = () => {
+const index = ({ toggleTheme }) => {
   return (
     <>
-      <Header />
+      <Header toggleTheme={toggleTheme} />
       <Content />
       <Footer />
     </>
@@ -15,7 +16,7 @@ const index = () => {
 }
 
 index.propTypes = {
-
+  toggleTheme: PropTypes.func.isRequired,
 }
 
 export default index

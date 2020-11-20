@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Hidden from '@material-ui/core/Hidden'
@@ -33,7 +34,7 @@ const useStyles = makeStyles({
   }
 })
 
-const Header = () => {
+const Header = ({ toggleTheme }) => {
   const classes = useStyles()
 
   const [mobilMenuIsOpen, setMobilMenuIsOpen] = useState(false)
@@ -55,7 +56,9 @@ const Header = () => {
                 open={mobilMenuIsOpen}
                 onClose={() => toggleMobilMenuDrawer(false)}
               >
-                <MobileMenu closeMenu={() => toggleMobilMenuDrawer(false)} />
+                <MobileMenu
+                  closeMenu={() => toggleMobilMenuDrawer(false)} toggleTheme={toggleTheme}
+                />
               </Drawer>
             </Hidden>
             <DataUsageIcon className={classes.iconTitle} />
@@ -64,7 +67,7 @@ const Header = () => {
         </Grid>
         <Hidden xsDown>
           <Grid item xs>
-            <Menu />
+            <Menu toggleTheme={toggleTheme} />
           </Grid>
         </Hidden>
       </Grid>
@@ -73,7 +76,7 @@ const Header = () => {
 }
 
 Header.propTypes = {
-
+  toggleTheme: PropTypes.func.isRequired,
 }
 
 export default Header

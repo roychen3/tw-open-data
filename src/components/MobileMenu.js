@@ -8,6 +8,7 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
+import Switch from '@material-ui/core/Switch'
 
 import IconButton from '@material-ui/core/IconButton'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
@@ -70,7 +71,7 @@ ListItemLink.propTypes = {
     closeMenu: PropTypes.func.isRequired,
 }
 
-const MobileMenu = ({ closeMenu }) => {
+const MobileMenu = ({ closeMenu, toggleTheme }) => {
     const classes = useStyles()
 
     const linkList = menuList.map((item) => (
@@ -90,7 +91,19 @@ const MobileMenu = ({ closeMenu }) => {
                 </IconButton>
             </div>
             <Divider className={classes.divider} />
+            {/* <a onClick={toggleTheme}>toggleTheme</a> */}
             <List className={classes.root}>
+                <ListItem>
+                    <ListItemText id="switch-list-label-bluetooth" primary="Dark" />
+                    <ListItem>
+                        <Switch
+                            edge="end"
+                            onChange={toggleTheme}
+                            inputProps={{ 'aria-labelledby': 'switch-list-label-bluetooth' }}
+                        />
+                    </ListItem>
+                    <ListItemText id="switch-list-label-bluetooth" primary="Light" />
+                </ListItem>
                 {linkList}
             </List>
         </div>
@@ -99,6 +112,7 @@ const MobileMenu = ({ closeMenu }) => {
 
 MobileMenu.propTypes = {
     closeMenu: PropTypes.func.isRequired,
+    toggleTheme: PropTypes.func.isRequired,
 }
 
 export default MobileMenu

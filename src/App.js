@@ -7,26 +7,26 @@ import { GlobalStyles } from './globalStyles'
 import Layout from './layout'
 
 const App = () => {
-  const [theme, setTheme] = useState('dark')
+  const [webTheme, setWebTheme] = useState('dark')
   const toggleTheme = () => {
-    if (theme === 'light') {
-      setTheme('dark')
-      window.localStorage.setItem('theme', 'dark')
+    if (webTheme === 'light') {
+      setWebTheme('dark')
+      window.localStorage.setItem('webTheme', 'dark')
     } else {
-      setTheme('light')
-      window.localStorage.setItem('theme', 'light')
+      setWebTheme('light')
+      window.localStorage.setItem('webTheme', 'light')
     }
   }
 
   useEffect(() => {
-    const localTheme = window.localStorage.getItem('theme')
-    if(localTheme === 'light'){
-      setTheme('light')
+    const localWebTheme = window.localStorage.getItem('webTheme')
+    if(localWebTheme === 'light'){
+      setWebTheme('light')
     }
   }, [])
 
   return (
-    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+    <ThemeProvider theme={webTheme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyles />
       <Router>
         <div className="app">

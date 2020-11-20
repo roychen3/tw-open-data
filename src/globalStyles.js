@@ -26,6 +26,6 @@ a {
 }
 
 .MuiPaper-root {
-  background-color: ${({ theme }) => theme.secondBackground};
+  background-color: ${({ theme }) => theme.secondBackground} !important;
 }
 `

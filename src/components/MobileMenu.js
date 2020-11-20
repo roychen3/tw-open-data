@@ -8,12 +8,12 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
-import Switch from '@material-ui/core/Switch'
 
 import IconButton from '@material-ui/core/IconButton'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 
 import { menuList } from '../routes'
+import MuiSwitchToggleTheme from '../components/MuiSwitchToggleTheme'
 
 const StyledListItem = styled(ListItem)`
 color: ${({ theme }) => theme.mainText};
@@ -74,19 +74,10 @@ color: ${({ theme }) => theme.mainText} !important;
 }
 `
 const StyledDivider = styled(Divider)`
-background-color: ${({ theme }) => theme.mainBackground};
+background-color: ${({ theme }) => theme.mainBackground} !important;
 `
-const StyledDarkListItemText = styled(ListItemText)`
-text-align: right;
-color: ${({ theme }) => theme.mainText};
-`
-const StyledLightListItemText = styled(ListItemText)`
-color: ${({ theme }) => theme.mainText};
-`
-const StyledSwitch = styled(Switch)`
-.MuiSwitch-track{
-    background-color: ${({ theme }) => theme.secondText};
-}
+const StyledListItemToggleTheme = styled(ListItem)`
+justify-content: center !important;
 `
 
 const MobileMenu = ({ closeMenu, toggleTheme }) => {
@@ -108,14 +99,11 @@ const MobileMenu = ({ closeMenu, toggleTheme }) => {
             </StyledMobileMenuClose>
             <StyledDivider />
             <List>
-                <ListItem>
-                    <StyledDarkListItemText primary="Dark" />
-                    <StyledSwitch
-                        color="default"
-                        onChange={toggleTheme}
+                <StyledListItemToggleTheme>
+                    <MuiSwitchToggleTheme
+                        toggleTheme={toggleTheme}
                     />
-                    <StyledLightListItemText primary="Light" />
-                </ListItem>
+                </StyledListItemToggleTheme>
             </List>
             <StyledDivider />
             <List>

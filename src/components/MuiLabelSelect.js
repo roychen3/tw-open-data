@@ -8,8 +8,8 @@ import FormControl from '@material-ui/core/FormControl'
 import Select from '@material-ui/core/Select'
 
 const StyledFormControl = styled(FormControl)`
-margin: 0.5rem;
-min-width 70px;
+margin: 0.5rem !important;
+min-width 70px !important;
 
 .MuiInput-underline:after {
     border-bottom: 1px solid ${({ theme }) => theme.highlight};
@@ -42,18 +42,18 @@ min-width 70px;
 }
 `
 const StyledMenuItem = styled(MenuItem)`
-color: ${({ theme }) => theme.secondText};
-background-color: ${({ theme }) => theme.secondBackground};
+color: ${({ theme }) => theme.secondText} !important;
+background-color: ${({ theme }) => theme.secondBackground} !important;
 :hover {
-    background-color: ${({ theme }) => theme.hover};
+    background-color: ${({ theme }) => theme.hover} !important;
 }
 
 &.Mui-selected {
-    color: ${({ theme }) => theme.highlight};
-    background-color: ${({ theme }) => theme.mainBackground};
+    color: ${({ theme }) => theme.highlight} !important;
+    background-color: ${({ theme }) => theme.mainBackground} !important;
 
     :hover {
-        background-color: ${({ theme }) => theme.hover};
+        background-color: ${({ theme }) => theme.hover} !important;
     }
 }
 `

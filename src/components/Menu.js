@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { menuList } from '../routes'
+import MuiSwitchToggleTheme from '../components/MuiSwitchToggleTheme'
 
 const StyledMenuContainer = styled.div`
 min-height: 30px;
@@ -20,15 +21,25 @@ a{
   }
 }
 `
+const StyledToggleThemeContainer = styled.div`
+display: flex;
+align-items: center;
+color: ${({ theme }) => theme.mainText} !important;
+`
 
 const Menu = ({ toggleTheme }) => {
+
   const linkList = menuList.map((item) => (
-      <Link key={item.hashName} to={`/${item.hashName}`}>{item.itemName}</Link>))
+    <Link key={item.hashName} to={`/${item.hashName}`}>{item.itemName}</Link>))
 
   return (
     <StyledMenuContainer>
-      <a onClick={toggleTheme}>toggleTheme</a>
       {linkList}
+      <StyledToggleThemeContainer>
+        <MuiSwitchToggleTheme
+          toggleTheme={toggleTheme}
+        />
+      </StyledToggleThemeContainer>
     </StyledMenuContainer>
   )
 }

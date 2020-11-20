@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
+
 import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Hidden from '@material-ui/core/Hidden'
@@ -11,6 +13,26 @@ import Drawer from '@material-ui/core/Drawer'
 import { WEB_COLOR_ORANGEWEB, WEB_COLOR_WHITE, WEB_COLOR_BLACK, WEB_COLOR_OXFORDBLUE, WEB_COLOR_DARK_HOVER } from '../constants/color'
 import Menu from '../components/Menu'
 import MobileMenu from '../components/MobileMenu'
+
+const StyledHeader = styled.header`
+width: 100%;
+padding: 1rem;
+background-color: ${({ theme }) => theme.secondBackground};
+position: fixed;
+z-index: 110;
+`
+const StyledTitleContainer = styled.div`
+min-height: 30px;
+height: 100%;
+display: flex;
+align-items: center;
+`
+const StyledTitle = styled.div`
+margin: auto 0;
+font-size: large;
+font-weight: bolder;
+color: ${({ theme }) => theme.mainText};
+`
 
 const useStyles = makeStyles({
   iconButton: {
@@ -41,10 +63,10 @@ const Header = ({ toggleTheme }) => {
   const toggleMobilMenuDrawer = (open) => { setMobilMenuIsOpen(open) }
 
   return (
-    <header className="header-container">
+    <StyledHeader>
       <Grid container spacing={1}>
         <Grid item xs>
-          <div className="title-container">
+          <StyledTitleContainer>
             <Hidden smUp>
               <IconButton className={classes.iconButton} size="small" onClick={() => toggleMobilMenuDrawer(true)}>
                 <MenuIcon />
@@ -62,8 +84,8 @@ const Header = ({ toggleTheme }) => {
               </Drawer>
             </Hidden>
             <DataUsageIcon className={classes.iconTitle} />
-            <div className="title">政府資料開放平台</div>
-          </div>
+            <StyledTitle>政府資料開放平台</StyledTitle>
+          </StyledTitleContainer>
         </Grid>
         <Hidden xsDown>
           <Grid item xs>
@@ -71,7 +93,7 @@ const Header = ({ toggleTheme }) => {
           </Grid>
         </Hidden>
       </Grid>
-    </header>
+    </StyledHeader>
   )
 }
 

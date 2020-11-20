@@ -32,11 +32,11 @@ font-weight: bolder;
 color: ${({ theme }) => theme.mainText};
 `
 const StyledIconButton = styled(IconButton)`
-margin-right: 10px;
-color: ${({ theme }) => theme.mainText};
+margin-right: 10px !important;
+color: ${({ theme }) => theme.mainText} !important;
 
 :hover {
-    background-color: ${({ theme }) => theme.hover};
+    background-color: ${({ theme }) => theme.hover} !important;
 }
 `
 const StyledDataUsageIcon = styled(DataUsageIcon)`

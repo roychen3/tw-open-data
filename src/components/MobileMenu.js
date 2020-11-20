@@ -24,7 +24,7 @@ color: ${({ theme }) => theme.mainText};
 
 :hover {
     color: ${({ theme }) => theme.highlight};
-    background-color: ${({ theme }) => theme.hover};
+    background-color: ${({ theme }) => theme.hover} !important;
 
     .MuiListItemIcon-root .MuiSvgIcon-root {
         color: ${({ theme }) => theme.highlight};
@@ -67,10 +67,10 @@ justify-content: flex-end;
 padding: 1rem;
 `
 const StyledIconButton = styled(IconButton)`
-color: ${({ theme }) => theme.mainText};
+color: ${({ theme }) => theme.mainText} !important;
 
 :hover {
-    background-color: ${({ theme }) => theme.hover};
+    background-color: ${({ theme }) => theme.hover} !important;
 }
 `
 const StyledDivider = styled(Divider)`

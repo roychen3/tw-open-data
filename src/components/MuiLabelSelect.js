@@ -22,7 +22,7 @@ min-width 70px;
         color: ${({ theme }) => theme.highlight};
     }
     .MuiInput-underline::before {
-        border-bottom: 1px solid ${({ theme }) => theme.highlight};
+        border-bottom: 1px solid ${({ theme }) => theme.highlight} !important;
     }
 }
 

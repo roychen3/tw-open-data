@@ -1,8 +1,8 @@
 import React, { useMemo, forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import { Link as RouterLink } from "react-router-dom"
+import styled from 'styled-components'
 
-import { makeStyles } from '@material-ui/core/styles'
 import Divider from '@material-ui/core/Divider'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
@@ -13,40 +13,26 @@ import Switch from '@material-ui/core/Switch'
 import IconButton from '@material-ui/core/IconButton'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 
-import { WEB_COLOR_WHITE, WEB_COLOR_DARK_HOVER, WEB_COLOR_OXFORDBLUE } from '../constants/color'
 import { menuList } from '../routes'
 
-const useStyles = makeStyles({
-    root: {
-        width: '250px',
-    },
-    close: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'flex-end',
-        padding: '1rem',
-    },
-    divider: {
-        backgroundColor: WEB_COLOR_OXFORDBLUE,
-    },
-    iconButton: {
-        color: WEB_COLOR_WHITE,
+const StyledListItem = styled(ListItem)`
+color: ${({ theme }) => theme.mainText};
 
-        '&:hover': {
-            backgroundColor: WEB_COLOR_DARK_HOVER,
-        }
-    },
-    listitem: {
-        '&:hover': {
-            color: WEB_COLOR_WHITE,
-            backgroundColor: WEB_COLOR_DARK_HOVER,
-        }
+.MuiListItemIcon-root .MuiSvgIcon-root {
+    color: ${({ theme }) => theme.mainText};
+}
+
+:hover {
+    color: ${({ theme }) => theme.highlight};
+    background-color: ${({ theme }) => theme.hover};
+
+    .MuiListItemIcon-root .MuiSvgIcon-root {
+        color: ${({ theme }) => theme.highlight};
     }
-})
+}
+`
 
 const ListItemLink = ({ icon, primary, to, closeMenu }) => {
-    const classes = useStyles()
-
     const forwardRefLink = (itemProps, ref) => (<RouterLink to={to} ref={ref} {...itemProps} />)
 
     const renderLink = useMemo(() => (
@@ -56,10 +42,10 @@ const ListItemLink = ({ icon, primary, to, closeMenu }) => {
 
     return (
         <li>
-            <ListItem button className={classes.listitem} component={renderLink} onClick={closeMenu}>
+            <StyledListItem button component={renderLink} onClick={closeMenu}>
                 {icon ? <ListItemIcon>{icon}</ListItemIcon> : null}
                 <ListItemText primary={primary} />
-            </ListItem>
+            </StyledListItem>
         </li>
     )
 }
@@ -71,9 +57,39 @@ ListItemLink.propTypes = {
     closeMenu: PropTypes.func.isRequired,
 }
 
-const MobileMenu = ({ closeMenu, toggleTheme }) => {
-    const classes = useStyles()
+const StyledMobileMenuContainer = styled.div`
+width: 250px;
+`
+const StyledMobileMenuClose = styled.div`
+display: flex;
+align-items: center;
+justify-content: flex-end;
+padding: 1rem;
+`
+const StyledIconButton = styled(IconButton)`
+color: ${({ theme }) => theme.mainText};
 
+:hover {
+    background-color: ${({ theme }) => theme.hover};
+}
+`
+const StyledDivider = styled(Divider)`
+background-color: ${({ theme }) => theme.mainBackground};
+`
+const StyledDarkListItemText = styled(ListItemText)`
+text-align: right;
+color: ${({ theme }) => theme.mainText};
+`
+const StyledLightListItemText = styled(ListItemText)`
+color: ${({ theme }) => theme.mainText};
+`
+const StyledSwitch = styled(Switch)`
+.MuiSwitch-track{
+    background-color: ${({ theme }) => theme.secondText};
+}
+`
+
+const MobileMenu = ({ closeMenu, toggleTheme }) => {
     const linkList = menuList.map((item) => (
         <ListItemLink
             key={item.hashName}
@@ -84,29 +100,28 @@ const MobileMenu = ({ closeMenu, toggleTheme }) => {
         />))
 
     return (
-        <div className={classes.root}>
-            <div className={classes.close}>
-                <IconButton className={classes.iconButton} size="small" onClick={closeMenu}>
+        <StyledMobileMenuContainer>
+            <StyledMobileMenuClose>
+                <StyledIconButton size="small" onClick={closeMenu}>
                     <ChevronLeftIcon />
-                </IconButton>
-            </div>
-            <Divider className={classes.divider} />
-            {/* <a onClick={toggleTheme}>toggleTheme</a> */}
-            <List className={classes.root}>
+                </StyledIconButton>
+            </StyledMobileMenuClose>
+            <StyledDivider />
+            <List>
                 <ListItem>
-                    <ListItemText id="switch-list-label-bluetooth" primary="Dark" />
-                    <ListItem>
-                        <Switch
-                            edge="end"
-                            onChange={toggleTheme}
-                            inputProps={{ 'aria-labelledby': 'switch-list-label-bluetooth' }}
-                        />
-                    </ListItem>
-                    <ListItemText id="switch-list-label-bluetooth" primary="Light" />
+                    <StyledDarkListItemText primary="Dark" />
+                    <StyledSwitch
+                        color="default"
+                        onChange={toggleTheme}
+                    />
+                    <StyledLightListItemText primary="Light" />
                 </ListItem>
+            </List>
+            <StyledDivider />
+            <List>
                 {linkList}
             </List>
-        </div>
+        </StyledMobileMenuContainer>
     )
 }
 

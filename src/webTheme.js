@@ -1,5 +1,5 @@
 export const lightTheme = {
-  hover: '',
+  hover: '#0000004d',
   highlight: '#fca311',
   mainText: '#000000',
   secondText: ' #14213d',

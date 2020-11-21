@@ -1,0 +1,52 @@
+.container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+}
+
+.taiwan-map{
+    width: 50%;
+    height: 100%;
+}
+
+#map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#map svg {
+    max-height: 100vh;
+}
+
+#map path {
+    fill: transparent;
+    stroke: #FFF;
+    cursor: pointer;
+    transition: fill .2s ease, stroke .2s ease, transform .2s ease;
+}
+
+#map path:hover, #map path.active {
+
+    fill: rgba(255, 202, 40, 0.5);
+    stroke: #FFCA28;
+    transform: translateY(-5px);
+}
+
+
+
+@media screen and (max-width: 480px) {
+    .container {
+        flex-wrap: wrap;
+    }
+    .taiwan-map {
+        width: 100%;
+    }
+    .taiwan-map {
+        height: 80vh;
+    }
+}

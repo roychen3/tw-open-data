@@ -16,6 +16,8 @@ import MuiModal from '../../components/MuiModal'
 import MessageModal from './MessageModal'
 import WeatherCard from './WeatherCard'
 
+import TaiwamMap from './map/TaiwamMap'
+
 const StyledCardListContainer = styled.div`
 margin: 2rem 0;
 
@@ -138,7 +140,7 @@ const index = () => {
 
     const getWeatherApi = () => {
         dispatch(getWeather())
-        
+
         axios.get('https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/F-C0032-001?Authorization=rdec-key-123-45678-011121314&format=JSON')
             .then((resultData) => {
                 const allLocationData = resultData.data.cwbopendata.dataset.location
@@ -179,6 +181,7 @@ const index = () => {
     return (
         <div>
             <div className="page-title">天氣預報</div>
+            <TaiwamMap />
             {weatherAllLocationLoading &&
                 <MuiPageSpinner />
             }

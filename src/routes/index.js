@@ -13,7 +13,7 @@ export const menuList = [
     },
     {
         hashName: 'weather',
-        itemName: '全國天氣',
+        itemName: '天氣預報',
         icon: <CloudIcon />,
         page: <Weather />
     },

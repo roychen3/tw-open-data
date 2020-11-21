@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 
@@ -24,9 +24,9 @@ const index = () => {
     const holidayDataLoading = useSelector((state) => state.holiday.holidayLoading)
 
     const thisYear = String(new Date().getFullYear())
-    const [selectedYear, setSelectedYear] = React.useState(thisYear)
-    const [tableRows, setTableRows] = React.useState([])
-    const [messageModalIsOpen, setMessageModalIsOpen] = React.useState(false)
+    const [selectedYear, setSelectedYear] = useState(thisYear)
+    const [tableRows, setTableRows] = useState([])
+    const [messageModalIsOpen, setMessageModalIsOpen] = useState(false)
 
     const handaleMessageModalOpen = () => { setMessageModalIsOpen(true) }
     const handaleMessageModalClose = () => { setMessageModalIsOpen(false) }

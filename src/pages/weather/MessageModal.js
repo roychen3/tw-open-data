@@ -13,7 +13,7 @@ const MessageModal = () => {
         <ErrorIcon fontSize="large" />
       </StyledIcon>
       <p>API 網址發生錯誤。</p>
-      <p>https://data.gov.tw/dataset/6069</p>
+      <p>資料來源: <a href="https://data.gov.tw/dataset/6069">https://data.gov.tw/dataset/6069</a></p>
     </div>
   )
 }

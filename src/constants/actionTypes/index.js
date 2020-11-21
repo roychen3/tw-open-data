@@ -2,7 +2,7 @@
 export const GET_HOLIDAY = 'GET_HOLIDAY'
 export const GET_HOLIDAY_SUCCESS = 'GET_HOLIDAY_SUCCESS'
 export const GET_HOLIDAY_FAILURE = 'GET_HOLIDAY_FAILURE'
-export const RESET_GET_HOLIDAY = 'RESET_GET_HOLIDAY'
+export const RESET_HOLIDAY = 'RESET_HOLIDAY'
 
 // === weather ===
 export const GET_WEATHER = 'GET_WEATHER'

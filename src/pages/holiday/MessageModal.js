@@ -13,6 +13,7 @@ const MessageModal = () => {
         <WarningRoundedIcon fontSize="large" />
       </StyledIcon>
       <p>原 API 網址有誤，呈現資料為手動更新，故有可能不會有最新資料。</p>
+      <p>資料來源: <a href="https://data.gov.tw/dataset/14718">https://data.gov.tw/dataset/14718</a></p>
     </div>
   )
 }

@@ -53,6 +53,24 @@ const index = () => {
         return Object.keys(yearKeys).map((key) => ({ value: key, name: key }))
     }
 
+    const getHolidayApi = () => {
+        dispatch(getHoliday())
+        // 備用網頁，手動下載用：
+        // https://data.ntpc.gov.tw/datasets/308DCD75-6434-45BC-A95F-584DA4FED251
+        axios.get('https://cors-anywhere.herokuapp.com/http://data.ntpc.gov.tw/api/v1/rest/datastore/382000000A-000077-002')
+            .then((resultData) => {
+                const tableData = produceApiResultData(resultData.result.records)
+                const yearList = produceHolidayYearList(tableData)
+                dispatch(getHolidaySuccess({
+                    holidayYearList: yearList,
+                    holiday: tableData,
+                }))
+            })
+            .catch((err) => {
+                dispatch(getHolidayFailure(err))
+            })
+    }
+
     useEffect(() => {
         if (holidayData.length > 0 && selectedYear) {
             const showTableData = holidayData.filter((item) => String(new Date(item.date).getFullYear()) === selectedYear)
@@ -62,21 +80,7 @@ const index = () => {
 
     useEffect(() => {
         if (holidayData.length === 0) {
-            dispatch(getHoliday())
-            // 備用網頁，手動下載用：
-            // https://data.ntpc.gov.tw/datasets/308DCD75-6434-45BC-A95F-584DA4FED251
-            axios.get('https://cors-anywhere.herokuapp.com/http://data.ntpc.gov.tw/api/v1/rest/datastore/382000000A-000077-002')
-                .then((resultData) => {
-                    const tableData = produceApiResultData(resultData.result.records)
-                    const yearList = produceHolidayYearList(tableData)
-                    dispatch(getHolidaySuccess({
-                        holidayYearList: yearList,
-                        holiday: tableData,
-                    }))
-                })
-                .catch((err) => {
-                    dispatch(getHolidayFailure(err))
-                })
+            getHolidayApi()
         }
     }, [])
 

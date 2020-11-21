@@ -2,7 +2,7 @@ import {
     GET_HOLIDAY,
     GET_HOLIDAY_SUCCESS,
     GET_HOLIDAY_FAILURE,
-    RESET_GET_HOLIDAY,
+    RESET_HOLIDAY,
 } from '../../constants/actionTypes'
 
 export const initialState = {
@@ -32,7 +32,7 @@ function reducer(state = initialState, action) {
                 holidayError: action.payload,
                 holidayLoading: false,
             }
-        case RESET_GET_HOLIDAY:
+        case RESET_HOLIDAY:
             return {
                 ...state,
                 holidayYearList: [],

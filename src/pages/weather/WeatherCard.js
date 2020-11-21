@@ -9,7 +9,7 @@ import BeachAccessIcon from '@material-ui/icons/BeachAccess'
 const StyledCard = styled(Card)`
 color: ${({ theme }) => theme.mainText} !important;
 background-color: ${({ theme }) => theme.secondBackground} !important;
-margin: 1px;
+margin: 3px;
 `
 const StyledCardContent = styled(CardContent)`
 text-align: center;
@@ -41,7 +41,6 @@ margin-left: 1rem
 `
 
 const WeatherCard = ({ data }) => {
-    console.log(data)
     return (
         <StyledCard variant="outlined">
             <StyledCardContent>
@@ -66,7 +65,7 @@ const WeatherCard = ({ data }) => {
 }
 
 WeatherCard.propTypes = {
-    data: PropTypes.instanceOf(Array).isRequired
+    data: PropTypes.instanceOf(Object).isRequired
 }
 
 export default WeatherCard

@@ -28,7 +28,7 @@ const App = () => {
   return (
     <ThemeProvider theme={webTheme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyles />
-      <Router>
+      <Router basename="/tw-open-data">
         <div className="app">
           <Layout toggleTheme={toggleTheme} />
         </div>

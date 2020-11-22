@@ -26,13 +26,13 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://roychen3.github.io/tw-open-dara",
+  "homepage": "https://roychen3.github.io/tw-open-data/",
   "eslintConfig": {
     "extends": [
       "react-app",

@@ -1,10 +1,11 @@
 import React, { useRef, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import * as d3 from 'd3'
 
 import './map.scss'
 import taiwanCounty from './taiwan-county.json'
 
-const TaiwamMap = () => {
+const TaiwamMap = ({ selectedCounty, setCounty }) => {
     const mapRef = useRef()
 
     useEffect(() => {
@@ -42,23 +43,25 @@ const TaiwamMap = () => {
             .enter()
             .append('path')
             .attr('d', path)
-            // .attr({
-            //     // 設定id，為了click時加class用
-            //     id: (d) => 'city' + d.properties.COUNTYCODE
-            // })
+            .attr('id', (d) => {
+                // 設定id，為了click時加class用
+                return d.properties.COUNTYNAME
+            })
             .on('click', (d) => {
-                console.log(d)
-                // this.h1 = d.properties.COUNTYNAME // 換中文名
-                // this.h2 = d.properties.COUNTYENG // 換英文名
-                // // 有 .active 存在，就移除 .active
-                // if (document.querySelector('.active')) {
-                //     document.querySelector('.active').classList.remove('active')
-                // }
-                // // 被點擊的縣市加上 .active
-                // document.getElementById('city' + d.properties.COUNTYCODE).classList.add('active')
+                setCounty(d.target.id)
             })
 
     }, [])
+
+    useEffect(() => {
+        // 有 .active 存在，就移除 .active
+        if (document.querySelector('.container .taiwan-map .active')) {
+            document.querySelector('.container .taiwan-map .active').classList.remove('active')
+        }
+        // 被點擊的縣市加上 .active
+        document.querySelector(`.container .taiwan-map #${selectedCounty}`).classList.add('active')
+        // d.target.classList.add('active')
+    }, [selectedCounty])
 
     return (
         <div className="container">
@@ -72,7 +75,8 @@ const TaiwamMap = () => {
 }
 
 TaiwamMap.propTypes = {
-
+    selectedCounty: PropTypes.string.isRequired,
+    setCounty: PropTypes.func.isRequired,
 }
 
 export default TaiwamMap

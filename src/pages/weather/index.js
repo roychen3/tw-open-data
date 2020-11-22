@@ -181,7 +181,7 @@ const index = () => {
     return (
         <div>
             <div className="page-title">天氣預報</div>
-            <TaiwamMap />
+            <TaiwamMap selectedCounty={selectedCounty} setCounty={setSelectedCounty} />
             {weatherAllLocationLoading &&
                 <MuiPageSpinner />
             }

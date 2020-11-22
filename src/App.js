@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter as Router } from "react-router-dom"
+import { HashRouter } from "react-router-dom"
 import { ThemeProvider } from 'styled-components'
 
 import { lightTheme, darkTheme } from './webTheme'
@@ -20,7 +20,7 @@ const App = () => {
 
   useEffect(() => {
     const localWebTheme = window.localStorage.getItem('webTheme')
-    if(localWebTheme === 'light'){
+    if (localWebTheme === 'light') {
       setWebTheme('light')
     }
   }, [])
@@ -28,11 +28,11 @@ const App = () => {
   return (
     <ThemeProvider theme={webTheme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyles />
-      <Router basename="/tw-open-data">
+      <HashRouter>
         <div className="app">
           <Layout toggleTheme={toggleTheme} />
         </div>
-      </Router>
+      </HashRouter>
     </ThemeProvider>
   )
 }

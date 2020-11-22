@@ -21,20 +21,32 @@ padding: 1rem !important;
 `
 const StyledPeriodTime = styled.div`
 font-size: small;
+@media (min-width: 992px) {
+    font-size: medium;
+}
 margin-top: 1rem;
 `
 const StyledDescriptionName = styled.div`
 font-size: small;
-margin: 2rem 0;
+@media (min-width: 992px) {
+    font-size: medium;
+}
+margin: 3rem 0;
 `
 const StyledTemperature = styled.div`
 margin: 2rem 0;
+@media (min-width: 992px) {
+    font-size: large;
+}
 `
 const StyledProbabilityOfPrecipitation = styled.div`
 margin-bottom: 1rem;
 display: flex;
 justify-content: center;
 align-items: center;
+@media (min-width: 992px) {
+    font-size: large;
+}
 `
 const StyledProbabilityOfPrecipitationText = styled.div`
 margin-left: 1rem

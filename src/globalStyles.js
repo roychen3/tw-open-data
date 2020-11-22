@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyles = createGlobalStyle`
 * {
+  font-family: NotoSansTCRegular, QuicksandRegular, sans-serif !important;
   margin: 0;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;

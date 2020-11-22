@@ -1,107 +1,12 @@
-$black: #000000;
-$oxfordBlue: #14213d;
-$orangeWeb: #fca311;
-$platinum: #e5e5e5;
-$white: #ffffff;
-
-* {
-  margin: 0;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+@font-face {
+  font-family: "QuicksandRegular";
+  src: local("QuicksandRegular"),
+    url("../fonts/Quicksand-Regular.ttf") format("truetype");
+  font-weight: normal;
 }
-
-html,
-body,
-#root,
-.app {
-  height: 100%;
-  margin: 0;
-}
-
-a {
-  text-decoration: none;
-  color: $white;
-
-  &:hover {
-    color: $orangeWeb;
-    cursor: pointer;
-  }
-}
-
-/* === Header === */
-.header-container {
-  width: 100%;
-  padding: 1rem;
-  background-color: $black;
-  position: fixed;
-  z-index: 110;
-
-  .title-container {
-    min-height: 30px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-
-    .title {
-      margin: auto 0;
-      font-size: large;
-      font-weight: bolder;
-      color: $white;
-    }
-  }
-
-  .menu {
-    min-height: 30px;
-    height: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-
-    a {
-      margin-right: 1rem;
-
-      &:last-child {
-        margin-right: 0;
-      }
-    }
-  }
-}
-
-/* === Content === */
-.content {
-  background-color: $oxfordBlue;
-  color: $white;
-  min-height: 100%;
-  padding-top: 56px;
-  margin-bottom: -47px;
-
-  .content-container {
-    width: 95%;
-    margin: 0 auto;
-    padding: 4rem 0 8rem;
-
-    @media (min-width: 992px) {
-      width: 70%;
-    }
-
-    .page-title {
-      font-size: xx-large;
-      font-weight: bolder;
-      margin-bottom: 2rem;
-    }
-
-    .table-container {
-        margin: 1rem 0;
-    }
-  }
-}
-
-/* === Footer === */
-footer {
-  width: 100%;
-  background-color: $black;
-  color: $platinum;
-  padding: 1rem;
-  font-size: small;
-  text-align: center;
+@font-face {
+  font-family: "NotoSansTCRegular";
+  src: local("NotoSansTCRegular"),
+    url("../fonts/NotoSansTC-Regular.otf") format("opentype");
+  font-weight: normal;
 }

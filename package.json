@@ -32,7 +32,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://roychen3.github.io/tw-open-data/",
+  "homepage": "https://roychen3.github.io/tw-open-data",
   "eslintConfig": {
     "extends": [
       "react-app",

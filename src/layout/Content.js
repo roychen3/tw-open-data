@@ -34,7 +34,7 @@ padding: 4rem 0 8rem;
 
 const Content = () => {
     const routeList = menuList.map((item) => (
-        <Route key={`${item.hashName}`} path={`/${item.hashName}`}>{item.page}</Route>))
+        <Route exact key={`${item.hashName}`} path={`/${item.hashName}`}>{item.page}</Route>))
 
     return (
         <StyledContent>

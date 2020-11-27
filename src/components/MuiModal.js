@@ -6,7 +6,7 @@ import Modal from '@material-ui/core/Modal'
 const StyledModalContainer = styled.div`
 position: absolute;
 width: 90%;
-@media (min-width: 576px){
+@media (min-width: 600px){
   width: 50%;
 }
 text-align: center;

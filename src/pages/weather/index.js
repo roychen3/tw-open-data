@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import Hidden from '@material-ui/core/Hidden'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 
@@ -18,13 +19,24 @@ import WeatherCard from './WeatherCard'
 
 import TaiwamMap from './map/TaiwamMap'
 
+const StyledForeachContainer = styled.div`
+display: flex;
+`
 const StyledCardListContainer = styled.div`
+flex-grow: 1;
 margin: 2rem 0;
+display: flex;
+flex-direction: column;
 
-@media (min-width: 576px) {
-    display: flex;
-    justify-content: center;
+@media (min-width: 600px) {
+    flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
+}
+@media (min-width: 960px){
+    justify-content: start;
+    align-content: start;
+    // max-width: 330px;
 }
 `
 
@@ -181,7 +193,6 @@ const index = () => {
     return (
         <div>
             <div className="page-title">天氣預報</div>
-            <TaiwamMap selectedCounty={selectedCounty} setCounty={setSelectedCounty} />
             {weatherAllLocationLoading &&
                 <MuiPageSpinner />
             }
@@ -194,9 +205,14 @@ const index = () => {
                 selectionItems={weatherCountyList}
             />
             {weatherAllLocationLoading === false && weatherCardList.length > 0 &&
-                <StyledCardListContainer>
-                    {showWeatherCardList}
-                </StyledCardListContainer>
+                <StyledForeachContainer>
+                    <StyledCardListContainer>
+                        {showWeatherCardList}
+                    </StyledCardListContainer>
+                    <Hidden smDown>
+                        <TaiwamMap selectedCounty={selectedCounty} setCounty={setSelectedCounty} />
+                    </Hidden>
+                </StyledForeachContainer>
             }
             <MuiModal
                 open={messageModalIsOpen}

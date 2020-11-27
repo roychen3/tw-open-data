@@ -1,76 +1,100 @@
 import React, { useRef, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import * as d3 from 'd3'
+import styled from 'styled-components'
 
-import './map.scss'
+// import './map.scss'
 import taiwanCounty from './taiwan-county.json'
+
+const StyledMap = styled.div`
+flex-grow: 2;
+
+svg#taiwan-map{
+    width: 400px;
+    height: 500px;
+}
+
+svg#taiwan-map path {
+    fill: transparent;
+    stroke: ${({ theme }) => theme.mainText};
+    cursor: pointer;
+    transition: fill .2s ease, stroke .2s ease, transform .2s ease;
+}
+
+svg#taiwan-map path:hover, 
+svg#taiwan-map path.active {
+    fill: ${({ theme }) => theme.highlight};
+    stroke: ${({ theme }) => theme.mainBackground};
+    transform: translateY(-5px);
+}
+`
 
 const TaiwamMap = ({ selectedCounty, setCounty }) => {
     const mapRef = useRef()
 
     useEffect(() => {
-        const width = 700
-        const height = 600
+        console.log(window.screen.width)
+    }, [window.screen.width])
 
+    useEffect(() => {
         // 判斷螢幕寬度，給不同放大值
-        let mercatorScale, w = window.screen.width
-        if (w > 1366) {
-            mercatorScale = 11000
-        }
-        else if (w <= 1366 && w > 480) {
-            mercatorScale = 9000
-        }
-        else {
-            mercatorScale = 6000
-        }
+        let mercatorScale = 14000
+        // min-width: 576px
+        // let mercatorScale = 17500
+        // let w = window.screen.width
+        // if (w > 1366) {
+        //     mercatorScale = 11000
+        // }
+        // else if (w <= 1366 && w > 480) {
+        //     mercatorScale = 9000
+        // }
+        // else {
+        //     mercatorScale = 6000
+        // }
 
         // d3：svg path 產生器
         const projection = d3.geoMercator()
-            .center([121, 24])
+            .center([121.2, 24.2])
             .scale(mercatorScale)
-            .translate([width / 2, height / 2.5])
+        // .translate([50%, 50%])
 
         var path = d3.geoPath(projection)
 
         // 讓d3抓svg，並寫入寬高
         var svg = d3.select(mapRef.current)
-            .attr('width', width)
-            .attr('height', height)
-            .attr('viewBox', `0 0 ${width} ${height}`)
+            // .attr('width', width)
+            // .attr('height', height)
+            // .attr('viewBox', '0 0 700 1200')
+            .attr('viewBox', '0 0 800 800') // min-width: 576px
 
         svg.selectAll('path')
             .data(taiwanCounty.features)
             .enter()
             .append('path')
             .attr('d', path)
-            .attr('id', (d) => {
+            .attr('id', (countyInfo) => {
                 // 設定id，為了click時加class用
-                return d.properties.COUNTYNAME
+                return countyInfo.properties.COUNTYNAME
             })
-            .on('click', (d) => {
-                setCounty(d.target.id)
+            .on('click', (countyPathElement) => {
+                setCounty(countyPathElement.target.id)
             })
 
     }, [])
 
     useEffect(() => {
         // 有 .active 存在，就移除 .active
-        if (document.querySelector('.container .taiwan-map .active')) {
-            document.querySelector('.container .taiwan-map .active').classList.remove('active')
+        if (document.querySelector('#taiwan-map .active')) {
+            document.querySelector('#taiwan-map .active').classList.remove('active')
         }
         // 被點擊的縣市加上 .active
-        document.querySelector(`.container .taiwan-map #${selectedCounty}`).classList.add('active')
-        // d.target.classList.add('active')
+        document.querySelector(`#taiwan-map #${selectedCounty}`).classList.add('active')
     }, [selectedCounty])
 
     return (
-        <div className="container">
-            <div className="taiwan-map">
-                <div id="map">
-                    <svg ref={mapRef} id="svg" ></svg>
-                </div>
-            </div>
-        </div>
+        <StyledMap>
+            <svg ref={mapRef} id="taiwan-map" ></svg>
+        </StyledMap>
     )
 }
 

@@ -17,7 +17,7 @@ width: 95%;
 margin: 0 auto;
 padding: 4rem 0 8rem;
 
-@media (min-width: 992px) {
+@media (min-width: 960px) {
     width: 70%;
 }
 

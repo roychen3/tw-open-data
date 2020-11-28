@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import * as d3 from 'd3'
 import styled from 'styled-components'
 
-// import './map.scss'
 import taiwanCounty from './taiwan-county.json'
 
 const StyledMap = styled.div`
@@ -39,18 +38,6 @@ const TaiwamMap = ({ selectedCounty, setCounty }) => {
     useEffect(() => {
         // 判斷螢幕寬度，給不同放大值
         let mercatorScale = 14000
-        // min-width: 576px
-        // let mercatorScale = 17500
-        // let w = window.screen.width
-        // if (w > 1366) {
-        //     mercatorScale = 11000
-        // }
-        // else if (w <= 1366 && w > 480) {
-        //     mercatorScale = 9000
-        // }
-        // else {
-        //     mercatorScale = 6000
-        // }
 
         // d3：svg path 產生器
         const projection = d3.geoMercator()
@@ -62,10 +49,7 @@ const TaiwamMap = ({ selectedCounty, setCounty }) => {
 
         // 讓d3抓svg，並寫入寬高
         var svg = d3.select(mapRef.current)
-            // .attr('width', width)
-            // .attr('height', height)
-            // .attr('viewBox', '0 0 700 1200')
-            .attr('viewBox', '0 0 800 800') // min-width: 576px
+            .attr('viewBox', '0 0 800 800')
 
         svg.selectAll('path')
             .data(taiwanCounty.features)
@@ -79,7 +63,6 @@ const TaiwamMap = ({ selectedCounty, setCounty }) => {
             .on('click', (countyPathElement) => {
                 setCounty(countyPathElement.target.id)
             })
-
     }, [])
 
     useEffect(() => {

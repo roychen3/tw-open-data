@@ -20,10 +20,7 @@ describe('holiday reducers', () => {
 
     it('should handle get holiday', () => {
         expect(
-            reducers([], {
-                type: GET_HOLIDAY,
-                payload: undefined,
-            })
+            reducers([], { type: GET_HOLIDAY })
         ).toEqual(
             {
                 holidayLoading: true,
@@ -111,10 +108,7 @@ describe('holiday reducers', () => {
 
     it('should handle reset holiday', () => {
         expect(
-            reducers([], {
-                type: RESET_HOLIDAY,
-                payload: undefined,
-            })
+            reducers([], { type: RESET_HOLIDAY })
         ).toEqual(
             {
                 holidayYearList: [],

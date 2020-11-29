@@ -194,7 +194,6 @@ describe('async actions', () => {
     })
 
     it('creates GET_HOLIDAY_SUCCESS when fetching holiday has been done', async () => {
-        const expectedGetHolidayActions = [{ type: GET_HOLIDAY }]
         const store = mockStore({
             holidayYearList: [],
             holiday: [],
@@ -202,7 +201,6 @@ describe('async actions', () => {
             holidayLoading: false,
         })
         store.dispatch(getHoliday())
-        expect(store.getActions()).toEqual(expectedGetHolidayActions)
 
         const fakeHolidayYearList = [
             {
@@ -246,9 +244,12 @@ describe('async actions', () => {
                 json: () => Promise.resolve(fakeApiData)
             })
         )
-
-        const expectedGetHolidaySuccessActions = [
-            ...expectedGetHolidayActions,
+        store.dispatch(getHolidaySuccess({
+            holidayYearList: fakeHolidayYearList,
+            holiday: fakeHoliday,
+        }))
+        const expectedActions = [
+            { type: GET_HOLIDAY },
             {
                 type: GET_HOLIDAY_SUCCESS,
                 payload: {
@@ -257,18 +258,13 @@ describe('async actions', () => {
                 },
             }
         ]
-        store.dispatch(getHolidaySuccess({
-            holidayYearList: fakeHolidayYearList,
-            holiday: fakeHoliday,
-        }))
-        expect(store.getActions()).toEqual(expectedGetHolidaySuccessActions)
+        expect(store.getActions()).toEqual(expectedActions)
 
         // remove the mock to ensure tests are completely isolated
         global.fetch.mockRestore()
     })
 
     it('creates GET_HOLIDAY_FAILURE when fetching holiday has error', async () => {
-        const expectedGetHolidayActions = [{ type: GET_HOLIDAY }]
         const store = mockStore({
             holidayYearList: [],
             holiday: [],
@@ -276,7 +272,6 @@ describe('async actions', () => {
             holidayLoading: false,
         })
         store.dispatch(getHoliday())
-        expect(store.getActions()).toEqual(expectedGetHolidayActions)
 
         const errorMessage = 'api error message'
         jest.spyOn(global, 'fetch').mockImplementation(() =>
@@ -285,15 +280,15 @@ describe('async actions', () => {
             })
         )
 
-        const expectedGetHolidayFailureActions = [
-            ...expectedGetHolidayActions,
+        store.dispatch(getHolidayFailure(errorMessage))
+        const expectedActions = [
+            { type: GET_HOLIDAY },
             {
                 type: GET_HOLIDAY_FAILURE,
                 payload: errorMessage,
             }
         ]
-        store.dispatch(getHolidayFailure(errorMessage))
-        expect(store.getActions()).toEqual(expectedGetHolidayFailureActions)
+        expect(store.getActions()).toEqual(expectedActions)
 
         // remove the mock to ensure tests are completely isolated
         global.fetch.mockRestore()

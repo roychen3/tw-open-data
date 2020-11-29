@@ -13,11 +13,7 @@ import {
 
 describe('actions', () => {
     it('should create an action to get holiday', () => {
-        const payload = undefined
-        const expectedAction = {
-            type: GET_HOLIDAY,
-            payload
-        }
+        const expectedAction = { type: GET_HOLIDAY }
         expect(getHoliday()).toEqual(expectedAction)
     })
 
@@ -87,11 +83,7 @@ describe('actions', () => {
     })
 
     it('should create an action to reset holiday', () => {
-        const payload = undefined
-        const expectedAction = {
-            type: RESET_HOLIDAY,
-            payload
-        }
+        const expectedAction = { type: RESET_HOLIDAY }
         expect(resetHoliday()).toEqual(expectedAction)
     })
 })

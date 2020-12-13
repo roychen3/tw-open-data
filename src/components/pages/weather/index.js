@@ -9,11 +9,11 @@ import {
     getWeatherSuccess,
     getWeatherFailure,
     resettWeather,
-} from '../../redux/actions'
+} from '../../../redux/actions'
 
-import { MuiPageSpinner } from '../../components/mui/muiCircularProgress'
-import MuiLabelSelect from '../../components/mui/MuiLabelSelect'
-import MuiModal from '../../components/mui/MuiModal'
+import { MuiPageSpinner } from '../../mui/muiCircularProgress'
+import MuiLabelSelect from '../../mui/MuiLabelSelect'
+import MuiModal from '../../mui/MuiModal'
 import MessageModal from './MessageModal'
 import WeatherCard from './WeatherCard'
 

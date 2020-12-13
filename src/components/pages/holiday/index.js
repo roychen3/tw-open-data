@@ -6,11 +6,11 @@ import {
     getHoliday,
     getHolidaySuccess,
     getHolidayFailure,
-} from '../../redux/actions'
+} from '../../../redux/actions'
 
-import MuiLabelSelect from '../../components/mui/MuiLabelSelect'
-import { MuiPageSpinner } from '../../components/mui/muiCircularProgress'
-import MuiModal from '../../components/mui/MuiModal'
+import MuiLabelSelect from '../../mui/MuiLabelSelect'
+import { MuiPageSpinner } from '../../mui/muiCircularProgress'
+import MuiModal from '../../mui/MuiModal'
 
 import HolidayTable from './HolidayTable'
 import MessageModal from './MessageModal'

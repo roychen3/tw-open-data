@@ -1,8 +1,8 @@
 import EventAvailableIcon from '@material-ui/icons/EventAvailable'
 import CloudIcon from '@material-ui/icons/Cloud'
 
-import Holiday from '../pages/holiday'
-import Weather from '../pages/weather'
+import Holiday from '../components/pages/holiday'
+import Weather from '../components/pages/weather'
 
 export const menuList = [
     {

@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components'
 
 import { lightTheme, darkTheme } from './webTheme'
 import { GlobalStyles } from './globalStyles'
-import Layout from './layout'
+import Layout from './components/layout'
 
 const App = () => {
   const [webTheme, setWebTheme] = useState('dark')

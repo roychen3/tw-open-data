@@ -12,8 +12,8 @@ import ListItemText from '@material-ui/core/ListItemText'
 import IconButton from '@material-ui/core/IconButton'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 
-import { menuList } from '../routes'
-import MuiSwitchToggleTheme from '../components/MuiSwitchToggleTheme'
+import { menuList } from '../../routes'
+import MuiSwitchToggleTheme from '../mui/MuiSwitchToggleTheme'
 
 const StyledListItem = styled(ListItem)`
 color: ${({ theme }) => theme.mainText};

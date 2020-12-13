@@ -2,7 +2,7 @@ import React from 'react'
 import { Switch, Route, Redirect } from "react-router-dom"
 import styled from 'styled-components'
 
-import { menuList } from '../routes'
+import { menuList } from '../../routes'
 
 const StyledContent = styled.div`
 background-color: ${({ theme }) => theme.mainBackground};

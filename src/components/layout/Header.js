@@ -9,8 +9,8 @@ import MenuIcon from '@material-ui/icons/Menu'
 import DataUsageIcon from '@material-ui/icons/DataUsage'
 import Drawer from '@material-ui/core/Drawer'
 
-import Menu from '../components/Menu'
-import MobileMenu from '../components/MobileMenu'
+import Menu from '../menu/Menu'
+import MobileMenu from '../menu/MobileMenu'
 
 const StyledHeader = styled.header`
 width: 100%;

@@ -11,9 +11,9 @@ import {
     resettWeather,
 } from '../../redux/actions'
 
-import { MuiPageSpinner } from '../../components/muiCircularProgress'
-import MuiLabelSelect from '../../components/MuiLabelSelect'
-import MuiModal from '../../components/MuiModal'
+import { MuiPageSpinner } from '../../components/mui/muiCircularProgress'
+import MuiLabelSelect from '../../components/mui/MuiLabelSelect'
+import MuiModal from '../../components/mui/MuiModal'
 import MessageModal from './MessageModal'
 import WeatherCard from './WeatherCard'
 

@@ -8,9 +8,9 @@ import {
     getHolidayFailure,
 } from '../../redux/actions'
 
-import MuiLabelSelect from '../../components/MuiLabelSelect'
-import { MuiPageSpinner } from '../../components/muiCircularProgress'
-import MuiModal from '../../components/MuiModal'
+import MuiLabelSelect from '../../components/mui/MuiLabelSelect'
+import { MuiPageSpinner } from '../../components/mui/muiCircularProgress'
+import MuiModal from '../../components/mui/MuiModal'
 
 import HolidayTable from './HolidayTable'
 import MessageModal from './MessageModal'

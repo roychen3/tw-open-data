@@ -3,8 +3,8 @@ import { Link } from "react-router-dom"
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { menuList } from '../routes'
-import MuiSwitchToggleTheme from '../components/MuiSwitchToggleTheme'
+import { menuList } from '../../routes'
+import MuiSwitchToggleTheme from '../mui/MuiSwitchToggleTheme'
 
 const StyledMenuContainer = styled.div`
 min-height: 30px;

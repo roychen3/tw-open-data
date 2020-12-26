@@ -55,7 +55,7 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/react-hooks": "^3.4.2",
+    "@testing-library/react-hooks": "^3.7.0",
     "eslint": "^7.13.0",
     "fetch-mock": "^9.11.0",
     "prettier": "^2.2.1",

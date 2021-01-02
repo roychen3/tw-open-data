@@ -3,26 +3,29 @@ import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 
+import {
+    getHolidaySuccess,
+} from '../../redux/actions'
 import useHoliday from './useHoliday'
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
 describe('useHoliday', () => {
-    const store = mockStore({
-        holiday: {
-            holidayYearList: [],
-            holiday: [],
-            holidayError: null,
-            holidayLoading: false,
-        },
-    })
-
-    const { result } = renderHook(() => useHoliday(), {
-        wrapper: ({ children }) => <Provider store={store}>{children}</Provider>
-    })
-
     it('produce api result data', () => {
+        const store = mockStore({
+            holiday: {
+                holidayYearList: [],
+                holiday: [],
+                holidayError: null,
+                holidayLoading: false,
+            },
+        })
+
+        const { result } = renderHook(() => useHoliday(), {
+            wrapper: ({ children }) => <Provider store={store}>{children}</Provider>
+        })
+
         const fakeApiData = {
             success: true,
             result: {
@@ -113,6 +116,19 @@ describe('useHoliday', () => {
     })
 
     it('produce holiday year list', () => {
+        const store = mockStore({
+            holiday: {
+                holidayYearList: [],
+                holiday: [],
+                holidayError: null,
+                holidayLoading: false,
+            },
+        })
+
+        const { result } = renderHook(() => useHoliday(), {
+            wrapper: ({ children }) => <Provider store={store}>{children}</Provider>
+        })
+
         const fakeTableData = [
             {
                 id: '2019/2/5',
@@ -154,5 +170,81 @@ describe('useHoliday', () => {
             }
         ]
         expect(result.current.produceHolidayYearList(fakeTableData)).toStrictEqual(fakeHolidayYearList)
+    })
+
+    it('filter holiday data', () => {
+        const store = mockStore({
+            holiday: {
+                holidayYearList: [],
+                holiday: [
+                    {
+                        date: '2019/1/1',
+                        name: '中華民國開國紀念日',
+                        isHoliday: '是',
+                        holidayCategory: '放假之紀念日及節日',
+                        description: '全國各機關學校放假一日。',
+                    },
+                    {
+                        date: '2020/1/23',
+                        name: '',
+                        isHoliday: '是',
+                        holidayCategory: '調整放假日',
+                        description: '',
+                    },
+                    {
+                        date: '2021/1/28',
+                        name: '',
+                        isHoliday: '是',
+                        holidayCategory: '補假',
+                        description: '',
+                    },
+                ],
+                holidayError: null,
+                holidayLoading: false,
+            },
+        })
+
+        const { result } = renderHook(() => useHoliday(), {
+            wrapper: ({ children }) => <Provider store={store}>{children}</Provider>
+        })
+
+        act(() => {
+            result.current.filterHolidayData('2019')
+        })
+        expect(result.current.filteredholidayData).toStrictEqual([
+            {
+                date: '2019/1/1',
+                name: '中華民國開國紀念日',
+                isHoliday: '是',
+                holidayCategory: '放假之紀念日及節日',
+                description: '全國各機關學校放假一日。',
+            },
+        ])
+
+        act(() => {
+            result.current.filterHolidayData('2020')
+        })
+        expect(result.current.filteredholidayData).toStrictEqual([
+            {
+                date: '2020/1/23',
+                name: '',
+                isHoliday: '是',
+                holidayCategory: '調整放假日',
+                description: '',
+            },
+        ])
+
+        act(() => {
+            result.current.filterHolidayData('2021')
+        })
+        expect(result.current.filteredholidayData).toStrictEqual([
+            {
+                date: '2021/1/28',
+                name: '',
+                isHoliday: '是',
+                holidayCategory: '補假',
+                description: '',
+            },
+        ])
     })
 })

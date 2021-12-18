@@ -32,10 +32,6 @@ const TaiwamMap = ({ selectedCounty, setCounty }) => {
     const mapRef = useRef()
 
     useEffect(() => {
-        console.log(window.screen.width)
-    }, [window.screen.width])
-
-    useEffect(() => {
         // 判斷螢幕寬度，給不同放大值
         let mercatorScale = 14000
 

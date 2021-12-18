@@ -54,19 +54,26 @@ const index = () => {
     const handaleMessageModalOpen = () => { setMessageModalIsOpen(true) }
     const handaleMessageModalClose = () => { setMessageModalIsOpen(false) }
 
-    const determineDayDescription = (day) => {
-        const currentDay = new Date(Date.now()).getDay()
-        const sunday = 0
-        const saturday = 6
+    const determineDayDescription = (date) => {
+        const determineDate = new Date(date.toISOString().substring(0, 10))
+        const currentDate = new Date(new Date().toISOString().substring(0, 10))
+        const diffTime = Math.abs(determineDate - currentDate)
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
 
-        if (currentDay === sunday && day === saturday && day > currentDay) {
-            return '昨日'
-        } else if (currentDay > day) {
-            return '昨日'
-        } else if (day > currentDay) {
-            return '明日'
-        } else {
-            return '今日'
+        switch (diffDays) {
+            case -2:
+                return '前天'
+            case -1:
+                return '昨天'
+            case 0:
+                return '今天'
+            case 1:
+                return '明天'
+            case 2:
+                return '後天'
+
+            default:
+                return ''
         }
     }
 
@@ -125,7 +132,7 @@ const index = () => {
 
             const startTime = new Date(item.startTime)
             const endTime = new Date(item.endTime)
-            const weatherPeriodTime = `${determineDayDescription(startTime.getDay())}${determineTimeDescription(startTime.getHours())} 至 ${determineDayDescription(endTime.getDay())}${determineTimeDescription(endTime.getHours())}`
+            const weatherPeriodTime = `${determineDayDescription(startTime)}${determineTimeDescription(startTime.getHours())} 至 ${determineDayDescription(endTime)}${determineTimeDescription(endTime.getHours())}`
             weatherCardList[index].weatherPeriodTime = weatherPeriodTime
         })
 

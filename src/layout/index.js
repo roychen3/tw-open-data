@@ -5,11 +5,11 @@ import Header from './Header'
 import Content from './Content'
 import Footer from './Footer'
 
-const index = ({ toggleTheme }) => {
+const index = ({ toggleTheme, store }) => {
   return (
     <>
       <Header toggleTheme={toggleTheme} />
-      <Content />
+      <Content store={store} />
       <Footer />
     </>
   )
@@ -17,6 +17,7 @@ const index = ({ toggleTheme }) => {
 
 index.propTypes = {
   toggleTheme: PropTypes.func.isRequired,
+  store: PropTypes.instanceOf(Object).isRequired
 }
 
 export default index

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { menuList } from '../routes'
+import { menuList } from '../constants/menuList'
 import MuiSwitchToggleTheme from '../components/MuiSwitchToggleTheme'
 
 const StyledMenuContainer = styled.div`

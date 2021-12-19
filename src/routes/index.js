@@ -1,9 +1,12 @@
 import { lazy } from 'react'
 import { Route } from "react-router-dom"
+import { useStore } from 'react-redux'
 
 import { menuList } from '../constants/menuList'
 
-export const creatRouteList = (store) => {
+export const creatRouteList = () => {
+    const store = useStore()
+    
     const Holiday = lazy(() => import('../redux/holiday/reducers')
         .then((reducer) => {
             store.injectReducer('holiday', reducer.default)

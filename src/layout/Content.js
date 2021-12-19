@@ -1,7 +1,6 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
 import { Switch, Redirect } from "react-router-dom"
-import { useStore } from 'react-redux'
 import styled from 'styled-components'
 
 import { creatRouteList } from '../routes'
@@ -36,8 +35,7 @@ padding: 4rem 0 8rem;
 `
 
 const Content = () => {
-    const store = useStore()
-    const routeList = creatRouteList(store)
+    const routeList = creatRouteList()
 
     return (
         <StyledContent>

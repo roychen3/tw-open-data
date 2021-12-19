@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Suspense } from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import { HashRouter } from "react-router-dom"
 import { ThemeProvider } from 'styled-components'
 
@@ -7,7 +7,7 @@ import { lightTheme, darkTheme } from './webTheme'
 import { GlobalStyles } from './globalStyles'
 import Layout from './layout'
 
-const App = ({ store }) => {
+const App = () => {
   const [webTheme, setWebTheme] = useState('dark')
   const toggleTheme = () => {
     if (webTheme === 'light') {
@@ -32,7 +32,7 @@ const App = ({ store }) => {
       <HashRouter>
         <Suspense fallback={<div>Loading...</div>}>
           <div className="app">
-            <Layout toggleTheme={toggleTheme} store={store} />
+            <Layout toggleTheme={toggleTheme} />
           </div>
         </Suspense>
       </HashRouter>
@@ -41,7 +41,6 @@ const App = ({ store }) => {
 }
 
 App.propTypes = {
-  store: PropTypes.instanceOf(Object).isRequired
 }
 
 export default App

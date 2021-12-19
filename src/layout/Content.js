@@ -1,10 +1,11 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import { Switch, Redirect } from "react-router-dom"
+import { useStore } from 'react-redux'
 import styled from 'styled-components'
 
 import { creatRouteList } from '../routes'
-
+import { menuList } from '../constants/menuList'
 
 const StyledContent = styled.div`
 background-color: ${({ theme }) => theme.mainBackground};
@@ -34,8 +35,8 @@ padding: 4rem 0 8rem;
 }
 `
 
-const Content = ({ store }) => {
-
+const Content = () => {
+    const store = useStore()
     const routeList = creatRouteList(store)
 
     return (
@@ -43,7 +44,7 @@ const Content = ({ store }) => {
             <StyledContentContainer>
                 <Switch>
                     {routeList}
-                    <Redirect from="/" to={`/${routeList[0].hashName}`} />
+                    <Redirect from="/" to={`/${menuList[0].hashName}`} />
                 </Switch>
             </StyledContentContainer>
         </StyledContent>
@@ -51,7 +52,6 @@ const Content = ({ store }) => {
 }
 
 Content.propTypes = {
-    store: PropTypes.instanceOf(Object).isRequired
 }
 
 export default Content

@@ -3,6 +3,7 @@ import React, { useState, useEffect, Suspense } from 'react'
 import { HashRouter } from "react-router-dom"
 import { ThemeProvider } from 'styled-components'
 
+import { MuiLoadingPage } from './components/muiCircularProgress'
 import { lightTheme, darkTheme } from './webTheme'
 import { GlobalStyles } from './globalStyles'
 import Layout from './layout'
@@ -30,7 +31,7 @@ const App = () => {
     <ThemeProvider theme={webTheme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyles />
       <HashRouter>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<MuiLoadingPage />}>
           <div className="app">
             <Layout toggleTheme={toggleTheme} />
           </div>

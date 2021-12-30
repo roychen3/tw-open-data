@@ -12,7 +12,7 @@ import ListItemText from '@material-ui/core/ListItemText'
 import IconButton from '@material-ui/core/IconButton'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 
-import { menuList } from '../routes'
+import { menuList } from '../constants/menuList'
 import MuiSwitchToggleTheme from '../components/MuiSwitchToggleTheme'
 
 const StyledListItem = styled(ListItem)`

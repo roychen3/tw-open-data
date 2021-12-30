@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Suspense } from 'react'
+// import PropTypes from 'prop-types'
 import { HashRouter } from "react-router-dom"
 import { ThemeProvider } from 'styled-components'
 
+import { MuiLoadingPage } from './components/muiCircularProgress'
 import { lightTheme, darkTheme } from './webTheme'
 import { GlobalStyles } from './globalStyles'
 import Layout from './layout'
@@ -29,16 +31,17 @@ const App = () => {
     <ThemeProvider theme={webTheme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyles />
       <HashRouter>
-        <div className="app">
-          <Layout toggleTheme={toggleTheme} />
-        </div>
+        <Suspense fallback={<MuiLoadingPage />}>
+          <div className="app">
+            <Layout toggleTheme={toggleTheme} />
+          </div>
+        </Suspense>
       </HashRouter>
     </ThemeProvider>
   )
 }
 
 App.propTypes = {
-
 }
 
 export default App

@@ -1,8 +1,10 @@
 import React from 'react'
-import { Switch, Route, Redirect } from "react-router-dom"
+// import PropTypes from 'prop-types'
+import { Switch, Redirect } from "react-router-dom"
 import styled from 'styled-components'
 
-import { menuList } from '../routes'
+import { creatRouteList } from '../routes'
+import { menuList } from '../constants/menuList'
 
 const StyledContent = styled.div`
 background-color: ${({ theme }) => theme.mainBackground};
@@ -33,8 +35,7 @@ padding: 4rem 0 8rem;
 `
 
 const Content = () => {
-    const routeList = menuList.map((item) => (
-        <Route exact key={`${item.hashName}`} path={`/${item.hashName}`}>{item.page}</Route>))
+    const routeList = creatRouteList()
 
     return (
         <StyledContent>
@@ -49,7 +50,6 @@ const Content = () => {
 }
 
 Content.propTypes = {
-
 }
 
 export default Content

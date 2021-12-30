@@ -55,10 +55,11 @@ const index = () => {
     const handaleMessageModalClose = () => { setMessageModalIsOpen(false) }
 
     const determineDayDescription = (date) => {
-        const determineDate = new Date(date.toISOString().substring(0, 10))
-        const currentDate = new Date(new Date().toISOString().substring(0, 10))
-        const diffTime = Math.abs(determineDate - currentDate)
-        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+        const determineDate = new Date(date.getFullYear(), date.getMonth(), date.getDate())
+        const currentDate = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate())
+
+        const diffTime = determineDate - currentDate
+        const diffDays = diffTime / (1000 * 60 * 60 * 24)
 
         switch (diffDays) {
             case -2:
@@ -83,13 +84,13 @@ const index = () => {
         const noonTime = 12
         const eveningTime = 18
 
-        if (hours >= morningTime && hours < noonTime) {
+        if (morningTime <= hours && hours < noonTime) {
             return '早上'
-        } else if (hours >= noonTime && hours < eveningTime) {
+        } else if (noonTime <= hours && hours < eveningTime) {
             return '下午'
-        } else if (hours >= eveningTime) {
+        } else if (eveningTime <= hours) {
             return '晚上'
-        } else if (hours >= midnightTime && hours < morningTime) {
+        } else if (midnightTime <= hours && hours < morningTime) {
             return '凌晨'
         }
     }

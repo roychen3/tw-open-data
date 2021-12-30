@@ -1,20 +1,39 @@
-import EventAvailableIcon from '@material-ui/icons/EventAvailable'
-import CloudIcon from '@material-ui/icons/Cloud'
+import { lazy } from 'react'
+import { Route } from "react-router-dom"
+import { useStore } from 'react-redux'
 
-import Holiday from '../pages/holiday'
-import Weather from '../pages/weather'
+import { menuList } from '../constants/menuList'
 
-export const menuList = [
-    {
-        hashName: 'holiday',
-        itemName: '國定假日',
-        icon: <EventAvailableIcon />,
-        page: <Holiday />
-    },
-    {
-        hashName: 'weather',
-        itemName: '天氣預報',
-        icon: <CloudIcon />,
-        page: <Weather />
-    },
-] 
+export const creatRouteList = () => {
+    const store = useStore()
+    
+    const Holiday = lazy(() => import('../redux/holiday/reducers')
+        .then((reducer) => {
+            store.injectReducer('holiday', reducer.default)
+            return import('../pages/holiday')
+        })
+    )
+    const Weather = lazy(() => import('../redux/weather/reducers')
+        .then((reducer) => {
+            store.injectReducer('weather', reducer.default)
+            return import('../pages/weather')
+        })
+    )
+
+    const getPageComponents = (name) => {
+        switch (name) {
+            case 'holiday':
+                return <Holiday />
+            case 'weather':
+                return <Weather />
+
+            default:
+                return <></>
+        }
+    }
+
+    const routeList = menuList.map((item) => (
+        <Route exact key={`${item.hashName}`} path={`/${item.hashName}`}>{getPageComponents(item.hashName)}</Route>))
+
+    return routeList
+}

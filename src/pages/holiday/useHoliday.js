@@ -12,6 +12,7 @@ import holidayFakeData from './fakeData.json'
 
 const useHoliday = () => {
     const dispatch = useDispatch()
+
     const allHolidayData = useSelector((state) => state.holiday.holiday)
     const allHolidayDataError = useSelector((state) => state.holiday.holidayError)
     const allHolidayDataLoading = useSelector((state) => state.holiday.holidayLoading)

@@ -49,7 +49,7 @@ const index = () => {
         creatWeatherCardList,
     } = useWeather()
 
-    const [selectedCounty, setSelectedCounty] = useState('臺北市')
+    const [selectedCounty, setSelectedCounty] = useState('')
     const [weatherCardList, setWeatherCardList] = useState([])
     const [messageModalIsOpen, setMessageModalIsOpen] = useState(false)
 
@@ -57,7 +57,11 @@ const index = () => {
     const handaleMessageModalClose = () => { setMessageModalIsOpen(false) }
 
     useEffect(() => {
-        if (weatherAllLocation.length > 0) {
+        if (weatherCountyList.length > 0) setSelectedCounty(weatherCountyList[0].value)
+    }, [weatherCountyList])
+
+    useEffect(() => {
+        if (selectedCounty && weatherAllLocation.length > 0) {
             const selectedWeatherData = weatherAllLocation.find((item) => item.locationName === selectedCounty)
             setWeatherCardList(creatWeatherCardList(selectedWeatherData))
         }

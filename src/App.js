@@ -22,8 +22,8 @@ const App = () => {
 
   useEffect(() => {
     const localWebTheme = window.localStorage.getItem('webTheme')
-    if (localWebTheme === 'light') {
-      setWebTheme('light')
+    if (localWebTheme !== webTheme) {
+      toggleTheme()
     }
   }, [])
 

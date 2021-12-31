@@ -1,4 +1,4 @@
-import { lazy } from 'react'
+import { lazy, useMemo } from 'react'
 import { Route } from "react-router-dom"
 import { useStore } from 'react-redux'
 
@@ -6,7 +6,7 @@ import { menuList } from '../constants/menuList'
 
 export const creatRouteList = () => {
     const store = useStore()
-    
+
     const Holiday = lazy(() => import('../redux/holiday/reducers')
         .then((reducer) => {
             store.injectReducer('holiday', reducer.default)
@@ -35,5 +35,5 @@ export const creatRouteList = () => {
     const routeList = menuList.map((item) => (
         <Route exact key={`${item.hashName}`} path={`/${item.hashName}`}>{getPageComponents(item.hashName)}</Route>))
 
-    return routeList
+    return useMemo(() => routeList, [])
 }

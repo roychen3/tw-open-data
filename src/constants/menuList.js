@@ -1,5 +1,6 @@
 import EventAvailableIcon from '@material-ui/icons/EventAvailable'
 import CloudIcon from '@material-ui/icons/Cloud'
+import LocationOnIcon from '@material-ui/icons/LocationOn'
 
 export const menuList = [
     {
@@ -11,5 +12,10 @@ export const menuList = [
         hashName: 'weather',
         itemName: '天氣預報',
         icon: <CloudIcon />,
+    },
+    {
+        hashName: 'googleMaps',
+        itemName: 'Google Maps',
+        icon: <LocationOnIcon />,
     },
 ]

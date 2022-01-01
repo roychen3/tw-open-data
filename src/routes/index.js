@@ -19,6 +19,12 @@ export const creatRouteList = () => {
             return import('../pages/weather')
         })
     )
+    const GoogleMaps = lazy(() => import('../redux/taipeiSpeedCameraPositions/reducers')
+        .then((reducer) => {
+            store.injectReducer('taipeiSpeedCameraPositions', reducer.default)
+            return import('../pages/googleMaps')
+        })
+    )
 
     const getPageComponents = (name) => {
         switch (name) {
@@ -26,6 +32,8 @@ export const creatRouteList = () => {
                 return <Holiday />
             case 'weather':
                 return <Weather />
+            case 'googleMaps':
+                return <GoogleMaps />
 
             default:
                 return <></>

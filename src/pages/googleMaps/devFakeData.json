@@ -1,0 +1,29 @@
+[
+  {
+    "no": 1,
+    "features": "測速",
+    "setRoad": "環河北路3段",
+    "setPosition": "葫蘆街",
+    "jurisdiction": "士林",
+    "shootingDirection": "南向北",
+    "speedLimit": 50
+  },
+  {
+    "no": 12,
+    "features": "測速",
+    "setRoad": "承德路3段",
+    "setPosition": "敦煌路",
+    "jurisdiction": "大同",
+    "shootingDirection": "南北雙向",
+    "speedLimit": 50
+  },
+  {
+    "no": 48,
+    "features": "測速",
+    "setRoad": "市民大道(高架道)",
+    "setPosition": "京站百貨前",
+    "jurisdiction": "中正一",
+    "shootingDirection": "西往東",
+    "speedLimit": 80
+  }
+]

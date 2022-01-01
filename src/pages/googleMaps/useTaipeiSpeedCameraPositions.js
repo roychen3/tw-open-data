@@ -8,7 +8,7 @@ import {
 } from '../../redux/actions'
 // import taipeiSpeedCameraPositionsFakeData from './fakeData.json'
 
-import { GOOGLE_MAPS_API_KEY } from '../../constants/googleMapsApiKey'
+// import { GOOGLE_MAPS_API_KEY } from '../../constants/googleMapsApiKey'
 // 用太多要繳費給 Google，先註解掉
 // const googleMapsClient = require('@google/maps').createClient({
 //     key: GOOGLE_MAPS_API_KEY,

@@ -1,14 +1,49 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Loader } from '@googlemaps/js-api-loader'
-// import { MarkerClusterer } from '@googlemaps/markerclusterer'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import Divider from '@material-ui/core/Divider'
+import ListItemText from '@material-ui/core/ListItemText'
+import ListItemAvatar from '@material-ui/core/ListItemAvatar'
+import LocationOnIcon from '@material-ui/icons/LocationOn'
+
+
 
 import { GOOGLE_MAPS_API_KEY } from '../../constants/googleMapsApiKey'
 
 const StyledMapContainer = styled.div`
 wdth: 100%;
-height: 400px;
+height: 80vh;
+`
+
+const StyledLocationOnIcon = styled(LocationOnIcon)`
+width: 39px !important;
+height: 39px !important;
+`
+
+const StyledListItem = styled(ListItem)`
+color: ${({ theme, ...props }) => {
+        console.log('props', props)
+        return props ? theme.highlight : theme.mainText
+    }};
+
+.MuiListItemIcon-root .MuiSvgIcon-root,
+.MuiTypography-colorTextSecondary {
+    color: ${({ theme }) => theme.mainText};
+}
+
+:hover {
+    color: ${({ theme }) => theme.highlight};
+    background-color: ${({ theme }) => theme.hover} !important;
+
+    .MuiListItemIcon-root .MuiSvgIcon-root,
+    .MuiListItemText-root
+    .MuiTypography-colorTextSecondary {
+        color: ${({ theme }) => theme.highlight};
+    }
+}
 `
 
 const getRandomCharacter = () => {
@@ -26,9 +61,11 @@ const GoogleMaps = ({ taipeiSpeedCameraPositions }) => {
     const mapId = `map-${randomCharacter + millisecond}`
     const [mapElementID] = useState(mapId)
 
-    const [google, setGoogle] = useState(null)
-    const [gMap, setGMap] = useState(null)
-
+    const [google, setGoogle] = useState(undefined)
+    const [gMap, setGMap] = useState(undefined)
+    const [activeInfoWindow, setActiveInfoWindow] = useState(undefined)
+    const [itemLisComponent, setItemLisComponent] = useState([])
+    // const [cameraNo, setCamera] = useState()
 
     useEffect(() => {
         const loader = new Loader({
@@ -49,11 +86,14 @@ const GoogleMaps = ({ taipeiSpeedCameraPositions }) => {
 
     useEffect(() => {
         if (google && gMap && taipeiSpeedCameraPositions.length > 0) {
+            const listItems = []
+
+            const infoWindow = new google.maps.InfoWindow({
+                content: '',
+                disableAutoPan: true,
+            })
+
             taipeiSpeedCameraPositions.forEach((item) => {
-                const infoWindow = new google.maps.InfoWindow({
-                    content: '',
-                    disableAutoPan: true,
-                })
 
                 const marker = new google.maps.Marker({
                     position: item.location,
@@ -62,30 +102,64 @@ const GoogleMaps = ({ taipeiSpeedCameraPositions }) => {
 
                 const infoWindowContent = `
                     <div style="color: #ea4335;">
-                        <div>${item.features} - 限速${item.speedLimit}<div>
+                        <div>${item.features} - 限速 ${item.speedLimit}<div>
                         <div>${item.address}</div>
                     </div>
                     `
 
                 marker.addListener("click", () => {
+                    if (activeInfoWindow) activeInfoWindow.close()
                     infoWindow.setContent(infoWindowContent)
                     infoWindow.open(gMap, marker)
+                    setActiveInfoWindow(infoWindow)
                 })
 
-                return marker
+                const handleSetMapPosition = (data) => {
+                    if (activeInfoWindow) activeInfoWindow.close()
+                    gMap.setCenter(data.location)
+                    infoWindow.setContent(infoWindowContent)
+                    infoWindow.open(gMap, marker)
+                    setActiveInfoWindow(infoWindow)
+                    // setCamera(data.no)
+                }
+
+                listItems.push((
+                    <Fragment key={`${item.no}`}>
+                        <StyledListItem
+                            // isSelected
+                            alignItems="flex-start"
+                            role={undefined}
+                            dense
+                            button
+                            onClick={() => handleSetMapPosition(item)}
+                        // isSelected={cameraNo === item.no}
+                        >
+                            <ListItemAvatar>
+                                <StyledLocationOnIcon />
+                            </ListItemAvatar>
+                            <ListItemText
+                                primary={`${item.features} - 限速 ${item.speedLimit}`}
+                                secondary={item.address}
+                            />
+                        </StyledListItem>
+                        <Divider variant="inset" component="li" />
+                    </Fragment>
+                ))
             })
 
-            // new MarkerClusterer({ markers, newMap })
+            setItemLisComponent(listItems)
         }
     }, [google, gMap, taipeiSpeedCameraPositions])
 
     return (
-        <StyledMapContainer id={mapElementID}>
-
-        </StyledMapContainer>
+        <>
+            <StyledMapContainer id={mapElementID} />
+            <List>
+                {itemLisComponent}
+            </List>
+        </>
     )
 }
-
 GoogleMaps.propTypes = {
     taipeiSpeedCameraPositions: PropTypes.instanceOf(Array).isRequired,
 }

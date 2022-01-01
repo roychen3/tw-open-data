@@ -5,6 +5,7 @@ export const lightTheme = {
   secondText: ' #14213d',
   mainBackground: ' #ffffff ',
   secondBackground: '#f1f1f1',
+  error: '#D23A39',
 }
 
 export const darkTheme = {
@@ -14,4 +15,5 @@ export const darkTheme = {
   secondText: '#e5e5e5',  
   mainBackground: ' #18191a',
   secondBackground: '#242526',
+  error: '#D23A39',
 }

@@ -9,21 +9,21 @@
     "speedLimit": 50
   },
   {
-    "no": 12,
+    "no": 2,
     "features": "測速",
-    "setRoad": "承德路3段",
-    "setPosition": "敦煌路",
-    "jurisdiction": "大同",
-    "shootingDirection": "南北雙向",
-    "speedLimit": 50
+    "setRoad": "仰德大道2段",
+    "setPosition": "115巷口",
+    "jurisdiction": "士林",
+    "shootingDirection": "下山方向",
+    "speedLimit": 40
   },
   {
-    "no": 48,
+    "no": 76,
     "features": "測速",
-    "setRoad": "市民大道(高架道)",
-    "setPosition": "京站百貨前",
-    "jurisdiction": "中正一",
-    "shootingDirection": "西往東",
-    "speedLimit": 80
+    "setRoad": "信義快速道路",
+    "setPosition": "文山隧道往南出口處",
+    "jurisdiction": "文山一",
+    "shootingDirection": "北向南",
+    "speedLimit": 70
   }
 ]

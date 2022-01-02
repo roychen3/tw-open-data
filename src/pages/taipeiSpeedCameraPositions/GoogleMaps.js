@@ -53,18 +53,18 @@ overflow: auto !important;
 `
 
 const StyledListItem = styled(ListItem)`
-color: ${({ theme, isSelected, isNoMarker }) => {
-        if (isSelected) return theme.highlight
-        else if (isNoMarker) return theme.error
+color: ${({ theme, $isSelected, $isNoMarker }) => {
+        if ($isSelected) return theme.highlight
+        else if ($isNoMarker) return theme.error
         return theme.mainText
     }} !important;
-background-color: ${({ theme, isSelected }) => isSelected ? theme.hover : ''} !important;
+background-color: ${({ theme, $isSelected }) => $isSelected ? theme.hover : ''} !important;
 
 .MuiListItemIcon-root .MuiSvgIcon-root,
 .MuiTypography-colorTextSecondary {
-    color: ${({ theme, isSelected, isNoMarker }) => {
-        if (isSelected) return theme.highlight
-        else if (isNoMarker) return theme.error
+    color: ${({ theme, $isSelected, $isNoMarker }) => {
+        if ($isSelected) return theme.highlight
+        else if ($isNoMarker) return theme.error
         return theme.mainText
     }} !important;
 }
@@ -140,8 +140,8 @@ const GoogleMaps = () => {
                     <Fragment key={`${item.no}`}>
                         <StyledListItem
                             alignItems="flex-start"
-                            isSelected={false}
-                            isNoMarker
+                            $isSelected={false}
+                            $isNoMarker
                         >
                             <ListItemIcon>
                                 <StyledLocationOnIcon />
@@ -198,7 +198,7 @@ const GoogleMaps = () => {
                         dense
                         button
                         onClick={() => handleSetMapPosition(item)}
-                        isSelected={cameraNo === item.no}
+                        $isSelected={cameraNo === item.no}
                     >
                         <ListItemIcon>
                             <StyledLocationOnIcon />

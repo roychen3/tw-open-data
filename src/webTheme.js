@@ -1,4 +1,5 @@
 export const lightTheme = {
+  themeName: 'light',
   hover: '#f1f1f1',
   highlight: '#18df16',
   mainText: '#000000',
@@ -9,6 +10,7 @@ export const lightTheme = {
 }
 
 export const darkTheme = {
+  themeName: 'dark',
   hover: '#242526',
   highlight: '#18df16',
   mainText: ' #ffffff',

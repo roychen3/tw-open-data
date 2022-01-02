@@ -1,6 +1,6 @@
 import React, { useEffect, useState, Fragment, useRef } from 'react'
-// import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import PropTypes from 'prop-types'
+import styled, { withTheme } from 'styled-components'
 import { Loader } from '@googlemaps/js-api-loader'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
@@ -14,10 +14,11 @@ import WarningRoundedIcon from '@material-ui/icons/WarningRounded'
 import Box from '@material-ui/core/Box'
 
 import { MuiLoadingPage } from '../../components/muiCircularProgress'
-
 import { GOOGLE_MAPS_API_KEY } from '../../constants/googleMapsApiKey'
 
 import useTaipeiSpeedCameraPositions from './useTaipeiSpeedCameraPositions'
+// google map style 產生器 https://mapstyle.withgoogle.com/
+import googleMapsStyleTheme from './googleMapsStyleTheme.json'
 
 const StyledMapLoadError = styled.div`
 padding: 2rem;
@@ -94,7 +95,7 @@ const getRandomCharacter = () => {
     ].join('')
 }
 
-const GoogleMaps = () => {
+const GoogleMaps = ({ theme }) => {
     const { taipeiSpeedCameraPositions } = useTaipeiSpeedCameraPositions()
     const googleMapRef = useRef()
 
@@ -120,6 +121,8 @@ const GoogleMaps = () => {
             const newMap = new res.maps.Map(googleMapRef.current, {
                 center: { lat: 25.047802296330403, lng: 121.5177953369906 },
                 zoom: 12,
+                mapTypeControl: false,
+                styles: googleMapsStyleTheme[theme.themeName],
             })
             setGMap(newMap)
         }).catch((err) => {
@@ -127,6 +130,14 @@ const GoogleMaps = () => {
             setLoadGoogleError(err.message)
         })
     }, [])
+
+    useEffect(() => {
+        if (gMap) {
+            gMap.setOptions({
+                styles: googleMapsStyleTheme[theme.themeName]
+            })
+        }
+    }, [theme.themeName])
 
     const getItemLisComponent = () => {
         const infoWindow = new google.maps.InfoWindow({
@@ -262,6 +273,7 @@ const GoogleMaps = () => {
     )
 }
 GoogleMaps.propTypes = {
+    theme: PropTypes.instanceOf(Object).isRequired,
 }
 
-export default GoogleMaps
+export default withTheme(GoogleMaps)

@@ -62,10 +62,13 @@ const useTaipeiSpeedCameraPositions = () => {
                 // 因為 api 不支援跨網域
                 // 且來源只提供 csv 檔，還要轉乘 json
                 // 永遠跑不到這裡
-
                 // 用太多要繳費給 Google，先註解掉
                 // const latitudeAndLongitudeList = await creatMapsInformation(taipeiSpeedCameraPositionsFakeData)
                 // dispatch(getTaipeiSpeedCameraPositionsSuccess(latitudeAndLongitudeList))
+
+                // 萬一成功也先用假資料
+                console.log('竟然打成功了!?')
+                dispatch(getTaipeiSpeedCameraPositionsSuccess(fakeMapsInformation))
             })
             .catch((err) => {
                 dispatch(getTaipeiSpeedCameraPositionsFailure(err))

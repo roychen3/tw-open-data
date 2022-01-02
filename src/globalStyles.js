@@ -25,8 +25,4 @@ a {
     cursor: pointer;
   }
 }
-
-.MuiPaper-root {
-  background-color: ${({ theme }) => theme.secondBackground} !important;
-}
 `

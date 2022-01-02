@@ -6,18 +6,38 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import Divider from '@material-ui/core/Divider'
 import ListItemText from '@material-ui/core/ListItemText'
-import ListItemAvatar from '@material-ui/core/ListItemAvatar'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
 import LocationOnIcon from '@material-ui/icons/LocationOn'
+import Paper from '@material-ui/core/Paper'
+import Grid from '@material-ui/core/Grid'
 
 import { GOOGLE_MAPS_API_KEY } from '../../constants/googleMapsApiKey'
 
 const StyledMapContainer = styled.div`
 wdth: 100%;
-height: 80vh;
+height: 60vh;
+
+@media (min-width: 600px) {
+    height: 90vh;
+}
 `
+
+const StyledPaper = styled(Paper)`
+background-color: ${({ theme }) => theme.secondBackground} !important;
+`
+
 const StyledLocationOnIcon = styled(LocationOnIcon)`
 width: 39px !important;
 height: 39px !important;
+`
+
+const StyledList = styled(List)`
+max-height: 30vh;
+overflow: auto !important;
+
+@media (min-width: 600px) {
+    max-height: 90vh;
+}
 `
 
 const StyledListItem = styled(ListItem)`
@@ -105,9 +125,9 @@ const GoogleMaps = ({ taipeiSpeedCameraPositions }) => {
                             isSelected={false}
                             isNoMarker
                         >
-                            <ListItemAvatar>
+                            <ListItemIcon>
                                 <StyledLocationOnIcon />
-                            </ListItemAvatar>
+                            </ListItemIcon>
                             <ListItemText
                                 primary={`${item.features} - 限速 ${item.speedLimit}`}
                                 secondary={
@@ -162,9 +182,9 @@ const GoogleMaps = ({ taipeiSpeedCameraPositions }) => {
                         onClick={() => handleSetMapPosition(item)}
                         isSelected={cameraNo === item.no}
                     >
-                        <ListItemAvatar>
+                        <ListItemIcon>
                             <StyledLocationOnIcon />
-                        </ListItemAvatar>
+                        </ListItemIcon>
                         <ListItemText
                             primary={`${item.features} - 限速 ${item.speedLimit}`}
                             secondary={item.address}
@@ -177,14 +197,20 @@ const GoogleMaps = ({ taipeiSpeedCameraPositions }) => {
     }
 
     return (
-        <>
-            <StyledMapContainer id={mapElementID} />
-            {google && gMap && taipeiSpeedCameraPositions.length > 0 &&
-                <List>
-                    {getItemLisComponent()}
-                </List>
-            }
-        </>
+        <StyledPaper>
+            <Grid container>
+                <Grid item xs={12} sm={8}>
+                    <StyledMapContainer id={mapElementID} />
+                </Grid>
+                <Grid item xs={12} sm={4}>
+                    {google && gMap && taipeiSpeedCameraPositions.length > 0 &&
+                        <StyledList>
+                            {getItemLisComponent()}
+                        </StyledList>
+                    }
+                </Grid>
+            </Grid>
+        </StyledPaper>
     )
 }
 GoogleMaps.propTypes = {

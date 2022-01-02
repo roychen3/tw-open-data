@@ -58,11 +58,10 @@ const useTaipeiSpeedCameraPositions = () => {
         dispatch(getTaipeiSpeedCameraPositions())
 
         axios.get('https://data.taipei/api/getDatasetInfo/downloadResource?id=745b8808-061f-4f5b-9a62-da1590c049a9&rid=5012e8ba-5ace-4821-8482-ee07c147fd0a')
-            .then((resultData) => {
+            .then(() => {
                 // 因為 api 不支援跨網域
                 // 且來源只提供 csv 檔，還要轉乘 json
                 // 永遠跑不到這裡
-                console.log(resultData)
 
                 // 用太多要繳費給 Google，先註解掉
                 // const latitudeAndLongitudeList = await creatMapsInformation(taipeiSpeedCameraPositionsFakeData)

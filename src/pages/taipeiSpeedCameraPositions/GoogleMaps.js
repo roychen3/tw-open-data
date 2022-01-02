@@ -1,5 +1,5 @@
-import React, { useEffect, useState, Fragment } from 'react'
-import PropTypes from 'prop-types'
+import React, { useEffect, useState, Fragment, useRef } from 'react'
+// import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Loader } from '@googlemaps/js-api-loader'
 import List from '@material-ui/core/List'
@@ -10,12 +10,24 @@ import ListItemIcon from '@material-ui/core/ListItemIcon'
 import LocationOnIcon from '@material-ui/icons/LocationOn'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
+import WarningRoundedIcon from '@material-ui/icons/WarningRounded'
+import Box from '@material-ui/core/Box'
+
+import { MuiLoadingPage } from '../../components/muiCircularProgress'
 
 import { GOOGLE_MAPS_API_KEY } from '../../constants/googleMapsApiKey'
+
+import useTaipeiSpeedCameraPositions from './useTaipeiSpeedCameraPositions'
+
+const StyledMapLoadError = styled.div`
+padding: 2rem;
+color: ${({ theme }) => theme.error}};
+`
 
 const StyledMapContainer = styled.div`
 wdth: 100%;
 height: 60vh;
+position: relative;
 
 @media (min-width: 600px) {
     height: 90vh;
@@ -82,13 +94,17 @@ const getRandomCharacter = () => {
     ].join('')
 }
 
-const GoogleMaps = ({ taipeiSpeedCameraPositions }) => {
+const GoogleMaps = () => {
+    const { taipeiSpeedCameraPositions } = useTaipeiSpeedCameraPositions()
+    const googleMapRef = useRef()
+
     const millisecond = Date.now().toString().slice(-3)
     const randomCharacter = getRandomCharacter()
     const mapId = `map-${randomCharacter + millisecond}`
     const [mapElementID] = useState(mapId)
 
     const [google, setGoogle] = useState(undefined)
+    const [loadGoogleError, setLoadGoogleError] = useState(undefined)
     const [gMap, setGMap] = useState(undefined)
     const [activeInfoWindow, setActiveInfoWindow] = useState(undefined)
     const [cameraNo, setCamera] = useState()
@@ -101,12 +117,14 @@ const GoogleMaps = ({ taipeiSpeedCameraPositions }) => {
 
         loader.load().then((res) => {
             setGoogle(res)
-
-            const newMap = new res.maps.Map(document.getElementById(mapElementID), {
+            const newMap = new res.maps.Map(googleMapRef.current, {
                 center: { lat: 25.047802296330403, lng: 121.5177953369906 },
                 zoom: 12,
             })
             setGMap(newMap)
+        }).catch((err) => {
+            console.log('err.message', err.message)
+            setLoadGoogleError(err.message)
         })
     }, [])
 
@@ -198,23 +216,40 @@ const GoogleMaps = ({ taipeiSpeedCameraPositions }) => {
 
     return (
         <StyledPaper>
-            <Grid container>
-                <Grid item xs={12} sm={8}>
-                    <StyledMapContainer id={mapElementID} />
-                </Grid>
-                <Grid item xs={12} sm={4}>
+            {loadGoogleError &&
+                <StyledMapLoadError>
+                    <Box display="flex" justifyContent="center">
+                        <Box>
+                            <WarningRoundedIcon />
+                        </Box>
+                        <Box>
+                            系統發生異常
+                        </Box>
+                    </Box>
+                </StyledMapLoadError>
+            }
+            {!loadGoogleError &&
+                <Grid container>
+                    <Grid item xs={12} sm={!google && !gMap ? 12 : 8}>
+                        <StyledMapContainer id={mapElementID} ref={googleMapRef}>
+                            {!google && !gMap &&
+                                <MuiLoadingPage />
+                            }
+                        </StyledMapContainer>
+                    </Grid>
                     {google && gMap && taipeiSpeedCameraPositions.length > 0 &&
-                        <StyledList>
-                            {getItemLisComponent()}
-                        </StyledList>
+                        <Grid item xs={12} sm={4}>
+                            <StyledList>
+                                {getItemLisComponent()}
+                            </StyledList>
+                        </Grid>
                     }
                 </Grid>
-            </Grid>
+            }
         </StyledPaper>
     )
 }
 GoogleMaps.propTypes = {
-    taipeiSpeedCameraPositions: PropTypes.instanceOf(Array).isRequired,
 }
 
 export default GoogleMaps

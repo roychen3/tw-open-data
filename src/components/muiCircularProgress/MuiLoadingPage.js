@@ -3,12 +3,6 @@ import styled from 'styled-components'
 
 import CircularProgress from '@material-ui/core/CircularProgress'
 
-const StyledLoadingPageContainer = styled.div`
-background-color: ${({ theme }) => theme.mainBackground};
-width: 100%;
-height: 100vh;
-`
-
 const StyledSpinnerContainer = styled.div`
 position: absolute;
 top: 50%;
@@ -26,11 +20,9 @@ margin: 0 auto;
 
 export const MuiLoadingPage = () => {
   return (
-      <StyledLoadingPageContainer>
-        <StyledSpinnerContainer>
-          <StyledCircularProgress />
-        </StyledSpinnerContainer>
-      </StyledLoadingPageContainer>
+    <StyledSpinnerContainer>
+      <StyledCircularProgress />
+    </StyledSpinnerContainer>
   )
 }
 

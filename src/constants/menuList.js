@@ -1,6 +1,6 @@
 import EventAvailableIcon from '@material-ui/icons/EventAvailable'
 import CloudIcon from '@material-ui/icons/Cloud'
-import LocationOnIcon from '@material-ui/icons/LocationOn'
+import CameraAltIcon from '@material-ui/icons/CameraAlt'
 
 export const menuList = [
     {
@@ -14,8 +14,8 @@ export const menuList = [
         icon: <CloudIcon />,
     },
     {
-        hashName: 'googleMaps',
-        itemName: 'Google Maps',
-        icon: <LocationOnIcon />,
+        hashName: 'taipeiSpeedCameraPositions',
+        itemName: '臺北市固定測速照相地點',
+        icon: <CameraAltIcon />,
     },
 ]

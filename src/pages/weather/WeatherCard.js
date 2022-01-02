@@ -13,7 +13,7 @@ margin: 3px;
 min-width: 160px;
 min-height: 200px;
 
-@media (min-width: 960px) {
+@media (min-width: 600px) {
     max-width: 160px;
     max-height: 200px;
 }

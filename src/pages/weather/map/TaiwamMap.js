@@ -26,6 +26,13 @@ svg#taiwan-map path.active {
     stroke: ${({ theme }) => theme.mainBackground};
     transform: translateY(-5px);
 }
+
+@media (min-width: 600px) {
+    text-align: center;
+}
+@media (min-width: 960px){
+    text-align: start;
+}
 `
 
 const TaiwamMap = ({ selectedCounty, setCounty }) => {

@@ -39,7 +39,7 @@ const index = () => {
         }
     }, [])
 
-    // 因為 api 壞掉，所以用假資料代替，
+    // 因為 api 不支援跨網域，且來源只提共csv檔
     // 故多了此步驟
     useEffect(() => {
         if (allHolidayDataError !== null && allHolidayYearList.length === 0) {

@@ -18,7 +18,7 @@ const StyledTableHead = styled(TableHead)`
 background-color: ${({ theme }) => theme.secondBackground};
 `
 const StyledTableRow = styled(TableRow)`
-background-color: ${({ theme, isHoliday }) => isHoliday ? theme.hover : ''};
+background-color: ${({ theme, $isHoliday }) => $isHoliday ? theme.hover : ''};
 
 :hover {
     background-color: ${({ theme }) => theme.hover};
@@ -30,7 +30,7 @@ border-bottom: 1px solid ${({ theme }) => theme.secondBackground} !important;
 white-space: nowrap;
 `
 const StyledTableCell = styled(TableCell)`
-color: ${({ theme, isHoliday }) => isHoliday ? theme.highlight : theme.mainText} !important;
+color: ${({ theme, $isHoliday }) => $isHoliday ? theme.highlight : theme.mainText} !important;
 border-bottom: 1px solid ${({ theme }) => theme.secondBackground} !important;
 `
 
@@ -58,14 +58,14 @@ const HolidayTable = ({ rows }) => {
     const tableCellColumns = columns.map((column) => <StyledTableCellHeader key={column.id} align="center">{column.name}</StyledTableCellHeader>)
 
     const tableBadyRowList = rows.map((row, index) => (
-        <StyledTableRow key={index} isHoliday={row.isHoliday === '否'}>
-            <StyledTableCell align="left" isHoliday={row.isHoliday === '否'}>
+        <StyledTableRow key={index} $isHoliday={row.isHoliday === '否'}>
+            <StyledTableCell align="left" $isHoliday={row.isHoliday === '否'}>
                 {`${row.date}`}
                 <p>{new Date(row.date).toLocaleString(window.navigator.language, { weekday: 'long' })}</p>
             </StyledTableCell>
-            <StyledTableCell align="left" isHoliday={row.isHoliday === '否'}>{row.name}</StyledTableCell>
-            <StyledTableCell align="left" isHoliday={row.isHoliday === '否'}>{row.holidayCategory}</StyledTableCell>
-            <StyledTableCell align="left" isHoliday={row.isHoliday === '否'}>{row.description}</StyledTableCell>
+            <StyledTableCell align="left" $isHoliday={row.isHoliday === '否'}>{row.name}</StyledTableCell>
+            <StyledTableCell align="left" $isHoliday={row.isHoliday === '否'}>{row.holidayCategory}</StyledTableCell>
+            <StyledTableCell align="left" $isHoliday={row.isHoliday === '否'}>{row.description}</StyledTableCell>
         </StyledTableRow>))
 
     return (

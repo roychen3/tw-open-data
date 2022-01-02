@@ -1,9 +1,10 @@
 import React from 'react'
-import { Link } from "react-router-dom"
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { menuList } from '../constants/menuList'
+import IconButton from '@material-ui/core/IconButton'
+import GitHubIcon from '@material-ui/icons/GitHub'
+
 import MuiSwitchToggleTheme from '../components/MuiSwitchToggleTheme'
 
 const StyledMenuContainer = styled.div`
@@ -21,6 +22,18 @@ a{
   }
 }
 `
+const StyledIconButton = styled(IconButton)`
+color: ${({ theme }) => theme.mainText} !important;
+
+&.MuiButtonBase-root.MuiIconButton-root {
+  padding: 0 !important;
+}
+
+:hover {
+  color: ${({ theme }) => theme.highlight} !important;
+}
+`
+
 const StyledToggleThemeContainer = styled.div`
 display: flex;
 align-items: center;
@@ -28,13 +41,11 @@ color: ${({ theme }) => theme.mainText} !important;
 `
 
 const Menu = ({ toggleTheme }) => {
-
-  const linkList = menuList.map((item) => (
-    <Link key={item.hashName} to={`/${item.hashName}`}>{item.itemName}</Link>))
-
   return (
     <StyledMenuContainer>
-      {linkList}
+      <StyledIconButton href='https://github.com/roychen3' target="_blank" rel="noopener noreferrer">
+        <GitHubIcon />
+      </StyledIconButton>
       <StyledToggleThemeContainer>
         <MuiSwitchToggleTheme
           toggleTheme={toggleTheme}

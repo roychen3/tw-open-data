@@ -16,6 +16,11 @@ body,
   margin: 0;
 }
 
+body {
+  color: ${({ theme }) => theme.mainText};
+  background-color: ${({ theme }) => theme.mainBackground};
+}
+
 a {
   text-decoration: none;
   color: ${({ theme }) => theme.mainText};
@@ -24,9 +29,5 @@ a {
     color: ${({ theme }) => theme.highlight};
     cursor: pointer;
   }
-}
-
-.MuiPaper-root {
-  background-color: ${({ theme }) => theme.secondBackground} !important;
 }
 `

@@ -6,6 +6,7 @@ import {
     getWeatherSuccess,
     getWeatherFailure,
 } from '../../redux/actions'
+import fakeData from './fakeData.json'
 
 const useWeather = () => {
     const dispatch = useDispatch()
@@ -136,12 +137,22 @@ const useWeather = () => {
             })
     }
 
+    const getFakeWeatherAllLocation = () => {
+        const allLocationData = fakeData.cwbopendata.dataset.location
+        const countyList = allLocationData.map((item) => ({ value: item.locationName, name: item.locationName }))
+        dispatch(getWeatherSuccess({
+            weatherCountyList: countyList,
+            weatherAllLocation: allLocationData,
+        }))
+    }
+
     return {
         weatherCountyList,
         weatherAllLocation,
         weatherAllLocationError,
         weatherAllLocationLoading,
         getWeatherApi,
+        getFakeWeatherAllLocation,
         determineDayDescription,
         determineTimeDescription,
         creatWeatherCardList

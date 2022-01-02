@@ -19,6 +19,12 @@ import TaiwamMap from './map/TaiwamMap'
 
 const StyledForeachContainer = styled.div`
 display: flex;
+
+@media (min-width: 600px) {
+    flex-direction: column;
+}
+@media (min-width: 960px){
+    flex-direction: row;
 `
 const StyledCardListContainer = styled.div`
 flex-grow: 1;
@@ -28,13 +34,12 @@ flex-direction: column;
 
 @media (min-width: 600px) {
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: center;
 }
 @media (min-width: 960px){
+    flex-wrap: wrap;
     justify-content: start;
     align-content: start;
-    // max-width: 330px;
 }
 `
 
@@ -46,6 +51,7 @@ const index = () => {
         weatherAllLocationLoading,
         weatherAllLocationError,
         getWeatherApi,
+        getFakeWeatherAllLocation,
         creatWeatherCardList,
     } = useWeather()
 
@@ -78,6 +84,7 @@ const index = () => {
     useEffect(() => {
         if (weatherAllLocationError !== null) {
             handaleMessageModalOpen()
+            getFakeWeatherAllLocation()
         }
     }, [weatherAllLocationError])
 
@@ -102,7 +109,7 @@ const index = () => {
                     <StyledCardListContainer>
                         {showWeatherCardList}
                     </StyledCardListContainer>
-                    <Hidden smDown>
+                    <Hidden xsDown>
                         <TaiwamMap selectedCounty={selectedCounty} setCounty={setSelectedCounty} />
                     </Hidden>
                 </StyledForeachContainer>

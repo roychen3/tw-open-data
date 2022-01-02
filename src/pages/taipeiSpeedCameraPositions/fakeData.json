@@ -1,0 +1,1406 @@
+[
+  {
+    "no": 1,
+    "features": "測速",
+    "setRoad": "環河北路3段",
+    "setPosition": "葫蘆街",
+    "jurisdiction": "士林",
+    "shootingDirection": "南向北",
+    "speedLimit": 50
+  },
+  {
+    "no": 2,
+    "features": "測速",
+    "setRoad": "仰德大道2段",
+    "setPosition": "115巷口",
+    "jurisdiction": "士林",
+    "shootingDirection": "下山方向",
+    "speedLimit": 40
+  },
+  {
+    "no": 3,
+    "features": "測速及大貨車於禁行時段行駛",
+    "setRoad": "仰德大道4段",
+    "setPosition": "75號前(格致中學前)",
+    "jurisdiction": "士林",
+    "shootingDirection": "上下山雙向",
+    "speedLimit": 40
+  },
+  {
+    "no": 4,
+    "features": "測速",
+    "setRoad": "承德路4段",
+    "setPosition": "百齡高中前",
+    "jurisdiction": "士林",
+    "shootingDirection": "南向北",
+    "speedLimit": 50
+  },
+  {
+    "no": 5,
+    "features": "闖紅燈",
+    "setRoad": "中正路",
+    "setPosition": "與基河路口",
+    "jurisdiction": "士林",
+    "shootingDirection": "西向東",
+    "speedLimit": 50
+  },
+  {
+    "no": 6,
+    "features": "闖紅燈",
+    "setRoad": "中正路",
+    "setPosition": "重慶北路口",
+    "jurisdiction": "士林",
+    "shootingDirection": "西向東",
+    "speedLimit": 50
+  },
+  {
+    "no": 7,
+    "features": "闖紅燈",
+    "setRoad": "中正路",
+    "setPosition": "士商路口",
+    "jurisdiction": "士林",
+    "shootingDirection": "東向西",
+    "speedLimit": 50
+  },
+  {
+    "no": 8,
+    "features": "闖紅燈",
+    "setRoad": "中山北路5段",
+    "setPosition": "378巷(消防隊)",
+    "jurisdiction": "士林",
+    "shootingDirection": "南向北",
+    "speedLimit": 50
+  },
+  {
+    "no": 9,
+    "features": "測速",
+    "setRoad": "仰德大道2段",
+    "setPosition": "29巷口",
+    "jurisdiction": "士林",
+    "shootingDirection": "下山方向",
+    "speedLimit": 40
+  },
+  {
+    "no": 10,
+    "features": "測速",
+    "setRoad": "環河北路2段",
+    "setPosition": "近敦煌路",
+    "jurisdiction": "大同",
+    "shootingDirection": "北向南",
+    "speedLimit": 60
+  },
+  {
+    "no": 11,
+    "features": "測速",
+    "setRoad": "承德路4段",
+    "setPosition": "通河街",
+    "jurisdiction": "士林",
+    "shootingDirection": "北向南",
+    "speedLimit": 50
+  },
+  {
+    "no": 12,
+    "features": "測速",
+    "setRoad": "承德路3段",
+    "setPosition": "敦煌路",
+    "jurisdiction": "大同",
+    "shootingDirection": "南北雙向",
+    "speedLimit": 50
+  },
+  {
+    "no": 13,
+    "features": "闖紅燈",
+    "setRoad": "承德路2段",
+    "setPosition": "錦西街口",
+    "jurisdiction": "大同",
+    "shootingDirection": "北向南",
+    "speedLimit": 50
+  },
+  {
+    "no": 14,
+    "features": "測速(兼闖紅燈)",
+    "setRoad": "台北橋機車道下橋",
+    "setPosition": "民權西路  延平北路",
+    "jurisdiction": "大同",
+    "shootingDirection": "西向東",
+    "speedLimit": 50
+  },
+  {
+    "no": 15,
+    "features": "闖紅燈",
+    "setRoad": "承德路",
+    "setPosition": "市民大道口(東北)",
+    "jurisdiction": "大同",
+    "shootingDirection": "東向西",
+    "speedLimit": 40
+  },
+  {
+    "no": 16,
+    "features": "測速",
+    "setRoad": "基隆高架道",
+    "setPosition": "下敦化南路段",
+    "jurisdiction": "大安",
+    "shootingDirection": "南向北",
+    "speedLimit": 60
+  },
+  {
+    "no": 17,
+    "features": "測速",
+    "setRoad": "辛亥路3段",
+    "setPosition": "157巷(下北二高)",
+    "jurisdiction": "大安",
+    "shootingDirection": "東向西",
+    "speedLimit": 50
+  },
+  {
+    "no": 18,
+    "features": "測速",
+    "setRoad": "新生南路",
+    "setPosition": "金華街口",
+    "jurisdiction": "大安",
+    "shootingDirection": "北向南",
+    "speedLimit": 50
+  },
+  {
+    "no": 19,
+    "features": "測速",
+    "setRoad": "和平東路1段",
+    "setPosition": "國立師範大學前",
+    "jurisdiction": "大安",
+    "shootingDirection": "西向東",
+    "speedLimit": 50
+  },
+  {
+    "no": 20,
+    "features": "測速",
+    "setRoad": "建國南路2段",
+    "setPosition": "179號往北",
+    "jurisdiction": "大安",
+    "shootingDirection": "南向北",
+    "speedLimit": 50
+  },
+  {
+    "no": 21,
+    "features": "測速",
+    "setRoad": "市民大道3段",
+    "setPosition": "214號前",
+    "jurisdiction": "大安",
+    "shootingDirection": "西向東",
+    "speedLimit": 40
+  },
+  {
+    "no": 22,
+    "features": "測速",
+    "setRoad": "基隆路3段",
+    "setPosition": "長興街",
+    "jurisdiction": "大安",
+    "shootingDirection": "南向北",
+    "speedLimit": 50
+  },
+  {
+    "no": 23,
+    "features": "測速",
+    "setRoad": "建國高架道",
+    "setPosition": "和平東路上方",
+    "jurisdiction": "大安",
+    "shootingDirection": "北向南",
+    "speedLimit": 70
+  },
+  {
+    "no": 24,
+    "features": "測速",
+    "setRoad": "新生南路3段",
+    "setPosition": "58號台大側門",
+    "jurisdiction": "大安",
+    "shootingDirection": "南向北",
+    "speedLimit": 50
+  },
+  {
+    "no": 25,
+    "features": "闖紅燈",
+    "setRoad": "辛亥路2段",
+    "setPosition": "台大語文中心(快車道)",
+    "jurisdiction": "大安",
+    "shootingDirection": "西向東",
+    "speedLimit": 50
+  },
+  {
+    "no": 26,
+    "features": "闖紅燈",
+    "setRoad": "辛亥路2段",
+    "setPosition": "復興南路口",
+    "jurisdiction": "大安",
+    "shootingDirection": "西向東",
+    "speedLimit": 50
+  },
+  {
+    "no": 27,
+    "features": "闖紅燈",
+    "setRoad": "和平東路3段",
+    "setPosition": "228巷",
+    "jurisdiction": "大安",
+    "shootingDirection": "西向東",
+    "speedLimit": 50
+  },
+  {
+    "no": 28,
+    "features": "闖紅燈",
+    "setRoad": "敦化南路2段",
+    "setPosition": "和平東路",
+    "jurisdiction": "大安",
+    "shootingDirection": "北向南",
+    "speedLimit": 50
+  },
+  {
+    "no": 29,
+    "features": "測速",
+    "setRoad": "建國高架道",
+    "setPosition": "長春路入口",
+    "jurisdiction": "中山",
+    "shootingDirection": "北向南",
+    "speedLimit": 70
+  },
+  {
+    "no": 30,
+    "features": "測速",
+    "setRoad": "新生北路高架道",
+    "setPosition": "民族東路入口(往南)",
+    "jurisdiction": "中山",
+    "shootingDirection": "北向南",
+    "speedLimit": 70
+  },
+  {
+    "no": 31,
+    "features": "測速",
+    "setRoad": "復興北路",
+    "setPosition": "車行地下道北出口處",
+    "jurisdiction": "中山",
+    "shootingDirection": "南向北",
+    "speedLimit": 40
+  },
+  {
+    "no": 32,
+    "features": "測速",
+    "setRoad": "樂群一路",
+    "setPosition": "基湖路口西往東天橋下(金泰公園)",
+    "jurisdiction": "中山",
+    "shootingDirection": "西向東",
+    "speedLimit": 50
+  },
+  {
+    "no": 33,
+    "features": "測速",
+    "setRoad": "明水路",
+    "setPosition": "325號",
+    "jurisdiction": "中山",
+    "shootingDirection": "東西雙向",
+    "speedLimit": 50
+  },
+  {
+    "no": 34,
+    "features": "測速",
+    "setRoad": "市民高架道",
+    "setPosition": "下建國南路",
+    "jurisdiction": "中山",
+    "shootingDirection": "東西雙向",
+    "speedLimit": 80
+  },
+  {
+    "no": 35,
+    "features": "測速",
+    "setRoad": "北安路",
+    "setPosition": "海軍司令部前",
+    "jurisdiction": "中山",
+    "shootingDirection": "東西雙向",
+    "speedLimit": 50
+  },
+  {
+    "no": 36,
+    "features": "闖紅燈",
+    "setRoad": "民權東路",
+    "setPosition": "建國北路口",
+    "jurisdiction": "中山",
+    "shootingDirection": "南向北",
+    "speedLimit": 50
+  },
+  {
+    "no": 37,
+    "features": "闖紅燈",
+    "setRoad": "民生東路3段",
+    "setPosition": "遼寧街口（台北大學前）",
+    "jurisdiction": "中山",
+    "shootingDirection": "西向東",
+    "speedLimit": 50
+  },
+  {
+    "no": 38,
+    "features": "闖紅燈",
+    "setRoad": "北安路",
+    "setPosition": "明水路（劍南路口前端）",
+    "jurisdiction": "中山",
+    "shootingDirection": "東向西",
+    "speedLimit": 50
+  },
+  {
+    "no": 39,
+    "features": "闖紅燈",
+    "setRoad": "松江路",
+    "setPosition": "民族東路",
+    "jurisdiction": "中山",
+    "shootingDirection": "北向南",
+    "speedLimit": 50
+  },
+  {
+    "no": 40,
+    "features": "闖紅燈",
+    "setRoad": "建國北路1段",
+    "setPosition": "長安東路口",
+    "jurisdiction": "中山",
+    "shootingDirection": "南向北",
+    "speedLimit": 50
+  },
+  {
+    "no": 41,
+    "features": "闖紅燈",
+    "setRoad": "復興北路",
+    "setPosition": "民生東路",
+    "jurisdiction": "中山",
+    "shootingDirection": "北向南",
+    "speedLimit": 50
+  },
+  {
+    "no": 42,
+    "features": "闖紅燈",
+    "setRoad": "中山北路2段",
+    "setPosition": "民生西路",
+    "jurisdiction": "中山",
+    "shootingDirection": "北向南",
+    "speedLimit": 50
+  },
+  {
+    "no": 43,
+    "features": "闖紅燈",
+    "setRoad": "中山北路2段",
+    "setPosition": "長春路口",
+    "jurisdiction": "中山",
+    "shootingDirection": "南往北",
+    "speedLimit": 50
+  },
+  {
+    "no": 44,
+    "features": "闖紅燈",
+    "setRoad": "松江路",
+    "setPosition": "農安街口",
+    "jurisdiction": "中山",
+    "shootingDirection": "南向北",
+    "speedLimit": 50
+  },
+  {
+    "no": 45,
+    "features": "測速(兼闖紅燈)",
+    "setRoad": "建國北路",
+    "setPosition": "農安街口",
+    "jurisdiction": "中山",
+    "shootingDirection": "北向南",
+    "speedLimit": 50
+  },
+  {
+    "no": 46,
+    "features": "測速",
+    "setRoad": "中華路1段",
+    "setPosition": "５３號前",
+    "jurisdiction": "中正一",
+    "shootingDirection": "南向北",
+    "speedLimit": 50
+  },
+  {
+    "no": 47,
+    "features": "測速",
+    "setRoad": "仁愛路2段",
+    "setPosition": "(61號前右車道)臨沂街口",
+    "jurisdiction": "中正一",
+    "shootingDirection": "東向西",
+    "speedLimit": 50
+  },
+  {
+    "no": 48,
+    "features": "測速",
+    "setRoad": "市民大道(高架道)",
+    "setPosition": "京站百貨前",
+    "jurisdiction": "中正一",
+    "shootingDirection": "西往東",
+    "speedLimit": 80
+  },
+  {
+    "no": 49,
+    "features": "測速",
+    "setRoad": "行義路",
+    "setPosition": "241號",
+    "jurisdiction": "北投",
+    "shootingDirection": "北向南",
+    "speedLimit": 40
+  },
+  {
+    "no": 50,
+    "features": "闖紅燈",
+    "setRoad": "中山南路",
+    "setPosition": "濟南路口",
+    "jurisdiction": "中正一",
+    "shootingDirection": "南向北",
+    "speedLimit": 50
+  },
+  {
+    "no": 51,
+    "features": "闖紅燈",
+    "setRoad": "金山南路",
+    "setPosition": "銅山街口",
+    "jurisdiction": "中正一",
+    "shootingDirection": "南向北",
+    "speedLimit": 50
+  },
+  {
+    "no": 52,
+    "features": "闖紅燈",
+    "setRoad": "中華路1段",
+    "setPosition": "貴陽路口",
+    "jurisdiction": "中正一",
+    "shootingDirection": "南向北",
+    "speedLimit": 50
+  },
+  {
+    "no": 53,
+    "features": "闖紅燈",
+    "setRoad": "中山南路",
+    "setPosition": "愛國西路口",
+    "jurisdiction": "中正一",
+    "shootingDirection": "北向南",
+    "speedLimit": 50
+  },
+  {
+    "no": 54,
+    "features": "闖紅燈",
+    "setRoad": "忠孝東路1段",
+    "setPosition": "林森南路口",
+    "jurisdiction": "中正一",
+    "shootingDirection": "東向西",
+    "speedLimit": 50
+  },
+  {
+    "no": 55,
+    "features": "測速",
+    "setRoad": "重慶南路3段",
+    "setPosition": "27巷口",
+    "jurisdiction": "中正二",
+    "shootingDirection": "南北雙向",
+    "speedLimit": 50
+  },
+  {
+    "no": 56,
+    "features": "測速",
+    "setRoad": "水源快速道路",
+    "setPosition": "同安街口",
+    "jurisdiction": "中正二",
+    "shootingDirection": "南向北",
+    "speedLimit": 60
+  },
+  {
+    "no": 57,
+    "features": "闖紅燈",
+    "setRoad": "和平西路2段",
+    "setPosition": "寧波西街口",
+    "jurisdiction": "中正二",
+    "shootingDirection": "東向西",
+    "speedLimit": 50
+  },
+  {
+    "no": 58,
+    "features": "闖紅燈",
+    "setRoad": "重慶南路3段",
+    "setPosition": "和平西路口",
+    "jurisdiction": "中正二",
+    "shootingDirection": "北向南",
+    "speedLimit": 50
+  },
+  {
+    "no": 59,
+    "features": "闖紅燈",
+    "setRoad": "和平西路",
+    "setPosition": "寧波西街口",
+    "jurisdiction": "中正二",
+    "shootingDirection": "西往東",
+    "speedLimit": 50
+  },
+  {
+    "no": 60,
+    "features": "測速(兼闖紅燈)",
+    "setRoad": "仰德大道3段",
+    "setPosition": "陽明山國小前",
+    "jurisdiction": "士林",
+    "shootingDirection": "往下山方向",
+    "speedLimit": 40
+  },
+  {
+    "no": 61,
+    "features": "測速",
+    "setRoad": "金湖路",
+    "setPosition": "200號前",
+    "jurisdiction": "內湖",
+    "shootingDirection": "南向北",
+    "speedLimit": 50
+  },
+  {
+    "no": 62,
+    "features": "測速",
+    "setRoad": "文德路",
+    "setPosition": "66巷口",
+    "jurisdiction": "內湖",
+    "shootingDirection": "西向東",
+    "speedLimit": 50
+  },
+  {
+    "no": 63,
+    "features": "測速",
+    "setRoad": "環東大道",
+    "setPosition": "(南京東路6段368巷口上方)",
+    "jurisdiction": "內湖",
+    "shootingDirection": "東向西",
+    "speedLimit": 80
+  },
+  {
+    "no": 64,
+    "features": "測速",
+    "setRoad": "潭美街",
+    "setPosition": "新明路498巷",
+    "jurisdiction": "內湖",
+    "shootingDirection": "西向東",
+    "speedLimit": 40
+  },
+  {
+    "no": 65,
+    "features": "測速",
+    "setRoad": "行善路233號",
+    "setPosition": "",
+    "jurisdiction": "內湖",
+    "shootingDirection": "西向東",
+    "speedLimit": 50
+  },
+  {
+    "no": 66,
+    "features": "測速",
+    "setRoad": "成功路2段",
+    "setPosition": "373號",
+    "jurisdiction": "內湖",
+    "shootingDirection": "北向南",
+    "speedLimit": 50
+  },
+  {
+    "no": 67,
+    "features": "測速",
+    "setRoad": "內湖路1段",
+    "setPosition": "324號",
+    "jurisdiction": "內湖",
+    "shootingDirection": "西向東",
+    "speedLimit": 50
+  },
+  {
+    "no": 68,
+    "features": "測速",
+    "setRoad": "成功路5段",
+    "setPosition": "152巷口",
+    "jurisdiction": "內湖",
+    "shootingDirection": "西向東",
+    "speedLimit": 50
+  },
+  {
+    "no": 69,
+    "features": "闖紅燈",
+    "setRoad": "瑞光路",
+    "setPosition": "199號前(陽光街口)",
+    "jurisdiction": "內湖",
+    "shootingDirection": "南向北",
+    "speedLimit": 50
+  },
+  {
+    "no": 70,
+    "features": "闖紅燈",
+    "setRoad": "成功路2段",
+    "setPosition": "250巷口",
+    "jurisdiction": "內湖",
+    "shootingDirection": "往內湖方向",
+    "speedLimit": 50
+  },
+  {
+    "no": 71,
+    "features": "闖紅燈",
+    "setRoad": "環山路1段",
+    "setPosition": "136巷口",
+    "jurisdiction": "內湖",
+    "shootingDirection": "東向西",
+    "speedLimit": 50
+  },
+  {
+    "no": 72,
+    "features": "闖紅燈",
+    "setRoad": "內湖路1段",
+    "setPosition": "120巷（西向東）",
+    "jurisdiction": "內湖",
+    "shootingDirection": "西向東",
+    "speedLimit": 50
+  },
+  {
+    "no": 73,
+    "features": "闖紅燈",
+    "setRoad": "南京東路6段",
+    "setPosition": "新明路426巷口",
+    "jurisdiction": "內湖",
+    "shootingDirection": "西向東",
+    "speedLimit": 40
+  },
+  {
+    "no": 74,
+    "features": "闖紅燈",
+    "setRoad": "民權東路6段",
+    "setPosition": "136巷（東向西）",
+    "jurisdiction": "內湖",
+    "shootingDirection": "西向東",
+    "speedLimit": 50
+  },
+  {
+    "no": 75,
+    "features": "測速",
+    "setRoad": "民權東路6段",
+    "setPosition": "423巷口",
+    "jurisdiction": "內湖",
+    "shootingDirection": "東向西",
+    "speedLimit": 50
+  },
+  {
+    "no": 76,
+    "features": "測速",
+    "setRoad": "信義快速道路",
+    "setPosition": "文山隧道往南出口處",
+    "jurisdiction": "文山一",
+    "shootingDirection": "北向南",
+    "speedLimit": 70
+  },
+  {
+    "no": 77,
+    "features": "測速",
+    "setRoad": "木柵路5段",
+    "setPosition": "木柵路5段近100之1號",
+    "jurisdiction": "文山一",
+    "shootingDirection": "西向東",
+    "speedLimit": 50
+  },
+  {
+    "no": 78,
+    "features": "測速",
+    "setRoad": "辛亥路6段",
+    "setPosition": "懷恩隧道出口處（往木柵）",
+    "jurisdiction": "文山一",
+    "shootingDirection": "北向南",
+    "speedLimit": 50
+  },
+  {
+    "no": 79,
+    "features": "闖紅燈",
+    "setRoad": "辛亥路7段",
+    "setPosition": "光輝路50巷口",
+    "jurisdiction": "文山一",
+    "shootingDirection": "北向南",
+    "speedLimit": 50
+  },
+  {
+    "no": 80,
+    "features": "闖紅燈",
+    "setRoad": "木柵路1段",
+    "setPosition": "和興街",
+    "jurisdiction": "文山一",
+    "shootingDirection": "西向東",
+    "speedLimit": 50
+  },
+  {
+    "no": 81,
+    "features": "闖紅燈",
+    "setRoad": "木柵路5段",
+    "setPosition": "萬福橋頭",
+    "jurisdiction": "文山一",
+    "shootingDirection": "東向西",
+    "speedLimit": 50
+  },
+  {
+    "no": 82,
+    "features": "測速",
+    "setRoad": "水源快速道路",
+    "setPosition": "下(離開水快)景福匝道口(上層)(水南)",
+    "jurisdiction": "文山二",
+    "shootingDirection": "北向南",
+    "speedLimit": 60
+  },
+  {
+    "no": 83,
+    "features": "測速",
+    "setRoad": "羅斯福路6段",
+    "setPosition": "226號前",
+    "jurisdiction": "文山二",
+    "shootingDirection": "北向南",
+    "speedLimit": 50
+  },
+  {
+    "no": 84,
+    "features": "測速",
+    "setRoad": "辛亥路4段",
+    "setPosition": "辛亥隧道出口",
+    "jurisdiction": "文山二",
+    "shootingDirection": "北向南",
+    "speedLimit": 50
+  },
+  {
+    "no": 85,
+    "features": "測速",
+    "setRoad": "羅斯福路5段",
+    "setPosition": "240號前(近興隆路口)",
+    "jurisdiction": "文山二",
+    "shootingDirection": "北向南",
+    "speedLimit": 50
+  },
+  {
+    "no": 86,
+    "features": "測速",
+    "setRoad": "羅斯福路6段",
+    "setPosition": "469巷前(近育英街口)",
+    "jurisdiction": "文山二",
+    "shootingDirection": "南向北",
+    "speedLimit": 50
+  },
+  {
+    "no": 87,
+    "features": "測速",
+    "setRoad": "陽金公路53號燈桿後方",
+    "setPosition": "竹子湖路2-2號對面",
+    "jurisdiction": "北投",
+    "shootingDirection": "往臺北市區",
+    "speedLimit": 40
+  },
+  {
+    "no": 88,
+    "features": "測速",
+    "setRoad": "承德路6段",
+    "setPosition": "",
+    "jurisdiction": "北投",
+    "shootingDirection": "北向南",
+    "speedLimit": 60
+  },
+  {
+    "no": 89,
+    "features": "測速",
+    "setRoad": "洲美快速道路(南向避車彎處)",
+    "setPosition": "",
+    "jurisdiction": "北投",
+    "shootingDirection": "北向南",
+    "speedLimit": 80
+  },
+  {
+    "no": 90,
+    "features": "測速",
+    "setRoad": "承德路6段",
+    "setPosition": "",
+    "jurisdiction": "北投",
+    "shootingDirection": "南往北",
+    "speedLimit": 60
+  },
+  {
+    "no": 91,
+    "features": "測速",
+    "setRoad": "洲美快速道路(北向避車彎處)",
+    "setPosition": "",
+    "jurisdiction": "北投",
+    "shootingDirection": "南向北",
+    "speedLimit": 80
+  },
+  {
+    "no": 92,
+    "features": "測速",
+    "setRoad": "大業路",
+    "setPosition": "412號前",
+    "jurisdiction": "北投",
+    "shootingDirection": "南向北",
+    "speedLimit": 60
+  },
+  {
+    "no": 93,
+    "features": "測速",
+    "setRoad": "大度路",
+    "setPosition": "往台北方向",
+    "jurisdiction": "北投",
+    "shootingDirection": "北向南",
+    "speedLimit": 70
+  },
+  {
+    "no": 94,
+    "features": "測速",
+    "setRoad": "大度路",
+    "setPosition": "往淡水方向",
+    "jurisdiction": "北投",
+    "shootingDirection": "南向北",
+    "speedLimit": 70
+  },
+  {
+    "no": 95,
+    "features": "測速",
+    "setRoad": "學園路(往關渡)",
+    "setPosition": "臺北藝術大學大門口",
+    "jurisdiction": "北投",
+    "shootingDirection": "下山方向",
+    "speedLimit": 40
+  },
+  {
+    "no": 96,
+    "features": "測速",
+    "setRoad": "立賢路101號前",
+    "setPosition": "",
+    "jurisdiction": "北投",
+    "shootingDirection": "南往北",
+    "speedLimit": 50
+  },
+  {
+    "no": 97,
+    "features": "闖紅燈",
+    "setRoad": "承德路7段",
+    "setPosition": "吉利街口",
+    "jurisdiction": "北投",
+    "shootingDirection": "北向南",
+    "speedLimit": 60
+  },
+  {
+    "no": 98,
+    "features": "闖紅燈",
+    "setRoad": "文林北路",
+    "setPosition": "明德路口",
+    "jurisdiction": "北投",
+    "shootingDirection": "北向南",
+    "speedLimit": 50
+  },
+  {
+    "no": 99,
+    "features": "闖紅燈",
+    "setRoad": "大度路",
+    "setPosition": "大業路口",
+    "jurisdiction": "北投",
+    "shootingDirection": "北向南",
+    "speedLimit": 50
+  },
+  {
+    "no": 100,
+    "features": "測速",
+    "setRoad": "民生東路4段",
+    "setPosition": "97巷口",
+    "jurisdiction": "松山",
+    "shootingDirection": "西向東",
+    "speedLimit": 50
+  },
+  {
+    "no": 101,
+    "features": "測速",
+    "setRoad": "復興北路",
+    "setPosition": "車行地下道南出口處",
+    "jurisdiction": "松山",
+    "shootingDirection": "北向南",
+    "speedLimit": 40
+  },
+  {
+    "no": 102,
+    "features": "測速",
+    "setRoad": "健康路",
+    "setPosition": "300號",
+    "jurisdiction": "松山",
+    "shootingDirection": "西向東",
+    "speedLimit": 50
+  },
+  {
+    "no": 103,
+    "features": "測速",
+    "setRoad": "塔悠路",
+    "setPosition": "近撫遠街261巷口",
+    "jurisdiction": "松山",
+    "shootingDirection": "北向南",
+    "speedLimit": 50
+  },
+  {
+    "no": 104,
+    "features": "測速",
+    "setRoad": "民權東路4段",
+    "setPosition": "民權公園前",
+    "jurisdiction": "松山",
+    "shootingDirection": "東西雙向",
+    "speedLimit": 50
+  },
+  {
+    "no": 105,
+    "features": "闖紅燈",
+    "setRoad": "敦化南路",
+    "setPosition": "八德路口",
+    "jurisdiction": "松山",
+    "shootingDirection": "南往北",
+    "speedLimit": 50
+  },
+  {
+    "no": 106,
+    "features": "闖紅燈",
+    "setRoad": "民權東路4段",
+    "setPosition": "三民街",
+    "jurisdiction": "松山",
+    "shootingDirection": "東向西",
+    "speedLimit": 50
+  },
+  {
+    "no": 107,
+    "features": "測速",
+    "setRoad": "市民高架道",
+    "setPosition": "下光復南路",
+    "jurisdiction": "信義",
+    "shootingDirection": "東西雙向",
+    "speedLimit": 80
+  },
+  {
+    "no": 108,
+    "features": "測速",
+    "setRoad": "市民大道5段",
+    "setPosition": "50號前(近東寧路口)",
+    "jurisdiction": "信義",
+    "shootingDirection": "西向東",
+    "speedLimit": 50
+  },
+  {
+    "no": 109,
+    "features": "測速",
+    "setRoad": "忠孝東路5段210號前",
+    "setPosition": "",
+    "jurisdiction": "信義",
+    "shootingDirection": "西向東",
+    "speedLimit": 50
+  },
+  {
+    "no": 110,
+    "features": "測速",
+    "setRoad": "忠孝東路4段",
+    "setPosition": "近逸仙路口",
+    "jurisdiction": "信義",
+    "shootingDirection": "東西雙向",
+    "speedLimit": 50
+  },
+  {
+    "no": 111,
+    "features": "闖紅燈",
+    "setRoad": "永吉路",
+    "setPosition": "松信路口",
+    "jurisdiction": "信義",
+    "shootingDirection": "東向西",
+    "speedLimit": 50
+  },
+  {
+    "no": 112,
+    "features": "闖紅燈",
+    "setRoad": "松仁路",
+    "setPosition": "松壽路口",
+    "jurisdiction": "信義",
+    "shootingDirection": "北向南",
+    "speedLimit": 50
+  },
+  {
+    "no": 113,
+    "features": "闖紅燈",
+    "setRoad": "基隆路",
+    "setPosition": "與松壽路口",
+    "jurisdiction": "信義",
+    "shootingDirection": "北向南",
+    "speedLimit": 50
+  },
+  {
+    "no": 114,
+    "features": "闖紅燈",
+    "setRoad": "光復南路",
+    "setPosition": "456巷",
+    "jurisdiction": "信義",
+    "shootingDirection": "北向南",
+    "speedLimit": 50
+  },
+  {
+    "no": 115,
+    "features": "測速",
+    "setRoad": "市民大道8段",
+    "setPosition": "東南街口",
+    "jurisdiction": "南港",
+    "shootingDirection": "東向西",
+    "speedLimit": 50
+  },
+  {
+    "no": 116,
+    "features": "測速",
+    "setRoad": "忠孝東路7段",
+    "setPosition": "511號前",
+    "jurisdiction": "南港",
+    "shootingDirection": "西向東",
+    "speedLimit": 50
+  },
+  {
+    "no": 117,
+    "features": "測速",
+    "setRoad": "市民大道7段",
+    "setPosition": "近昆陽街口",
+    "jurisdiction": "南港",
+    "shootingDirection": "東往西",
+    "speedLimit": 50
+  },
+  {
+    "no": 118,
+    "features": "測速",
+    "setRoad": "三重路",
+    "setPosition": "19-5號前",
+    "jurisdiction": "南港",
+    "shootingDirection": "北向南",
+    "speedLimit": 50
+  },
+  {
+    "no": 119,
+    "features": "測速",
+    "setRoad": "市民大道7段",
+    "setPosition": "東新街  往東約100公尺處(忠孝東路6段159巷口)",
+    "jurisdiction": "南港",
+    "shootingDirection": "西向東",
+    "speedLimit": 50
+  },
+  {
+    "no": 120,
+    "features": "測速",
+    "setRoad": "市民大道8段",
+    "setPosition": "500號",
+    "jurisdiction": "南港",
+    "shootingDirection": "西往東",
+    "speedLimit": 50
+  },
+  {
+    "no": 121,
+    "features": "測速(兼闖紅燈)",
+    "setRoad": "忠孝東路6段",
+    "setPosition": "159巷",
+    "jurisdiction": "南港",
+    "shootingDirection": "東向西",
+    "speedLimit": 50
+  },
+  {
+    "no": 122,
+    "features": "闖紅燈",
+    "setRoad": "忠孝東路7段",
+    "setPosition": "527巷口",
+    "jurisdiction": "南港",
+    "shootingDirection": "東向西",
+    "speedLimit": 50
+  },
+  {
+    "no": 123,
+    "features": "測速",
+    "setRoad": "水源路",
+    "setPosition": "205號前",
+    "jurisdiction": "萬華",
+    "shootingDirection": "東向西",
+    "speedLimit": 60
+  },
+  {
+    "no": 124,
+    "features": "測速",
+    "setRoad": "艋舺大道",
+    "setPosition": "297號台糖公司前",
+    "jurisdiction": "萬華",
+    "shootingDirection": "東向西",
+    "speedLimit": 50
+  },
+  {
+    "no": 125,
+    "features": "測速",
+    "setRoad": "萬板大橋",
+    "setPosition": "台北端引道",
+    "jurisdiction": "萬華",
+    "shootingDirection": "往台北市",
+    "speedLimit": 50
+  },
+  {
+    "no": 126,
+    "features": "測速",
+    "setRoad": "環河南路快速道路",
+    "setPosition": "中興橋匝道(環河南路2段250巷口)",
+    "jurisdiction": "萬華",
+    "shootingDirection": "北向南",
+    "speedLimit": 60
+  },
+  {
+    "no": 127,
+    "features": "測速",
+    "setRoad": "和平西路3段",
+    "setPosition": "199號前",
+    "jurisdiction": "萬華",
+    "shootingDirection": "西向東",
+    "speedLimit": 50
+  },
+  {
+    "no": 128,
+    "features": "測速",
+    "setRoad": "環河南路1段",
+    "setPosition": "77號對面",
+    "jurisdiction": "萬華",
+    "shootingDirection": "北向南",
+    "speedLimit": 50
+  },
+  {
+    "no": 129,
+    "features": "測速",
+    "setRoad": "華中橋頭(往北、往南)",
+    "setPosition": "萬大路",
+    "jurisdiction": "萬華",
+    "shootingDirection": "南北雙向",
+    "speedLimit": 50
+  },
+  {
+    "no": 130,
+    "features": "測速",
+    "setRoad": "中華路1段",
+    "setPosition": "往南(萬華406號廣場前）",
+    "jurisdiction": "萬華",
+    "shootingDirection": "北向南",
+    "speedLimit": 50
+  },
+  {
+    "no": 131,
+    "features": "闖紅燈",
+    "setRoad": "艋舺大道",
+    "setPosition": "120巷口",
+    "jurisdiction": "萬華",
+    "shootingDirection": "東向西",
+    "speedLimit": 50
+  },
+  {
+    "no": 132,
+    "features": "闖紅燈",
+    "setRoad": "西園路2段",
+    "setPosition": "光復橋頭",
+    "jurisdiction": "萬華",
+    "shootingDirection": "南向北",
+    "speedLimit": 50
+  },
+  {
+    "no": 133,
+    "features": "闖紅燈",
+    "setRoad": "艋舺大道",
+    "setPosition": "雙園街",
+    "jurisdiction": "萬華",
+    "shootingDirection": "西向東",
+    "speedLimit": 50
+  },
+  {
+    "no": 134,
+    "features": "測速",
+    "setRoad": "承德路4段",
+    "setPosition": "福港街",
+    "jurisdiction": "士林",
+    "shootingDirection": "北往南",
+    "speedLimit": 50
+  },
+  {
+    "no": 135,
+    "features": "闖紅燈",
+    "setRoad": "西園路2段",
+    "setPosition": "140巷",
+    "jurisdiction": "萬華",
+    "shootingDirection": "南向北",
+    "speedLimit": 50
+  },
+  {
+    "no": 136,
+    "features": "闖紅燈及路口淨空",
+    "setRoad": "南京東路3段",
+    "setPosition": "復興北路口",
+    "jurisdiction": "松山",
+    "shootingDirection": "南向北",
+    "speedLimit": "\\"
+  },
+  {
+    "no": 137,
+    "features": "闖紅燈及路口淨空",
+    "setRoad": "中山北路4段",
+    "setPosition": "通河街口",
+    "jurisdiction": "士林",
+    "shootingDirection": "南向北",
+    "speedLimit": "\\"
+  },
+  {
+    "no": 138,
+    "features": "闖紅燈及路口淨空",
+    "setRoad": "民生西路",
+    "setPosition": "承德路2段口",
+    "jurisdiction": "大同",
+    "shootingDirection": "南向北",
+    "speedLimit": "\\"
+  },
+  {
+    "no": 139,
+    "features": "闖紅燈及路口淨空",
+    "setRoad": "光復南路",
+    "setPosition": "信義路4段口北側",
+    "jurisdiction": "大安",
+    "shootingDirection": "西向東",
+    "speedLimit": "\\"
+  },
+  {
+    "no": 140,
+    "features": "測速",
+    "setRoad": "環河北路2段",
+    "setPosition": "昌吉街口",
+    "jurisdiction": "大同",
+    "shootingDirection": "南北雙向",
+    "speedLimit": "50(往北)\n60(往南)"
+  },
+  {
+    "no": 141,
+    "features": "測速",
+    "setRoad": "南京東路4段",
+    "setPosition": "健康路口",
+    "jurisdiction": "松山",
+    "shootingDirection": "東西雙向",
+    "speedLimit": 50
+  },
+  {
+    "no": 142,
+    "features": "測速",
+    "setRoad": "中山南路",
+    "setPosition": "近濟南路1段口",
+    "jurisdiction": "中正一",
+    "shootingDirection": "北向南",
+    "speedLimit": 50
+  },
+  {
+    "no": 143,
+    "features": "違規停車",
+    "setRoad": "忠孝東路5段",
+    "setPosition": "市府轉運站前",
+    "jurisdiction": "信義",
+    "shootingDirection": "西往東",
+    "speedLimit": "\\"
+  },
+  {
+    "no": 144,
+    "features": "區間測速及跨越雙白線",
+    "setRoad": "自強隧道",
+    "setPosition": "",
+    "jurisdiction": "士林",
+    "shootingDirection": "北往南",
+    "speedLimit": 50
+  },
+  {
+    "no": 145,
+    "features": "區間測速及跨越雙白線",
+    "setRoad": "自強隧道",
+    "setPosition": "",
+    "jurisdiction": "中山",
+    "shootingDirection": "南往北",
+    "speedLimit": 50
+  },
+  {
+    "no": 146,
+    "features": "區間測速及跨越雙白線",
+    "setRoad": "辛亥隧道",
+    "setPosition": "",
+    "jurisdiction": "文山二",
+    "shootingDirection": "北往南",
+    "speedLimit": 50
+  },
+  {
+    "no": 147,
+    "features": "區間測速及跨越雙白線",
+    "setRoad": "辛亥隧道",
+    "setPosition": "",
+    "jurisdiction": "大安",
+    "shootingDirection": "南往北",
+    "speedLimit": 50
+  },
+  {
+    "no": 148,
+    "features": "6.5噸以上大型車違規行駛、機車違規行駛及行駛路肩",
+    "setRoad": "市民高架道路",
+    "setPosition": "近逸仙公園",
+    "jurisdiction": "中正一",
+    "shootingDirection": "西往東",
+    "speedLimit": "\\"
+  },
+  {
+    "no": 149,
+    "features": "6.5噸以上大型車違規行駛、機車違規行駛及行駛路肩",
+    "setRoad": "市民高架道路",
+    "setPosition": "近逸仙公園",
+    "jurisdiction": "中山",
+    "shootingDirection": "東往西",
+    "speedLimit": "\\"
+  },
+  {
+    "no": 150,
+    "features": "違規停車",
+    "setRoad": "市民大道",
+    "setPosition": "臺北車站北側門",
+    "jurisdiction": "中正一",
+    "shootingDirection": "西往東",
+    "speedLimit": "\\"
+  },
+  {
+    "no": 151,
+    "features": "違規停車",
+    "setRoad": "吳興街220巷",
+    "setPosition": "臺北醫學院周邊",
+    "jurisdiction": "信義",
+    "shootingDirection": "南北雙向",
+    "speedLimit": "\\"
+  },
+  {
+    "no": 152,
+    "features": "違規停車",
+    "setRoad": "中山北路二段９２號",
+    "setPosition": "馬偕醫院周邊",
+    "jurisdiction": "中山",
+    "shootingDirection": "北往南",
+    "speedLimit": "\\"
+  },
+  {
+    "no": 153,
+    "features": "6.5噸以上大型車違規行駛、機車違規行駛及跨越雙白線",
+    "setRoad": "建國高架道路",
+    "setPosition": "市民大道上方",
+    "jurisdiction": "大安",
+    "shootingDirection": "南往北",
+    "speedLimit": "\\"
+  },
+  {
+    "no": 154,
+    "features": "6.5噸以上大型車違規行駛、機車違規行駛及跨越雙白線",
+    "setRoad": "建國高架道路",
+    "setPosition": "市民大道上方",
+    "jurisdiction": "大安",
+    "shootingDirection": "北往南",
+    "speedLimit": "\\"
+  },
+  {
+    "no": 155,
+    "features": "跨越雙白線、違規左轉、闖紅燈",
+    "setRoad": "鄭州路",
+    "setPosition": "西寧北路",
+    "jurisdiction": "大同",
+    "shootingDirection": "東往西及南往北",
+    "speedLimit": "\\"
+  },
+  {
+    "no": 156,
+    "features": "測速",
+    "setRoad": "潭美街223號對面",
+    "setPosition": "",
+    "jurisdiction": "內湖",
+    "shootingDirection": "東西雙向",
+    "speedLimit": 40
+  }
+]

@@ -51,12 +51,13 @@ const useHoliday = () => {
 
     const getHolidayApi = async () => {
         dispatch(getHoliday())
-        // 備用網頁，手動下載用：
-        // https://data.ntpc.gov.tw/datasets/308DCD75-6434-45BC-A95F-584DA4FED251
         const httpClient = axios.create()
         httpClient.defaults.timeout = 3000
         return await httpClient.get('https://cors-anywhere.herokuapp.com/http://data.ntpc.gov.tw/api/v1/rest/datastore/382000000A-000077-002')
             .then((resultData) => {
+                // 因為 api 不支援跨網域
+                // 且來源只提供 csv 檔，還要轉乘 json
+                // 永遠跑不到這裡
                 const tableData = produceApiResultData(resultData.result.records)
                 const yearList = produceHolidayYearList(tableData)
                 dispatch(getHolidaySuccess({

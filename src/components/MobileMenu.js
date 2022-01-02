@@ -8,9 +8,11 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
+import Hidden from '@material-ui/core/Hidden'
 
 import IconButton from '@material-ui/core/IconButton'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
+import GitHubIcon from '@material-ui/icons/GitHub'
 
 import { menuList } from '../constants/menuList'
 import MuiSwitchToggleTheme from '../components/MuiSwitchToggleTheme'
@@ -99,16 +101,33 @@ const MobileMenu = ({ closeMenu, toggleTheme }) => {
             </StyledMobileMenuClose>
             <StyledDivider />
             <List>
-                <StyledListItemToggleTheme>
-                    <MuiSwitchToggleTheme
-                        toggleTheme={toggleTheme}
-                    />
-                </StyledListItemToggleTheme>
-            </List>
-            <StyledDivider />
-            <List>
                 {linkList}
             </List>
+            <Hidden smUp>
+                <StyledDivider />
+                <List>
+                    <StyledListItem
+                        button
+                        component="a"
+                        href='https://github.com/roychen3'
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <ListItemIcon>
+                            <GitHubIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Author" />
+                    </StyledListItem>
+                </List>
+                <StyledDivider />
+                <List>
+                    <StyledListItemToggleTheme>
+                        <MuiSwitchToggleTheme
+                            toggleTheme={toggleTheme}
+                        />
+                    </StyledListItemToggleTheme>
+                </List>
+            </Hidden>
         </StyledMobileMenuContainer>
     )
 }

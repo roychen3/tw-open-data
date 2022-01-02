@@ -61,21 +61,19 @@ const Header = ({ toggleTheme }) => {
       <Grid container spacing={1}>
         <Grid item xs>
           <StyledTitleContainer>
-            <Hidden smUp>
-              <StyledIconButton size="small" onClick={() => toggleMobilMenuDrawer(true)}>
-                <MenuIcon />
-              </StyledIconButton >
-              <StyledDrawer
-                variant="persistent"
-                anchor={'left'}
-                open={mobilMenuIsOpen}
-                onClose={() => toggleMobilMenuDrawer(false)}
-              >
-                <MobileMenu
-                  closeMenu={() => toggleMobilMenuDrawer(false)} toggleTheme={toggleTheme}
-                />
-              </StyledDrawer>
-            </Hidden>
+            <StyledIconButton size="small" onClick={() => toggleMobilMenuDrawer(true)}>
+              <MenuIcon />
+            </StyledIconButton >
+            <StyledDrawer
+              variant="persistent"
+              anchor={'left'}
+              open={mobilMenuIsOpen}
+              onClose={() => toggleMobilMenuDrawer(false)}
+            >
+              <MobileMenu
+                closeMenu={() => toggleMobilMenuDrawer(false)} toggleTheme={toggleTheme}
+              />
+            </StyledDrawer>
             <StyledDataUsageIcon />
             <StyledTitle>政府資料開放平台</StyledTitle>
           </StyledTitleContainer>

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import WarningRoundedIcon from '@material-ui/icons/WarningRounded'
+import ErrorIcon from '@material-ui/icons/Error'
 
 const StyledMessageContent = styled.div`
 text-align: left;
@@ -17,7 +17,7 @@ const MessageModal = () => {
   return (
     <>
       <StyledIcon>
-        <WarningRoundedIcon fontSize="large" />
+        <ErrorIcon fontSize="large" />
       </StyledIcon>
       <StyledMessageContent>
         <StyledNote>
@@ -32,11 +32,11 @@ const MessageModal = () => {
         <br />
         <p>因為 api 不支援跨網域，且來源只提供 csv 檔，呈現資料為手動更新，故有可能不會有最新資料。</p>
         <br />
-        <p>資料最後更新日期:	2021-11-17 09:25:55</p>
+        <p>資料最後更新日期: 2021-11-17 09:25:55</p>
         <p>資料來源: </p>
         <p>
           <a href="https://data.taipei/#/dataset/detail?id=745b8808-061f-4f5b-9a62-da1590c049a9">
-            https://data.taipei/#/dataset/detail?id=745b8808-061f-4f5b-9a62-da1590c049a9
+            臺北市資料大平臺
           </a>
         </p>
       </StyledMessageContent>

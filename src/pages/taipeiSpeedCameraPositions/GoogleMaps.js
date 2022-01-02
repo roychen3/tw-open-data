@@ -106,8 +106,8 @@ const GoogleMaps = () => {
     const [google, setGoogle] = useState(undefined)
     const [loadGoogleError, setLoadGoogleError] = useState(undefined)
     const [gMap, setGMap] = useState(undefined)
-    const [activeInfoWindow, setActiveInfoWindow] = useState(undefined)
     const [cameraNo, setCamera] = useState()
+    const [allActiveInfoWindows, setAllActiveInfoWindows] = useState(new Map())
 
     useEffect(() => {
         const loader = new Loader({
@@ -174,19 +174,31 @@ const GoogleMaps = () => {
                     `
 
             marker.addListener("click", () => {
-                if (activeInfoWindow) activeInfoWindow.close()
+                allActiveInfoWindows.forEach((value) => {
+                    value.close()
+                })
+
                 infoWindow.setContent(infoWindowContent)
                 infoWindow.open(gMap, marker)
-                setActiveInfoWindow(infoWindow)
+                setAllActiveInfoWindows(value => {
+                    value.clear()
+                    return value.set(item.no, infoWindow)
+                })
                 setCamera(item.no)
             })
 
             const handleSetMapPosition = (data) => {
-                if (activeInfoWindow) activeInfoWindow.close()
+                allActiveInfoWindows.forEach((value) => {
+                    value.close()
+                })
+
                 gMap.setCenter(data.location)
                 infoWindow.setContent(infoWindowContent)
                 infoWindow.open(gMap, marker)
-                setActiveInfoWindow(infoWindow)
+                setAllActiveInfoWindows(value => {
+                    value.clear()
+                    return value.set(item.no, infoWindow)
+                })
                 setCamera(data.no)
             }
 

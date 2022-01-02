@@ -46,6 +46,7 @@ const index = () => {
         weatherAllLocationLoading,
         weatherAllLocationError,
         getWeatherApi,
+        getFakeWeatherAllLocation,
         creatWeatherCardList,
     } = useWeather()
 
@@ -78,6 +79,7 @@ const index = () => {
     useEffect(() => {
         if (weatherAllLocationError !== null) {
             handaleMessageModalOpen()
+            getFakeWeatherAllLocation()
         }
     }, [weatherAllLocationError])
 

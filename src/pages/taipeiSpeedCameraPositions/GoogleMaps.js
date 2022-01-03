@@ -107,8 +107,8 @@ const GoogleMaps = ({ theme }) => {
     const [google, setGoogle] = useState(undefined)
     const [loadGoogleError, setLoadGoogleError] = useState(undefined)
     const [gMap, setGMap] = useState(undefined)
-    const [cameraNo, setCamera] = useState()
-    const [allActiveInfoWindows, setAllActiveInfoWindows] = useState(new Map())
+    const [infoWindow, setInfoWindow] = useState(undefined)
+    const [selectedCameraNo, setSelectedCameraNo] = useState()
 
     useEffect(() => {
         const loader = new Loader({
@@ -118,6 +118,7 @@ const GoogleMaps = ({ theme }) => {
 
         loader.load().then((res) => {
             setGoogle(res)
+
             const newMap = new res.maps.Map(googleMapRef.current, {
                 center: { lat: 25.047802296330403, lng: 121.5177953369906 },
                 zoom: 12,
@@ -125,6 +126,13 @@ const GoogleMaps = ({ theme }) => {
                 styles: googleMapsStyleTheme[theme.themeName],
             })
             setGMap(newMap)
+
+            const newInfoWindow = new res.maps.InfoWindow({
+                content: '',
+                disableAutoPan: true,
+            })
+            setInfoWindow(newInfoWindow)
+
         }).catch((err) => {
             console.log('err.message', err.message)
             setLoadGoogleError(err.message)
@@ -139,13 +147,37 @@ const GoogleMaps = ({ theme }) => {
         }
     }, [theme.themeName])
 
-    const getItemLisComponent = () => {
-        const infoWindow = new google.maps.InfoWindow({
-            content: '',
-            disableAutoPan: true,
-        })
+    const handleMarkerClick = (marker, data) => {
+        const infoWindowContent = `
+        <div style="color: #ea4335;">
+            <div>${data.features} - 限速 ${data.speedLimit}<div>
+            <div>${data.address}</div>
+        </div>
+        `
+        infoWindow.setContent(infoWindowContent)
+        infoWindow.open(gMap, marker)
 
-        return taipeiSpeedCameraPositions.map((item) => {
+        setSelectedCameraNo(data.no)
+    }
+
+    const handlePositionListClick = (marker, data) => {
+        gMap.setCenter(data.location)
+
+        const infoWindowContent = `
+        <div style="color: #ea4335;">
+            <div>${data.features} - 限速 ${data.speedLimit}<div>
+            <div>${data.address}</div>
+        </div>
+        `
+        infoWindow.setContent(infoWindowContent)
+        infoWindow.open(gMap, marker)
+
+        setSelectedCameraNo(data.no)
+    }
+
+
+    const getItemLisComponent = () => (
+        taipeiSpeedCameraPositions.map((item) => {
             if (item.errorMessage) {
                 return (
                     <Fragment key={`${item.no}`}>
@@ -177,41 +209,7 @@ const GoogleMaps = ({ theme }) => {
                 map: gMap,
             })
 
-            const infoWindowContent = `
-                    <div style="color: #ea4335;">
-                        <div>${item.features} - 限速 ${item.speedLimit}<div>
-                        <div>${item.address}</div>
-                    </div>
-                    `
-
-            marker.addListener("click", () => {
-                allActiveInfoWindows.forEach((value) => {
-                    value.close()
-                })
-
-                infoWindow.setContent(infoWindowContent)
-                infoWindow.open(gMap, marker)
-                setAllActiveInfoWindows(value => {
-                    value.clear()
-                    return value.set(item.no, infoWindow)
-                })
-                setCamera(item.no)
-            })
-
-            const handleSetMapPosition = (data) => {
-                allActiveInfoWindows.forEach((value) => {
-                    value.close()
-                })
-
-                gMap.setCenter(data.location)
-                infoWindow.setContent(infoWindowContent)
-                infoWindow.open(gMap, marker)
-                setAllActiveInfoWindows(value => {
-                    value.clear()
-                    return value.set(item.no, infoWindow)
-                })
-                setCamera(data.no)
-            }
+            marker.addListener("click", () => handleMarkerClick(marker, item))
 
             return (
                 <Fragment key={`${item.no}`}>
@@ -220,8 +218,8 @@ const GoogleMaps = ({ theme }) => {
                         role={undefined}
                         dense
                         button
-                        onClick={() => handleSetMapPosition(item)}
-                        $isSelected={cameraNo === item.no}
+                        onClick={() => handlePositionListClick(marker, item)}
+                        $isSelected={selectedCameraNo === item.no}
                     >
                         <ListItemIcon>
                             <StyledLocationOnIcon />
@@ -235,7 +233,7 @@ const GoogleMaps = ({ theme }) => {
                 </Fragment>
             )
         })
-    }
+    )
 
     return (
         <StyledPaper>
@@ -260,7 +258,7 @@ const GoogleMaps = ({ theme }) => {
                             }
                         </StyledMapContainer>
                     </Grid>
-                    {google && gMap && taipeiSpeedCameraPositions.length > 0 &&
+                    {google && gMap && infoWindow && taipeiSpeedCameraPositions.length > 0 &&
                         <Grid item xs={12} sm={4}>
                             <StyledList>
                                 {getItemLisComponent()}

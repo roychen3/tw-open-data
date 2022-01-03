@@ -14,6 +14,7 @@ import WarningRoundedIcon from '@material-ui/icons/WarningRounded'
 import Box from '@material-ui/core/Box'
 
 import { MuiLoadingPage } from '../../components/muiCircularProgress'
+import MuiTextField from '../../components/MuiTextField'
 import { GOOGLE_MAPS_API_KEY } from '../../constants/googleMapsApiKey'
 
 import useTaipeiSpeedCameraPositions from './useTaipeiSpeedCameraPositions'
@@ -109,6 +110,7 @@ const GoogleMaps = ({ theme }) => {
     const [gMap, setGMap] = useState(undefined)
     const [infoWindow, setInfoWindow] = useState(undefined)
     const [selectedCameraNo, setSelectedCameraNo] = useState()
+    const [filterCameraList, setFilterCameraList] = useState(taipeiSpeedCameraPositions)
 
     useEffect(() => {
         const loader = new Loader({
@@ -147,6 +149,16 @@ const GoogleMaps = ({ theme }) => {
         }
     }, [theme.themeName])
 
+    const handleSearchFieldChange = (event) => {
+        console.log(event.target.value)
+        if (event.target.value) {
+            const reg = new RegExp(event.target.value, 'g')
+            const filtedList = taipeiSpeedCameraPositions.filter((item) => (
+                reg.test(item.address) || reg.test(`限速 ${item.speedLimit}`) || reg.test(item.features)))
+            setFilterCameraList(filtedList)
+        }
+    }
+
     const handleMarkerClick = (marker, data) => {
         const infoWindowContent = `
         <div style="color: #ea4335;">
@@ -175,9 +187,8 @@ const GoogleMaps = ({ theme }) => {
         setSelectedCameraNo(data.no)
     }
 
-
     const getItemLisComponent = () => (
-        taipeiSpeedCameraPositions.map((item) => {
+        filterCameraList.map((item) => {
             if (item.errorMessage) {
                 return (
                     <Fragment key={`${item.no}`}>
@@ -260,6 +271,15 @@ const GoogleMaps = ({ theme }) => {
                     </Grid>
                     {google && gMap && infoWindow && taipeiSpeedCameraPositions.length > 0 &&
                         <Grid item xs={12} sm={4}>
+                            <StyledList>
+                                <StyledListItem alignItems="flex-start" role={undefined} dense>
+                                    <MuiTextField
+                                        label="Search..."
+                                        onChange={handleSearchFieldChange}
+                                        fullWidth
+                                    />
+                                </StyledListItem>
+                            </StyledList>
                             <StyledList>
                                 {getItemLisComponent()}
                             </StyledList>

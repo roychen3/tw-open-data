@@ -87,6 +87,8 @@ const StyledListItemTextSecondary = styled.span`
 display: block;
 `
 
+const createdMarkers = {}
+
 const getRandomCharacter = () => {
     const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     return [
@@ -109,8 +111,53 @@ const GoogleMaps = ({ theme }) => {
     const [loadGoogleError, setLoadGoogleError] = useState(undefined)
     const [gMap, setGMap] = useState(undefined)
     const [infoWindow, setInfoWindow] = useState(undefined)
-    const [selectedCameraNo, setSelectedCameraNo] = useState()
+    const [selectedCameraNo, setSelectedCameraNo] = useState('')
     const [filterCameraList, setFilterCameraList] = useState(taipeiSpeedCameraPositions)
+
+    const handleSearchFieldChange = (event) => {
+        setSelectedCameraNo('')
+        infoWindow.close()
+        taipeiSpeedCameraPositions.forEach((item) => {
+            createdMarkers[item.no]?.setMap(null)
+        })
+
+        if (event.target.value) {
+            const reg = new RegExp(event.target.value, 'g')
+            const filtedList = taipeiSpeedCameraPositions.filter((item) => (
+                reg.test(item.address) || reg.test(`限速 ${item.speedLimit}`) || reg.test(item.features)))
+            setFilterCameraList(filtedList)
+        } else {
+            setFilterCameraList(taipeiSpeedCameraPositions)
+        }
+    }
+
+    const handleMarkerClick = (data) => {
+        const infoWindowContent = `
+        <div style="color: #ea4335;">
+            <div>${data.features} - 限速 ${data.speedLimit}<div>
+            <div>${data.address}</div>
+        </div>
+        `
+        infoWindow.setContent(infoWindowContent)
+        infoWindow.open(gMap, createdMarkers[data.no])
+
+        setSelectedCameraNo(data.no)
+    }
+
+    const handlePositionListClick = (data) => {
+        gMap.setCenter(data.location)
+
+        const infoWindowContent = `
+        <div style="color: #ea4335;">
+            <div>${data.features} - 限速 ${data.speedLimit}<div>
+            <div>${data.address}</div>
+        </div>
+        `
+        infoWindow.setContent(infoWindowContent)
+        infoWindow.open(gMap, createdMarkers[data.no])
+
+        setSelectedCameraNo(data.no)
+    }
 
     useEffect(() => {
         const loader = new Loader({
@@ -134,12 +181,28 @@ const GoogleMaps = ({ theme }) => {
                 disableAutoPan: true,
             })
             setInfoWindow(newInfoWindow)
-
         }).catch((err) => {
             console.log('err.message', err.message)
             setLoadGoogleError(err.message)
         })
     }, [])
+
+    useEffect(() => {
+        if (google && gMap && infoWindow) {
+            taipeiSpeedCameraPositions.forEach((item) => {
+                if (item.errorMessage) {
+                    return
+                }
+
+                const marker = new google.maps.Marker({
+                    position: item.location,
+                    map: null,
+                })
+                marker.addListener("click", () => handleMarkerClick(item))
+                createdMarkers[item.no] = marker
+            })
+        }
+    }, [google, gMap, infoWindow])
 
     useEffect(() => {
         if (gMap) {
@@ -148,44 +211,6 @@ const GoogleMaps = ({ theme }) => {
             })
         }
     }, [theme.themeName])
-
-    const handleSearchFieldChange = (event) => {
-        console.log(event.target.value)
-        if (event.target.value) {
-            const reg = new RegExp(event.target.value, 'g')
-            const filtedList = taipeiSpeedCameraPositions.filter((item) => (
-                reg.test(item.address) || reg.test(`限速 ${item.speedLimit}`) || reg.test(item.features)))
-            setFilterCameraList(filtedList)
-        }
-    }
-
-    const handleMarkerClick = (marker, data) => {
-        const infoWindowContent = `
-        <div style="color: #ea4335;">
-            <div>${data.features} - 限速 ${data.speedLimit}<div>
-            <div>${data.address}</div>
-        </div>
-        `
-        infoWindow.setContent(infoWindowContent)
-        infoWindow.open(gMap, marker)
-
-        setSelectedCameraNo(data.no)
-    }
-
-    const handlePositionListClick = (marker, data) => {
-        gMap.setCenter(data.location)
-
-        const infoWindowContent = `
-        <div style="color: #ea4335;">
-            <div>${data.features} - 限速 ${data.speedLimit}<div>
-            <div>${data.address}</div>
-        </div>
-        `
-        infoWindow.setContent(infoWindowContent)
-        infoWindow.open(gMap, marker)
-
-        setSelectedCameraNo(data.no)
-    }
 
     const getItemLisComponent = () => (
         filterCameraList.map((item) => {
@@ -215,12 +240,7 @@ const GoogleMaps = ({ theme }) => {
                 )
             }
 
-            const marker = new google.maps.Marker({
-                position: item.location,
-                map: gMap,
-            })
-
-            marker.addListener("click", () => handleMarkerClick(marker, item))
+            createdMarkers[item.no]?.setMap(gMap)
 
             return (
                 <Fragment key={`${item.no}`}>
@@ -229,7 +249,7 @@ const GoogleMaps = ({ theme }) => {
                         role={undefined}
                         dense
                         button
-                        onClick={() => handlePositionListClick(marker, item)}
+                        onClick={() => handlePositionListClick(item)}
                         $isSelected={selectedCameraNo === item.no}
                     >
                         <ListItemIcon>
@@ -269,7 +289,11 @@ const GoogleMaps = ({ theme }) => {
                             }
                         </StyledMapContainer>
                     </Grid>
-                    {google && gMap && infoWindow && taipeiSpeedCameraPositions.length > 0 &&
+                    {google
+                        && gMap
+                        && infoWindow
+                        && Object.keys(createdMarkers).length > 0
+                        && taipeiSpeedCameraPositions.length > 0 &&
                         <Grid item xs={12} sm={4}>
                             <StyledList>
                                 <StyledListItem alignItems="flex-start" role={undefined} dense>

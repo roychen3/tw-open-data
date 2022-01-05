@@ -28,11 +28,19 @@ color: ${({ theme }) => theme.error}};
 
 const StyledMapContainer = styled.div`
 wdth: 100%;
-height: 60vh;
+height: 50vh;
 position: relative;
 
 @media (min-width: 600px) {
-    height: 90vh;
+    height: 80vh;
+}
+`
+const StyledListContainer = styled.div`
+height: 30vh;
+overflow-y: hidden;
+
+@media (min-width: 600px) {
+    height: 80vh;
 }
 `
 
@@ -46,12 +54,8 @@ height: 39px !important;
 `
 
 const StyledList = styled(List)`
-max-height: 30vh;
-overflow: auto !important;
-
-@media (min-width: 600px) {
-    max-height: 90vh;
-}
+height: calc(100% - 80px);
+overflow: auto;
 `
 
 const StyledListItem = styled(ListItem)`
@@ -118,7 +122,10 @@ const GoogleMaps = ({ theme }) => {
         setSelectedCameraNo('')
         infoWindow.close()
         taipeiSpeedCameraPositions.forEach((item) => {
-            createdMarkers[item.no]?.setMap(null)
+            if (item.errorMessage) {
+                return
+            }
+            createdMarkers[item.no].setMap(null)
         })
 
         if (event.target.value) {
@@ -133,11 +140,11 @@ const GoogleMaps = ({ theme }) => {
 
     const handleMarkerClick = (data) => {
         const infoWindowContent = `
-        <div style="color: #ea4335;">
-            <div>${data.features} - 限速 ${data.speedLimit}<div>
+    <div style="color: #ea4335;">
+        <div>${data.features} - 限速 ${data.speedLimit}<div>
             <div>${data.address}</div>
         </div>
-        `
+            `
         infoWindow.setContent(infoWindowContent)
         infoWindow.open(gMap, createdMarkers[data.no])
 
@@ -148,11 +155,11 @@ const GoogleMaps = ({ theme }) => {
         gMap.setCenter(data.location)
 
         const infoWindowContent = `
-        <div style="color: #ea4335;">
-            <div>${data.features} - 限速 ${data.speedLimit}<div>
-            <div>${data.address}</div>
-        </div>
-        `
+            <div style="color: #ea4335;">
+                <div>${data.features} - 限速 ${data.speedLimit}<div>
+                    <div>${data.address}</div>
+                </div>
+                    `
         infoWindow.setContent(infoWindowContent)
         infoWindow.open(gMap, createdMarkers[data.no])
 
@@ -240,7 +247,7 @@ const GoogleMaps = ({ theme }) => {
                 )
             }
 
-            createdMarkers[item.no]?.setMap(gMap)
+            createdMarkers[item.no].setMap(gMap)
 
             return (
                 <Fragment key={`${item.no}`}>
@@ -295,18 +302,20 @@ const GoogleMaps = ({ theme }) => {
                         && Object.keys(createdMarkers).length > 0
                         && taipeiSpeedCameraPositions.length > 0 &&
                         <Grid item xs={12} sm={4}>
-                            <StyledList>
-                                <StyledListItem alignItems="flex-start" role={undefined} dense>
-                                    <MuiTextField
-                                        label="Search..."
-                                        onChange={handleSearchFieldChange}
-                                        fullWidth
-                                    />
-                                </StyledListItem>
-                            </StyledList>
-                            <StyledList>
-                                {getItemLisComponent()}
-                            </StyledList>
+                            <StyledListContainer>
+                                <List>
+                                    <StyledListItem role={undefined} dense>
+                                        <MuiTextField
+                                            label="Search..."
+                                            onChange={handleSearchFieldChange}
+                                            fullWidth
+                                        />
+                                    </StyledListItem>
+                                </List>
+                                <StyledList>
+                                    {getItemLisComponent()}
+                                </StyledList>
+                            </StyledListContainer>
                         </Grid>
                     }
                 </Grid>

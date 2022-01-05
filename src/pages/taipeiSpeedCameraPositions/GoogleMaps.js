@@ -2,6 +2,7 @@ import React, { useEffect, useState, Fragment, useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled, { withTheme } from 'styled-components'
 import { Loader } from '@googlemaps/js-api-loader'
+
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import Divider from '@material-ui/core/Divider'
@@ -140,11 +141,11 @@ const GoogleMaps = ({ theme }) => {
 
     const handleMarkerClick = (data) => {
         const infoWindowContent = `
-    <div style="color: #ea4335;">
-        <div>${data.features} - 限速 ${data.speedLimit}<div>
+        <div style="color: #ea4335;">
+            <div>${data.features} - 限速 ${data.speedLimit}<div>
             <div>${data.address}</div>
         </div>
-            `
+        `
         infoWindow.setContent(infoWindowContent)
         infoWindow.open(gMap, createdMarkers[data.no])
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState, Fragment, useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled, { withTheme } from 'styled-components'
 import { Loader } from '@googlemaps/js-api-loader'
+
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import Divider from '@material-ui/core/Divider'
@@ -14,6 +15,7 @@ import WarningRoundedIcon from '@material-ui/icons/WarningRounded'
 import Box from '@material-ui/core/Box'
 
 import { MuiLoadingPage } from '../../components/muiCircularProgress'
+import MuiTextField from '../../components/MuiTextField'
 import { GOOGLE_MAPS_API_KEY } from '../../constants/googleMapsApiKey'
 
 import useTaipeiSpeedCameraPositions from './useTaipeiSpeedCameraPositions'
@@ -27,11 +29,19 @@ color: ${({ theme }) => theme.error}};
 
 const StyledMapContainer = styled.div`
 wdth: 100%;
-height: 60vh;
+height: 50vh;
 position: relative;
 
 @media (min-width: 600px) {
-    height: 90vh;
+    height: 80vh;
+}
+`
+const StyledListContainer = styled.div`
+height: 30vh;
+overflow-y: hidden;
+
+@media (min-width: 600px) {
+    height: 80vh;
 }
 `
 
@@ -45,12 +55,8 @@ height: 39px !important;
 `
 
 const StyledList = styled(List)`
-max-height: 30vh;
-overflow: auto !important;
-
-@media (min-width: 600px) {
-    max-height: 90vh;
-}
+height: calc(100% - 80px);
+overflow: auto;
 `
 
 const StyledListItem = styled(ListItem)`
@@ -98,6 +104,7 @@ const getRandomCharacter = () => {
 const GoogleMaps = ({ theme }) => {
     const { taipeiSpeedCameraPositions } = useTaipeiSpeedCameraPositions()
     const googleMapRef = useRef()
+    const cameraListRef = useRef()
 
     const millisecond = Date.now().toString().slice(-3)
     const randomCharacter = getRandomCharacter()
@@ -107,8 +114,46 @@ const GoogleMaps = ({ theme }) => {
     const [google, setGoogle] = useState(undefined)
     const [loadGoogleError, setLoadGoogleError] = useState(undefined)
     const [gMap, setGMap] = useState(undefined)
-    const [cameraNo, setCamera] = useState()
-    const [allActiveInfoWindows, setAllActiveInfoWindows] = useState(new Map())
+    const [infoWindow, setInfoWindow] = useState(undefined)
+    const [createdMarkers, setCreatedMarkers] = useState({})
+    const [selectedCameraNo, setSelectedCameraNo] = useState('')
+    const [filterCameraList, setFilterCameraList] = useState(taipeiSpeedCameraPositions)
+    const [cameraItems, setCameraItems] = useState(null)
+
+    const handleSearchFieldChange = (event) => {
+        setSelectedCameraNo('')
+        infoWindow.close()
+        taipeiSpeedCameraPositions.forEach((item) => {
+            if (item.errorMessage) {
+                return
+            }
+            createdMarkers[item.no].setMap(null)
+        })
+
+        if (event.target.value) {
+            const reg = new RegExp(event.target.value, 'g')
+            const filtedList = taipeiSpeedCameraPositions.filter((item) => (
+                reg.test(item.address) || reg.test(`限速 ${item.speedLimit}`) || reg.test(item.features)))
+            setFilterCameraList(filtedList)
+        } else {
+            setFilterCameraList(taipeiSpeedCameraPositions)
+        }
+    }
+
+    const handlePositionListClick = (data) => {
+        gMap.setCenter(data.location)
+
+        const infoWindowContent = `
+            <div style="color: #ea4335;">
+                <div>${data.features} - 限速 ${data.speedLimit}<div>
+                    <div>${data.address}</div>
+                </div>
+                    `
+        infoWindow.setContent(infoWindowContent)
+        infoWindow.open(gMap, createdMarkers[data.no])
+
+        setSelectedCameraNo(data.no)
+    }
 
     useEffect(() => {
         const loader = new Loader({
@@ -118,6 +163,7 @@ const GoogleMaps = ({ theme }) => {
 
         loader.load().then((res) => {
             setGoogle(res)
+
             const newMap = new res.maps.Map(googleMapRef.current, {
                 center: { lat: 25.047802296330403, lng: 121.5177953369906 },
                 zoom: 12,
@@ -125,6 +171,38 @@ const GoogleMaps = ({ theme }) => {
                 styles: googleMapsStyleTheme[theme.themeName],
             })
             setGMap(newMap)
+
+            const newInfoWindow = new res.maps.InfoWindow({
+                content: '',
+                disableAutoPan: true,
+            })
+            setInfoWindow(newInfoWindow)
+
+            let markers = {}
+            taipeiSpeedCameraPositions.forEach((item) => {
+                if (item.errorMessage) {
+                    return
+                }
+
+                const marker = new res.maps.Marker({
+                    position: item.location,
+                    map: null,
+                })
+                marker.addListener("click", () => {
+                    const infoWindowContent = `
+                    <div style="color: #ea4335;">
+                        <div>${item.features} - 限速 ${item.speedLimit}<div>
+                        <div>${item.address}</div>
+                    </div>
+                    `
+                    newInfoWindow.setContent(infoWindowContent)
+                    newInfoWindow.open(gMap, marker)
+
+                    setSelectedCameraNo(item.no)
+                })
+                markers[item.no] = marker
+            })
+            setCreatedMarkers(markers)
         }).catch((err) => {
             console.log('err.message', err.message)
             setLoadGoogleError(err.message)
@@ -139,103 +217,86 @@ const GoogleMaps = ({ theme }) => {
         }
     }, [theme.themeName])
 
-    const getItemLisComponent = () => {
-        const infoWindow = new google.maps.InfoWindow({
-            content: '',
-            disableAutoPan: true,
-        })
+    const isElementVisible = (element, container) => {
+        const { bottom, height, top } = element.getBoundingClientRect()
+        const containerRect = container.getBoundingClientRect()
 
-        return taipeiSpeedCameraPositions.map((item) => {
-            if (item.errorMessage) {
+        return top <= containerRect.top ? containerRect.top - top <= height : bottom - containerRect.bottom <= height
+    }
+
+    const setContainerScrollY = (element, container) => {
+        const { top: elementTop } = element.getBoundingClientRect()
+        const { top: containerTop } = container.getBoundingClientRect()
+        container.scrollTop += elementTop - containerTop
+    }
+
+    useEffect(() => {
+        if (gMap
+            && Object.keys(createdMarkers).length > 0
+        ) {
+            const items = filterCameraList.map((item) => {
+                if (item.errorMessage) {
+                    return (
+                        <Fragment key={`${item.no}`}>
+                            <StyledListItem
+                                alignItems="flex-start"
+                                $isSelected={false}
+                                $isNoMarker
+                            >
+                                <ListItemIcon>
+                                    <StyledLocationOnIcon />
+                                </ListItemIcon>
+                                <ListItemText
+                                    primary={`${item.features} - 限速 ${item.speedLimit}`}
+                                    secondary={
+                                        <>
+                                            <StyledListItemTextSecondary>{item.address}</StyledListItemTextSecondary>
+                                            <StyledListItemTextSecondary>經緯度轉換失敗，無法產生地標</StyledListItemTextSecondary>
+                                        </>
+                                    }
+                                />
+                            </StyledListItem>
+                            <Divider variant="inset" component="li" />
+                        </Fragment>
+                    )
+                }
+
+                const mark = createdMarkers[item.no]
+                mark.setMap(gMap)
+                mark.addListener("click", () => {
+                    const cameraElement = document.querySelector(`#camera-${item.no}`)
+                    if (isElementVisible(cameraElement, cameraListRef.current) === false) {
+                        setContainerScrollY(cameraElement, cameraListRef.current)
+                    }
+                })
+
                 return (
                     <Fragment key={`${item.no}`}>
                         <StyledListItem
                             alignItems="flex-start"
-                            $isSelected={false}
-                            $isNoMarker
+                            role={undefined}
+                            dense
+                            button
+                            onClick={() => handlePositionListClick(item)}
+                            $isSelected={selectedCameraNo === item.no}
+                            id={`camera-${item.no}`}
                         >
                             <ListItemIcon>
                                 <StyledLocationOnIcon />
                             </ListItemIcon>
                             <ListItemText
                                 primary={`${item.features} - 限速 ${item.speedLimit}`}
-                                secondary={
-                                    <>
-                                        <StyledListItemTextSecondary>{item.address}</StyledListItemTextSecondary>
-                                        <StyledListItemTextSecondary>經緯度轉換失敗，無法產生地標</StyledListItemTextSecondary>
-                                    </>
-                                }
+                                secondary={item.address}
                             />
                         </StyledListItem>
                         <Divider variant="inset" component="li" />
                     </Fragment>
                 )
-            }
-
-            const marker = new google.maps.Marker({
-                position: item.location,
-                map: gMap,
             })
 
-            const infoWindowContent = `
-                    <div style="color: #ea4335;">
-                        <div>${item.features} - 限速 ${item.speedLimit}<div>
-                        <div>${item.address}</div>
-                    </div>
-                    `
-
-            marker.addListener("click", () => {
-                allActiveInfoWindows.forEach((value) => {
-                    value.close()
-                })
-
-                infoWindow.setContent(infoWindowContent)
-                infoWindow.open(gMap, marker)
-                setAllActiveInfoWindows(value => {
-                    value.clear()
-                    return value.set(item.no, infoWindow)
-                })
-                setCamera(item.no)
-            })
-
-            const handleSetMapPosition = (data) => {
-                allActiveInfoWindows.forEach((value) => {
-                    value.close()
-                })
-
-                gMap.setCenter(data.location)
-                infoWindow.setContent(infoWindowContent)
-                infoWindow.open(gMap, marker)
-                setAllActiveInfoWindows(value => {
-                    value.clear()
-                    return value.set(item.no, infoWindow)
-                })
-                setCamera(data.no)
-            }
-
-            return (
-                <Fragment key={`${item.no}`}>
-                    <StyledListItem
-                        alignItems="flex-start"
-                        role={undefined}
-                        dense
-                        button
-                        onClick={() => handleSetMapPosition(item)}
-                        $isSelected={cameraNo === item.no}
-                    >
-                        <ListItemIcon>
-                            <StyledLocationOnIcon />
-                        </ListItemIcon>
-                        <ListItemText
-                            primary={`${item.features} - 限速 ${item.speedLimit}`}
-                            secondary={item.address}
-                        />
-                    </StyledListItem>
-                    <Divider variant="inset" component="li" />
-                </Fragment>
-            )
-        })
-    }
+            setCameraItems(items)
+        }
+    }, [gMap, createdMarkers, filterCameraList, selectedCameraNo])
 
     return (
         <StyledPaper>
@@ -260,11 +321,22 @@ const GoogleMaps = ({ theme }) => {
                             }
                         </StyledMapContainer>
                     </Grid>
-                    {google && gMap && taipeiSpeedCameraPositions.length > 0 &&
+                    {cameraItems &&
                         <Grid item xs={12} sm={4}>
-                            <StyledList>
-                                {getItemLisComponent()}
-                            </StyledList>
+                            <StyledListContainer>
+                                <List>
+                                    <StyledListItem role={undefined} dense>
+                                        <MuiTextField
+                                            label="Search..."
+                                            onChange={handleSearchFieldChange}
+                                            fullWidth
+                                        />
+                                    </StyledListItem>
+                                </List>
+                                <StyledList ref={cameraListRef}>
+                                    {cameraItems}
+                                </StyledList>
+                            </StyledListContainer>
                         </Grid>
                     }
                 </Grid>

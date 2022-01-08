@@ -1,4 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+
+import {
+    resettTaipeiSpeedCameraPositions,
+} from '../../redux/actions'
 
 import { MuiPageSpinner } from '../../components/muiCircularProgress'
 import MuiModal from '../../components/MuiModal'
@@ -8,6 +13,8 @@ import GoogleMaps from './GoogleMaps'
 import MessageModal from './MessageModal'
 
 const index = () => {
+    const dispatch = useDispatch()
+
     const {
         taipeiSpeedCameraPositions,
         taipeiSpeedCameraPositionsLoading,
@@ -18,6 +25,7 @@ const index = () => {
 
     useEffect(() => {
         getTaipeiSpeedCameraPositionsApi()
+        return () => dispatch(resettTaipeiSpeedCameraPositions())
     }, [])
 
     const [messageModalIsOpen, setMessageModalIsOpen] = useState(false)
@@ -35,7 +43,8 @@ const index = () => {
     }, [taipeiSpeedCameraPositionsError])
 
     return (
-        <>
+        <div>
+            <div className="page-title">臺北市固定測速照相地點</div>
             {taipeiSpeedCameraPositionsLoading &&
                 <MuiPageSpinner />
             }
@@ -48,7 +57,7 @@ const index = () => {
             >
                 <MessageModal />
             </MuiModal>
-        </>
+        </div>
     )
 }
 

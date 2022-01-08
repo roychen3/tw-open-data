@@ -43,7 +43,8 @@ const index = () => {
     }, [taipeiSpeedCameraPositionsError])
 
     return (
-        <>
+        <div>
+            <div className="page-title">臺北市固定測速照相地點</div>
             {taipeiSpeedCameraPositionsLoading &&
                 <MuiPageSpinner />
             }
@@ -56,7 +57,7 @@ const index = () => {
             >
                 <MessageModal />
             </MuiModal>
-        </>
+        </div>
     )
 }
 

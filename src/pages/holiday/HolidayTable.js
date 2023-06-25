@@ -11,7 +11,6 @@ import TableRow from '@material-ui/core/TableRow'
 
 const StyledTable = styled(Table)`
 min-width: 700px;
-background-color: ${({ theme }) => theme.mainBackground};
 border: 1px solid ${({ theme }) => theme.secondBackground};
 `
 const StyledTableHead = styled(TableHead)`
@@ -25,7 +24,6 @@ background-color: ${({ theme, $isHoliday }) => $isHoliday ? theme.hover : ''};
 }
 `
 const StyledTableCellHeader = styled(TableCell)`
-color: ${({ theme }) => theme.mainText} !important;
 border-bottom: 1px solid ${({ theme }) => theme.secondBackground} !important;
 white-space: nowrap;
 `

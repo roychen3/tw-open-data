@@ -5,34 +5,27 @@ import Switch from '@material-ui/core/Switch'
 import Brightness7Icon from '@material-ui/icons/Brightness7'
 import Brightness4Icon from '@material-ui/icons/Brightness4'
 
-const StyledSwitch = styled(Switch)`
-.MuiSwitch-track{
-    background-color: ${({ theme }) => theme.secondText};
-}
-.MuiSwitch-thumb{
-    color: ${({ theme }) => theme.mainText};
-}
-`
+const StyledSwitch = styled(Switch)``
 
 const MuiSwitchToggleTheme = ({ toggleTheme }) => {
-    const localWebTheme = window.localStorage.getItem('webTheme')
+  const localWebTheme = window.localStorage.getItem('webTheme')
 
-    return (
-        <>
-            <Brightness4Icon />
-            <StyledSwitch
-                checked={localWebTheme === 'light' ? true : false}
-                color="default"
-                size="small"
-                onChange={toggleTheme}
-            />
-            <Brightness7Icon />
-        </>
-    )
+  return (
+    <>
+      <Brightness4Icon />
+      <StyledSwitch
+        checked={localWebTheme === 'light' ? true : false}
+        color="default"
+        size="small"
+        onChange={toggleTheme}
+      />
+      <Brightness7Icon />
+    </>
+  )
 }
 
 MuiSwitchToggleTheme.propTypes = {
-    toggleTheme: PropTypes.func.isRequired,
+  toggleTheme: PropTypes.func.isRequired,
 }
 
 export default MuiSwitchToggleTheme

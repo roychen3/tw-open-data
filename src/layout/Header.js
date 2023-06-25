@@ -13,57 +13,60 @@ import Menu from '../components/Menu'
 import MobileMenu from '../components/MobileMenu'
 
 const StyledHeader = styled.header`
-width: 100%;
-padding: 1rem;
-background-color: ${({ theme }) => theme.secondBackground};
-position: fixed;
-z-index: 110;
+  width: 100%;
+  padding: 1rem;
+  background-color: ${({ theme }) => theme.secondBackground};
+  position: fixed;
+  z-index: 110;
 `
 const StyledTitleContainer = styled.div`
-min-height: 30px;
-height: 100%;
-display: flex;
-align-items: center;
+  min-height: 30px;
+  height: 100%;
+  display: flex;
+  align-items: center;
 `
 const StyledTitle = styled.div`
-margin: auto 0;
-font-size: large;
-font-weight: bolder;
-color: ${({ theme }) => theme.mainText};
+  margin: auto 0;
+  font-size: large;
+  font-weight: bolder;
 `
 const StyledIconButton = styled(IconButton)`
-margin-right: 10px !important;
-color: ${({ theme }) => theme.mainText} !important;
+  margin-right: 10px !important;
+  color: ${({ theme }) => theme.mainText} !important;
 
-:hover {
-    background-color: ${({ theme }) => theme.hover} !important;
-}
+  :hover {
+    color: ${({ theme }) => theme.highlight} !important;
+  }
 `
 const StyledDataUsageIcon = styled(DataUsageIcon)`
-margin: auto 0;
-color: ${({ theme }) => theme.highlight};
+  margin: auto 0;
+  color: ${({ theme }) => theme.highlight};
 `
 const StyledDrawer = styled(Drawer)`
-.MuiPaper-root {
-  background-color: ${({ theme }) => theme.secondBackground};
-  color: ${({ theme }) => theme.mainText};
-  border-right: solid 1px ${({ theme }) => theme.mainBackground};
-  box-shadow: inset 0px 0px 0px -100px ${({ theme }) => theme.hover},13px 0px 18px 0px #00000080;
-}
+  .MuiPaper-root {
+    background-color: ${({ theme }) => theme.secondBackground};
+    box-shadow: inset 0px 0px 0px -100px ${({ theme }) => theme.hover},
+      13px 0px 18px 0px #00000080;
+  }
 `
 
 const Header = ({ toggleTheme }) => {
   const [mobilMenuIsOpen, setMobilMenuIsOpen] = useState(false)
-  const toggleMobilMenuDrawer = (open) => { setMobilMenuIsOpen(open) }
+  const toggleMobilMenuDrawer = (open) => {
+    setMobilMenuIsOpen(open)
+  }
 
   return (
     <StyledHeader>
       <Grid container spacing={1}>
         <Grid item xs>
           <StyledTitleContainer>
-            <StyledIconButton size="small" onClick={() => toggleMobilMenuDrawer(true)}>
+            <StyledIconButton
+              size="small"
+              onClick={() => toggleMobilMenuDrawer(true)}
+            >
               <MenuIcon />
-            </StyledIconButton >
+            </StyledIconButton>
             <StyledDrawer
               variant="persistent"
               anchor={'left'}
@@ -71,7 +74,8 @@ const Header = ({ toggleTheme }) => {
               onClose={() => toggleMobilMenuDrawer(false)}
             >
               <MobileMenu
-                closeMenu={() => toggleMobilMenuDrawer(false)} toggleTheme={toggleTheme}
+                closeMenu={() => toggleMobilMenuDrawer(false)}
+                toggleTheme={toggleTheme}
               />
             </StyledDrawer>
             <StyledDataUsageIcon />

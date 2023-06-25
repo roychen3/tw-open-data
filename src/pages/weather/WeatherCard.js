@@ -7,7 +7,6 @@ import CardContent from '@material-ui/core/CardContent'
 import BeachAccessIcon from '@material-ui/icons/BeachAccess'
 
 const StyledCard = styled(Card)`
-color: ${({ theme }) => theme.mainText} !important;
 background-color: ${({ theme }) => theme.secondBackground} !important;
 margin: 3px;
 min-width: 160px;

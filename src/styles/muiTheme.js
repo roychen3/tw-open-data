@@ -13,8 +13,13 @@ export const lightTheme = createTheme({
     text: {
       primary: lightWebTheme.mainText,
       secondary: lightWebTheme.secondText,
+      icon: lightWebTheme.mainText,
     },
-    background: lightWebTheme.mainBackground,
+    divider: lightWebTheme.secondBackground,
+    background: {
+      paper: lightWebTheme.secondBackground,
+      default: lightWebTheme.mainBackground,
+    },
     action: {
       hover: lightWebTheme.hover,
     },
@@ -30,8 +35,13 @@ export const darkTheme = createTheme({
     text: {
       primary: darkWebTheme.mainText,
       secondary: darkWebTheme.secondText,
+      icon: darkWebTheme.mainText,
     },
-    background: darkWebTheme.mainBackground,
+    divider: darkWebTheme.secondBackground,
+    background: {
+      paper: darkWebTheme.secondBackground,
+      default: darkWebTheme.mainBackground,
+    },
     action: {
       hover: darkWebTheme.hover,
     },

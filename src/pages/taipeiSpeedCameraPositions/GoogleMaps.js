@@ -46,7 +46,6 @@ const StyledListContainer = styled.div`
 `
 
 const StyledPaper = styled(Paper)`
-  background-color: ${({ theme }) => theme.secondBackground} !important;
 `
 
 const StyledLocationOnIcon = styled(LocationOnIcon)`
@@ -75,16 +74,6 @@ const StyledListItem = styled(ListItem)`
       else if ($isNoMarker) return theme.error
       return theme.mainText
     }} !important;
-  }
-
-  :hover {
-    color: ${({ theme }) => theme.highlight};
-    background-color: ${({ theme }) => theme.hover} !important;
-
-    .MuiListItemIcon-root .MuiSvgIcon-root,
-    .MuiListItemText-root .MuiTypography-colorTextSecondary {
-      color: ${({ theme }) => theme.highlight};
-    }
   }
 `
 

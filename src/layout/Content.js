@@ -7,8 +7,6 @@ import { creatRouteList } from '../routes'
 import { menuList } from '../constants/menuList'
 
 const StyledContent = styled.div`
-  background-color: ${({ theme }) => theme.mainBackground};
-  color: ${({ theme }) => theme.mainText};
   min-height: 100%;
   padding-top: 62px; /* header height */
   margin-bottom: -51px; /* footer height */

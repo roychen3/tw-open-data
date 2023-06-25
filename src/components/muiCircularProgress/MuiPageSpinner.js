@@ -4,15 +4,11 @@ import styled from 'styled-components'
 import CircularProgress from '@material-ui/core/CircularProgress'
 
 const StyledSpinnerContainer = styled.div`
-padding: 15vh 0;
+  padding: 15vh 0;
 `
 const StyledCircularProgress = styled(CircularProgress)`
-display: block !important;
-margin: 0 auto;
-
-&.MuiCircularProgress-colorPrimary{
-  color: ${({ theme }) => theme.highlight};
-}
+  display: block !important;
+  margin: 0 auto;
 `
 
 export const MuiPageSpinner = () => {
@@ -23,6 +19,4 @@ export const MuiPageSpinner = () => {
   )
 }
 
-MuiPageSpinner.propTypes = {
-
-}
+MuiPageSpinner.propTypes = {}

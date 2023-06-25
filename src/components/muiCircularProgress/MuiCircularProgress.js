@@ -3,18 +3,10 @@ import styled from 'styled-components'
 
 import CircularProgress from '@material-ui/core/CircularProgress'
 
-const StyledCircularProgress = styled(CircularProgress)`
-&.MuiCircularProgress-colorPrimary{
-  color: ${({ theme }) => theme.highlight};
-}
-`
+const StyledCircularProgress = styled(CircularProgress)``
 
 export const MuiCircularProgress = () => {
-  return (
-      <StyledCircularProgress />
-  )
+  return <StyledCircularProgress />
 }
 
-MuiCircularProgress.propTypes = {
-
-}
+MuiCircularProgress.propTypes = {}

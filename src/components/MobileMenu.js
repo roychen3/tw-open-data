@@ -18,16 +18,10 @@ import { menuList } from '../constants/menuList'
 import MuiSwitchToggleTheme from '../components/MuiSwitchToggleTheme'
 
 const StyledListItem = styled(ListItem)`
-  color: ${({ theme }) => theme.mainText};
-
   .MuiListItemIcon-root .MuiSvgIcon-root {
     color: ${({ theme }) => theme.mainText};
   }
-
   :hover {
-    color: ${({ theme }) => theme.highlight};
-    background-color: ${({ theme }) => theme.hover} !important;
-
     .MuiListItemIcon-root .MuiSvgIcon-root {
       color: ${({ theme }) => theme.highlight};
     }
@@ -71,7 +65,7 @@ const StyledIconButton = styled(IconButton)`
   color: ${({ theme }) => theme.mainText} !important;
 
   :hover {
-    background-color: ${({ theme }) => theme.hover} !important;
+    color: ${({ theme }) => theme.highlight} !important;
   }
 `
 const StyledDivider = styled(Divider)`

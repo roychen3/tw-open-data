@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 
-import useHoliday from './useHoliday'
+import useHoliday from './useHoliday';
 
-import MuiLabelSelect from '../../components/MuiLabelSelect'
-import { MuiPageSpinner } from '../../components/muiCircularProgress'
-import MuiModal from '../../components/MuiModal'
+import MuiLabelSelect from '../../components/MuiLabelSelect';
+import { MuiPageSpinner } from '../../components/muiCircularProgress';
+import MuiModal from '../../components/MuiModal';
 
-import HolidayTable from './HolidayTable'
-import MessageModal from './MessageModal'
+import HolidayTable from './HolidayTable';
+import MessageModal from './MessageModal';
 
 const index = () => {
-    const thisYear = String(new Date().getFullYear())
-    const [selectedYear, setSelectedYear] = useState(thisYear)
+    const thisYear = String(new Date().getFullYear());
+    const [selectedYear, setSelectedYear] = useState(thisYear);
 
     const {
         allHolidayYearList,
@@ -21,33 +21,33 @@ const index = () => {
         getHolidayApi,
         getFakeHoliday,
         filterHolidayData,
-    } = useHoliday()
+    } = useHoliday();
 
-    const [messageModalIsOpen, setMessageModalIsOpen] = useState(false)
-    const handaleMessageModalOpen = () => { setMessageModalIsOpen(true) }
-    const handaleMessageModalClose = () => { setMessageModalIsOpen(false) }
+    const [messageModalIsOpen, setMessageModalIsOpen] = useState(false);
+    const handaleMessageModalOpen = () => { setMessageModalIsOpen(true); };
+    const handaleMessageModalClose = () => { setMessageModalIsOpen(false); };
 
     useEffect(() => {
         if (allHolidayYearList.length > 0 && selectedYear) {
-            filterHolidayData(selectedYear)
+            filterHolidayData(selectedYear);
         }
-    }, [selectedYear, allHolidayYearList])
+    }, [selectedYear, allHolidayYearList]);
 
     useEffect(() => {
         if (allHolidayYearList.length === 0) {
-            getHolidayApi()
+            getHolidayApi();
         }
-    }, [])
+    }, []);
 
     // 因為 api 不支援跨網域，且來源只提共csv檔
     // 故多了此步驟
     useEffect(() => {
         if (allHolidayDataError !== null && allHolidayYearList.length === 0) {
-            console.log('use fake data')
-            getFakeHoliday()
-            handaleMessageModalOpen()
+            console.log('use fake data');
+            getFakeHoliday();
+            handaleMessageModalOpen();
         }
-    }, [allHolidayDataError])
+    }, [allHolidayDataError]);
 
     return (
         <div>
@@ -77,11 +77,11 @@ const index = () => {
                 <MessageModal />
             </MuiModal>
         </div>
-    )
-}
+    );
+};
 
 index.propTypes = {
 
-}
+};
 
-export default index
+export default index;

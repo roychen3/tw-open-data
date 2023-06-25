@@ -1,27 +1,27 @@
-import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import axios from 'axios'
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
 
 import {
     getHoliday,
     getHolidaySuccess,
     getHolidayFailure,
-} from '../../redux/actions'
+} from '../../redux/actions';
 
-import holidayFakeData from './fakeData.json'
+import holidayFakeData from './fakeData.json';
 
 const useHoliday = () => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
-    const allHolidayData = useSelector((state) => state.holiday.holiday)
-    const allHolidayDataError = useSelector((state) => state.holiday.holidayError)
-    const allHolidayDataLoading = useSelector((state) => state.holiday.holidayLoading)
-    const allHolidayYearList = useSelector((state) => state.holiday.holidayYearList)
+    const allHolidayData = useSelector((state) => state.holiday.holiday);
+    const allHolidayDataError = useSelector((state) => state.holiday.holidayError);
+    const allHolidayDataLoading = useSelector((state) => state.holiday.holidayLoading);
+    const allHolidayYearList = useSelector((state) => state.holiday.holidayYearList);
 
-    const [filteredholidayData, setFilteredHolidayData] = useState([])
+    const [filteredholidayData, setFilteredHolidayData] = useState([]);
 
     const produceApiResultData = (data) => {
-        const filterData = data.filter((item) => item.holidayCategory !== '星期六、星期日')
+        const filterData = data.filter((item) => item.holidayCategory !== '星期六、星期日');
 
         return filterData.map((item) => ({
             id: item.date,
@@ -30,58 +30,58 @@ const useHoliday = () => {
             isHoliday: item.isHoliday,
             holidayCategory: item.holidayCategory,
             description: item.description,
-        }))
-    }
+        }));
+    };
 
     const produceHolidayYearList = (data) => {
-        const yearList = new Set([])
+        const yearList = new Set([]);
         data.forEach((item) => {
-            const year = String(new Date(item.date).getFullYear())
-            yearList.add(year)
-        })
-        return Array.from(yearList).map((year) => ({ value: year, name: year }))
-    }
+            const year = String(new Date(item.date).getFullYear());
+            yearList.add(year);
+        });
+        return Array.from(yearList).map((year) => ({ value: year, name: year }));
+    };
 
     const filterHolidayData = (selectedYear) => {
         if (allHolidayData.length > 0 && selectedYear) {
-            const showTableData = allHolidayData.filter((item) => String(new Date(item.date).getFullYear()) === selectedYear)
-            setFilteredHolidayData(showTableData)
+            const showTableData = allHolidayData.filter((item) => String(new Date(item.date).getFullYear()) === selectedYear);
+            setFilteredHolidayData(showTableData);
         }
-    }
+    };
 
     const getHolidayApi = async () => {
-        dispatch(getHoliday())
-        const httpClient = axios.create()
-        httpClient.defaults.timeout = 3000
+        dispatch(getHoliday());
+        const httpClient = axios.create();
+        httpClient.defaults.timeout = 3000;
         return await httpClient.get('https://cors-anywhere.herokuapp.com/http://data.ntpc.gov.tw/api/v1/rest/datastore/382000000A-000077-002')
             .then((resultData) => {
                 // 因為 api 不支援跨網域
                 // 且來源只提供 csv 檔，還要轉乘 json
                 // 永遠跑不到這裡
-                const tableData = produceApiResultData(resultData.result.records)
-                const yearList = produceHolidayYearList(tableData)
+                const tableData = produceApiResultData(resultData.result.records);
+                const yearList = produceHolidayYearList(tableData);
                 dispatch(getHolidaySuccess({
                     holidayYearList: yearList,
                     holiday: tableData,
-                }))
-                const thisYear = String(new Date().getFullYear())
-                filterHolidayData(thisYear)
+                }));
+                const thisYear = String(new Date().getFullYear());
+                filterHolidayData(thisYear);
             })
             .catch((err) => {
-                dispatch(getHolidayFailure(err))
-            })
-    }
+                dispatch(getHolidayFailure(err));
+            });
+    };
 
     // 因為 api 壞掉，所以用假資料代替，
     // 故多了此 function
     const getFakeHoliday = () => {
-        const tableData = produceApiResultData(holidayFakeData.result.records)
-        const yearList = produceHolidayYearList(tableData)
+        const tableData = produceApiResultData(holidayFakeData.result.records);
+        const yearList = produceHolidayYearList(tableData);
         dispatch(getHolidaySuccess({
             holidayYearList: yearList,
             holiday: tableData,
-        }))
-    }
+        }));
+    };
 
     return {
         allHolidayYearList,
@@ -93,11 +93,11 @@ const useHoliday = () => {
         filterHolidayData,
         produceApiResultData,
         produceHolidayYearList,
-    }
-}
+    };
+};
 
 useHoliday.propTypes = {
 
-}
+};
 
-export default useHoliday
+export default useHoliday;

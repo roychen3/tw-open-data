@@ -1,11 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import IconButton from '@material-ui/core/IconButton'
-import GitHubIcon from '@material-ui/icons/GitHub'
+import IconButton from '@material-ui/core/IconButton';
+import GitHubIcon from '@material-ui/icons/GitHub';
 
-import MuiSwitchToggleTheme from '../components/MuiSwitchToggleTheme'
+import MuiSwitchToggleTheme from '../components/MuiSwitchToggleTheme';
 
 const StyledMenuContainer = styled.div`
   min-height: 30px;
@@ -21,7 +21,7 @@ const StyledMenuContainer = styled.div`
       margin-right: 0;
     }
   }
-`
+`;
 const StyledIconButton = styled(IconButton)`
   color: ${({ theme }) => theme.mainText} !important;
 
@@ -32,12 +32,12 @@ const StyledIconButton = styled(IconButton)`
   :hover {
     color: ${({ theme }) => theme.highlight} !important;
   }
-`
+`;
 
 const StyledToggleThemeContainer = styled.div`
   display: flex;
   align-items: center;
-`
+`;
 
 const Menu = ({ toggleTheme }) => {
   return (
@@ -53,11 +53,11 @@ const Menu = ({ toggleTheme }) => {
         <MuiSwitchToggleTheme toggleTheme={toggleTheme} />
       </StyledToggleThemeContainer>
     </StyledMenuContainer>
-  )
-}
+  );
+};
 
 Menu.propTypes = {
   toggleTheme: PropTypes.func.isRequired,
-}
+};
 
-export default Menu
+export default Menu;

@@ -3,14 +3,14 @@ import {
     GET_WEATHER_SUCCESS,
     GET_WEATHER_FAILURE,
     RESET_WEATHER,
-} from '../../constants/actionTypes'
+} from '../../constants/actionTypes';
 
 export const initialState = {
     weatherCountyList: [],
     weatherAllLocation: [],
     weatherAllLocationError: null,
     weatherAllLocationLoading: false,
-}
+};
 
 function reducer(state = initialState, action) {
     switch (action.type) {
@@ -18,20 +18,20 @@ function reducer(state = initialState, action) {
             return {
                 ...state,
                 weatherAllLocationLoading: true,
-            }
+            };
         case GET_WEATHER_SUCCESS:
             return {
                 ...state,
                 weatherCountyList: action.payload.weatherCountyList,
                 weatherAllLocation: action.payload.weatherAllLocation,
                 weatherAllLocationLoading: false,
-            }
+            };
         case GET_WEATHER_FAILURE:
             return {
                 ...state,
                 weatherAllLocationError: action.payload,
                 weatherAllLocationLoading: false,
-            }
+            };
         case RESET_WEATHER:
             return {
                 ...state,
@@ -39,10 +39,10 @@ function reducer(state = initialState, action) {
                 weatherAllLocation: [],
                 weatherAllLocationError: null,
                 weatherAllLocationLoading: false,
-            }
+            };
         default:
-            return state
+            return state;
     }
 }
 
-export default reducer
+export default reducer;

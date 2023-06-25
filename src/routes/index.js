@@ -1,9 +1,9 @@
-import { lazy, useMemo } from 'react'
-import { Route } from 'react-router-dom'
-import { useStore } from 'react-redux'
-import styled from 'styled-components'
+import { lazy, useMemo } from 'react';
+import { Route } from 'react-router-dom';
+import { useStore } from 'react-redux';
+import styled from 'styled-components';
 
-import { menuList } from '../constants/menuList'
+import { menuList } from '../constants/menuList';
 
 const StyledPageContainer = styled.div`
   width: 99%;
@@ -23,43 +23,43 @@ const StyledPageContainer = styled.div`
   .table-container {
     margin: 1rem 0;
   }
-`
+`;
 
 export const creatRouteList = () => {
-  const store = useStore()
+  const store = useStore();
 
   const Holiday = lazy(() =>
     import('../redux/holiday/reducers').then((reducer) => {
-      store.injectReducer('holiday', reducer.default)
-      return import('../pages/holiday')
+      store.injectReducer('holiday', reducer.default);
+      return import('../pages/holiday');
     })
-  )
+  );
   const Weather = lazy(() =>
     import('../redux/weather/reducers').then((reducer) => {
-      store.injectReducer('weather', reducer.default)
-      return import('../pages/weather')
+      store.injectReducer('weather', reducer.default);
+      return import('../pages/weather');
     })
-  )
+  );
   const TaipeiSpeedCameraPositions = lazy(() =>
     import('../redux/taipeiSpeedCameraPositions/reducers').then((reducer) => {
-      store.injectReducer('taipeiSpeedCameraPositions', reducer.default)
-      return import('../pages/taipeiSpeedCameraPositions')
+      store.injectReducer('taipeiSpeedCameraPositions', reducer.default);
+      return import('../pages/taipeiSpeedCameraPositions');
     })
-  )
+  );
 
   const getPageComponents = (name) => {
     switch (name) {
       case 'holiday':
-        return <Holiday />
+        return <Holiday />;
       case 'weather':
-        return <Weather />
+        return <Weather />;
       case 'taipeiSpeedCameraPositions':
-        return <TaipeiSpeedCameraPositions />
+        return <TaipeiSpeedCameraPositions />;
 
       default:
-        return <></>
+        return <></>;
     }
-  }
+  };
 
   const routeList = menuList.map((item) => (
     <Route exact key={`${item.hashName}`} path={`/${item.hashName}`}>
@@ -73,7 +73,7 @@ export const creatRouteList = () => {
         </StyledPageContainer>
       )}
     </Route>
-  ))
+  ));
 
-  return useMemo(() => routeList, [])
-}
+  return useMemo(() => routeList, []);
+};

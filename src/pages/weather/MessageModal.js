@@ -1,10 +1,10 @@
-import React from 'react'
-import styled from 'styled-components'
-import ErrorIcon from '@material-ui/icons/Error'
+import React from 'react';
+import styled from 'styled-components';
+import ErrorIcon from '@material-ui/icons/Error';
 
 const StyledIcon = styled.div`
 color: ${({ theme }) => theme.highlight};
-`
+`;
 
 const MessageModal = () => {
   return (
@@ -16,11 +16,11 @@ const MessageModal = () => {
       <br />
       <p>資料來源: <a href="https://data.gov.tw/dataset/6069">政府資料開放平臺</a></p>
     </div>
-  )
-}
+  );
+};
 
 MessageModal.propTypes = {
 
-}
+};
 
-export default MessageModal
+export default MessageModal;

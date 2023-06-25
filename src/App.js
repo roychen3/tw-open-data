@@ -1,36 +1,36 @@
-import React, { useState, useEffect, Suspense } from 'react'
+import React, { useState, useEffect, Suspense } from 'react';
 // import PropTypes from 'prop-types'
-import { HashRouter } from 'react-router-dom'
-import { ThemeProvider as SCThemeProvider } from 'styled-components'
-import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles'
+import { HashRouter } from 'react-router-dom';
+import { ThemeProvider as SCThemeProvider } from 'styled-components';
+import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 
-import { MuiLoadingPage } from './components/muiCircularProgress'
-import { lightTheme, darkTheme } from './styles/webTheme'
+import { MuiLoadingPage } from './components/muiCircularProgress';
+import { lightTheme, darkTheme } from './styles/webTheme';
 import {
   lightTheme as muiLightTheme,
   darkTheme as muiDarkTheme,
-} from './styles/muiTheme'
-import { GlobalStyles } from './styles/globalStyles'
-import Layout from './layout'
+} from './styles/muiTheme';
+import { GlobalStyles } from './styles/globalStyles';
+import Layout from './layout';
 
 const App = () => {
-  const [webTheme, setWebTheme] = useState('dark')
+  const [webTheme, setWebTheme] = useState('dark');
   const toggleTheme = () => {
     if (webTheme === 'light') {
-      setWebTheme('dark')
-      window.localStorage.setItem('webTheme', 'dark')
+      setWebTheme('dark');
+      window.localStorage.setItem('webTheme', 'dark');
     } else {
-      setWebTheme('light')
-      window.localStorage.setItem('webTheme', 'light')
+      setWebTheme('light');
+      window.localStorage.setItem('webTheme', 'light');
     }
-  }
+  };
 
   useEffect(() => {
-    const localWebTheme = window.localStorage.getItem('webTheme')
+    const localWebTheme = window.localStorage.getItem('webTheme');
     if (localWebTheme !== webTheme) {
-      toggleTheme()
+      toggleTheme();
     }
-  }, [])
+  }, []);
 
   return (
     <SCThemeProvider theme={webTheme === 'light' ? lightTheme : darkTheme}>
@@ -47,9 +47,9 @@ const App = () => {
         </HashRouter>
       </MuiThemeProvider>
     </SCThemeProvider>
-  )
-}
+  );
+};
 
-App.propTypes = {}
+App.propTypes = {};
 
-export default App
+export default App;

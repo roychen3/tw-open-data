@@ -1,13 +1,13 @@
-import { useDispatch, useSelector } from 'react-redux'
-import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
 
 import {
     getTaipeiSpeedCameraPositions,
     getTaipeiSpeedCameraPositionsSuccess,
     getTaipeiSpeedCameraPositionsFailure,
-} from '../../redux/actions'
+} from '../../redux/actions';
 // import taipeiSpeedCameraPositionsFakeData from './devFakeData.json'
-import fakeMapsInformation from './fakeMapsInformation.json'
+import fakeMapsInformation from './fakeMapsInformation.json';
 
 // import { GOOGLE_MAPS_API_KEY } from '../../constants/googleMapsApiKey'
 // // 用太多要繳費給 Google，先註解掉
@@ -17,11 +17,11 @@ import fakeMapsInformation from './fakeMapsInformation.json'
 // })
 
 const useTaipeiSpeedCameraPositions = () => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
-    const taipeiSpeedCameraPositions = useSelector((state) => state.taipeiSpeedCameraPositions.taipeiSpeedCameraPositions)
-    const taipeiSpeedCameraPositionsError = useSelector((state) => state.taipeiSpeedCameraPositions.taipeiSpeedCameraPositionsError)
-    const taipeiSpeedCameraPositionsLoading = useSelector((state) => state.taipeiSpeedCameraPositions.taipeiSpeedCameraPositionsLoading)
+    const taipeiSpeedCameraPositions = useSelector((state) => state.taipeiSpeedCameraPositions.taipeiSpeedCameraPositions);
+    const taipeiSpeedCameraPositionsError = useSelector((state) => state.taipeiSpeedCameraPositions.taipeiSpeedCameraPositionsError);
+    const taipeiSpeedCameraPositionsLoading = useSelector((state) => state.taipeiSpeedCameraPositions.taipeiSpeedCameraPositionsLoading);
 
     // // 用太多要繳費給 Google，先註解掉
     // const getLatitudeAndLongitude = (address) => (
@@ -55,7 +55,7 @@ const useTaipeiSpeedCameraPositions = () => {
     // )
 
     const getTaipeiSpeedCameraPositionsApi = () => {
-        dispatch(getTaipeiSpeedCameraPositions())
+        dispatch(getTaipeiSpeedCameraPositions());
 
         axios.get('https://data.taipei/api/getDatasetInfo/downloadResource?id=745b8808-061f-4f5b-9a62-da1590c049a9&rid=5012e8ba-5ace-4821-8482-ee07c147fd0a')
             .then(() => {
@@ -67,23 +67,23 @@ const useTaipeiSpeedCameraPositions = () => {
                 // dispatch(getTaipeiSpeedCameraPositionsSuccess(latitudeAndLongitudeList))
 
                 // 萬一成功也先用假資料
-                console.log('竟然打成功了!?')
-                dispatch(getTaipeiSpeedCameraPositionsSuccess(fakeMapsInformation))
+                console.log('竟然打成功了!?');
+                dispatch(getTaipeiSpeedCameraPositionsSuccess(fakeMapsInformation));
             })
             .catch((err) => {
-                dispatch(getTaipeiSpeedCameraPositionsFailure(err))
-            })
-    }
+                dispatch(getTaipeiSpeedCameraPositionsFailure(err));
+            });
+    };
 
     const getFakeTaipeiSpeedCameraPositions = async () => {
         // // 用太多要繳費給 Google，先註解掉
         // const latitudeAndLongitudeList = await creatMapsInformation(taipeiSpeedCameraPositionsFakeData)
 
         // creatMapsInformation 產生的資料
-        const latitudeAndLongitudeList = fakeMapsInformation
+        const latitudeAndLongitudeList = fakeMapsInformation;
 
-        dispatch(getTaipeiSpeedCameraPositionsSuccess(latitudeAndLongitudeList))
-    }
+        dispatch(getTaipeiSpeedCameraPositionsSuccess(latitudeAndLongitudeList));
+    };
 
     return {
         taipeiSpeedCameraPositions,
@@ -93,7 +93,7 @@ const useTaipeiSpeedCameraPositions = () => {
         // creatMapsInformation,
         getTaipeiSpeedCameraPositionsApi,
         getFakeTaipeiSpeedCameraPositions,
-    }
-}
+    };
+};
 
-export default useTaipeiSpeedCameraPositions
+export default useTaipeiSpeedCameraPositions;

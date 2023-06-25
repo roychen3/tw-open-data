@@ -1,17 +1,17 @@
-import React from 'react'
-import styled from 'styled-components'
-import ErrorIcon from '@material-ui/icons/Error'
+import React from 'react';
+import styled from 'styled-components';
+import ErrorIcon from '@material-ui/icons/Error';
 
 const StyledMessageContent = styled.div`
 text-align: left;
-`
+`;
 const StyledIcon = styled.div`
 color: ${({ theme }) => theme.highlight};
-`
+`;
 
 const StyledNote = styled.p`
 color: ${({ theme }) => theme.highlight};
-`
+`;
 
 const MessageModal = () => {
   return (
@@ -41,11 +41,11 @@ const MessageModal = () => {
         </p>
       </StyledMessageContent>
     </>
-  )
-}
+  );
+};
 
 MessageModal.propTypes = {
 
-}
+};
 
-export default MessageModal
+export default MessageModal;

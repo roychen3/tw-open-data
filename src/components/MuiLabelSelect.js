@@ -1,17 +1,17 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import InputLabel from '@material-ui/core/InputLabel'
-import MenuItem from '@material-ui/core/MenuItem'
-import FormControl from '@material-ui/core/FormControl'
-import Select from '@material-ui/core/Select'
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
 const StyledFormControl = styled(FormControl)`
 margin: 0.5rem !important;
 min-width 70px !important;
-`
-const StyledMenuItem = styled(MenuItem)``
+`;
+const StyledMenuItem = styled(MenuItem)``;
 
 const MuiLabelSelect = ({
   labelId,
@@ -21,25 +21,25 @@ const MuiLabelSelect = ({
   setValue,
   selectionItems,
 }) => {
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = React.useState(false);
 
   const handleChange = (event) => {
-    setValue(event.target.value)
-  }
+    setValue(event.target.value);
+  };
 
   const handleClose = () => {
-    setOpen(false)
-  }
+    setOpen(false);
+  };
 
   const handleOpen = () => {
-    setOpen(true)
-  }
+    setOpen(true);
+  };
 
   const selectionMenuItemList = selectionItems.map((item) => (
     <StyledMenuItem key={item.value} value={item.value}>
       {item.name}
     </StyledMenuItem>
-  ))
+  ));
 
   return (
     <StyledFormControl>
@@ -56,8 +56,8 @@ const MuiLabelSelect = ({
         {selectionMenuItemList}
       </Select>
     </StyledFormControl>
-  )
-}
+  );
+};
 
 MuiLabelSelect.propTypes = {
   labelId: PropTypes.string.isRequired,
@@ -66,6 +66,6 @@ MuiLabelSelect.propTypes = {
   value: PropTypes.string.isRequired,
   setValue: PropTypes.func.isRequired,
   selectionItems: PropTypes.instanceOf(Array).isRequired,
-}
+};
 
-export default MuiLabelSelect
+export default MuiLabelSelect;

@@ -7,7 +7,7 @@ export const lightTheme = {
   mainBackground: ' #ffffff',
   secondBackground: '#f1f1f1',
   error: '#D23A39',
-}
+};
 
 export const darkTheme = {
   themeName: 'dark',
@@ -18,4 +18,4 @@ export const darkTheme = {
   mainBackground: '#18191a',
   secondBackground: '#242526',
   error: '#D23A39',
-}
+};

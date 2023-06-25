@@ -1,16 +1,16 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import Grid from '@material-ui/core/Grid'
-import Hidden from '@material-ui/core/Hidden'
-import IconButton from '@material-ui/core/IconButton'
-import MenuIcon from '@material-ui/icons/Menu'
-import DataUsageIcon from '@material-ui/icons/DataUsage'
-import Drawer from '@material-ui/core/Drawer'
+import Grid from '@material-ui/core/Grid';
+import Hidden from '@material-ui/core/Hidden';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import DataUsageIcon from '@material-ui/icons/DataUsage';
+import Drawer from '@material-ui/core/Drawer';
 
-import Menu from '../components/Menu'
-import MobileMenu from '../components/MobileMenu'
+import Menu from '../components/Menu';
+import MobileMenu from '../components/MobileMenu';
 
 const StyledHeader = styled.header`
   width: 100%;
@@ -18,18 +18,18 @@ const StyledHeader = styled.header`
   background-color: ${({ theme }) => theme.secondBackground};
   position: fixed;
   z-index: 110;
-`
+`;
 const StyledTitleContainer = styled.div`
   min-height: 30px;
   height: 100%;
   display: flex;
   align-items: center;
-`
+`;
 const StyledTitle = styled.div`
   margin: auto 0;
   font-size: large;
   font-weight: bolder;
-`
+`;
 const StyledIconButton = styled(IconButton)`
   margin-right: 10px !important;
   color: ${({ theme }) => theme.mainText} !important;
@@ -37,24 +37,24 @@ const StyledIconButton = styled(IconButton)`
   :hover {
     color: ${({ theme }) => theme.highlight} !important;
   }
-`
+`;
 const StyledDataUsageIcon = styled(DataUsageIcon)`
   margin: auto 0;
   color: ${({ theme }) => theme.highlight};
-`
+`;
 const StyledDrawer = styled(Drawer)`
   .MuiPaper-root {
     background-color: ${({ theme }) => theme.secondBackground};
     box-shadow: inset 0px 0px 0px -100px ${({ theme }) => theme.hover},
       13px 0px 18px 0px #00000080;
   }
-`
+`;
 
 const Header = ({ toggleTheme }) => {
-  const [mobilMenuIsOpen, setMobilMenuIsOpen] = useState(false)
+  const [mobilMenuIsOpen, setMobilMenuIsOpen] = useState(false);
   const toggleMobilMenuDrawer = (open) => {
-    setMobilMenuIsOpen(open)
-  }
+    setMobilMenuIsOpen(open);
+  };
 
   return (
     <StyledHeader>
@@ -89,11 +89,11 @@ const Header = ({ toggleTheme }) => {
         </Hidden>
       </Grid>
     </StyledHeader>
-  )
-}
+  );
+};
 
 Header.propTypes = {
   toggleTheme: PropTypes.func.isRequired,
-}
+};
 
-export default Header
+export default Header;

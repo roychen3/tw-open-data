@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
-import Hidden from '@material-ui/core/Hidden'
-import { useDispatch } from 'react-redux'
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import Hidden from '@material-ui/core/Hidden';
+import { useDispatch } from 'react-redux';
 
 import {
     resettWeather,
-} from '../../redux/actions'
+} from '../../redux/actions';
 
-import { MuiPageSpinner } from '../../components/muiCircularProgress'
-import MuiLabelSelect from '../../components/MuiLabelSelect'
-import MuiModal from '../../components/MuiModal'
+import { MuiPageSpinner } from '../../components/muiCircularProgress';
+import MuiLabelSelect from '../../components/MuiLabelSelect';
+import MuiModal from '../../components/MuiModal';
 
-import useWeather from './useWeather'
-import MessageModal from './MessageModal'
-import WeatherCard from './WeatherCard'
+import useWeather from './useWeather';
+import MessageModal from './MessageModal';
+import WeatherCard from './WeatherCard';
 
-import TaiwamMap from './map/TaiwamMap'
+import TaiwamMap from './map/TaiwamMap';
 
 const StyledForeachContainer = styled.div`
 display: flex;
@@ -25,7 +25,7 @@ display: flex;
 }
 @media (min-width: 960px){
     flex-direction: row;
-`
+`;
 const StyledCardListContainer = styled.div`
 flex-grow: 1;
 margin: 2rem 0;
@@ -41,10 +41,10 @@ flex-direction: column;
     justify-content: start;
     align-content: start;
 }
-`
+`;
 
 const index = () => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const {
         weatherCountyList,
         weatherAllLocation,
@@ -53,42 +53,42 @@ const index = () => {
         getWeatherApi,
         getFakeWeatherAllLocation,
         creatWeatherCardList,
-    } = useWeather()
+    } = useWeather();
 
-    const [selectedCounty, setSelectedCounty] = useState('')
-    const [weatherCardList, setWeatherCardList] = useState([])
-    const [messageModalIsOpen, setMessageModalIsOpen] = useState(false)
+    const [selectedCounty, setSelectedCounty] = useState('');
+    const [weatherCardList, setWeatherCardList] = useState([]);
+    const [messageModalIsOpen, setMessageModalIsOpen] = useState(false);
 
-    const handaleMessageModalOpen = () => { setMessageModalIsOpen(true) }
-    const handaleMessageModalClose = () => { setMessageModalIsOpen(false) }
+    const handaleMessageModalOpen = () => { setMessageModalIsOpen(true); };
+    const handaleMessageModalClose = () => { setMessageModalIsOpen(false); };
 
     useEffect(() => {
-        if (weatherCountyList.length > 0) setSelectedCounty(weatherCountyList[0].value)
-    }, [weatherCountyList])
+        if (weatherCountyList.length > 0) setSelectedCounty(weatherCountyList[0].value);
+    }, [weatherCountyList]);
 
     useEffect(() => {
         if (selectedCounty && weatherAllLocation.length > 0) {
-            const selectedWeatherData = weatherAllLocation.find((item) => item.locationName === selectedCounty)
-            setWeatherCardList(creatWeatherCardList(selectedWeatherData))
+            const selectedWeatherData = weatherAllLocation.find((item) => item.locationName === selectedCounty);
+            setWeatherCardList(creatWeatherCardList(selectedWeatherData));
         }
-    }, [selectedCounty, weatherAllLocation])
+    }, [selectedCounty, weatherAllLocation]);
 
     useEffect(() => {
-        getWeatherApi()
+        getWeatherApi();
 
         return () => {
-            dispatch(resettWeather())
-        }
-    }, [])
+            dispatch(resettWeather());
+        };
+    }, []);
 
     useEffect(() => {
         if (weatherAllLocationError !== null) {
-            handaleMessageModalOpen()
-            getFakeWeatherAllLocation()
+            handaleMessageModalOpen();
+            getFakeWeatherAllLocation();
         }
-    }, [weatherAllLocationError])
+    }, [weatherAllLocationError]);
 
-    const showWeatherCardList = weatherCardList.map((item, index) => <WeatherCard key={index} data={item} />)
+    const showWeatherCardList = weatherCardList.map((item, index) => <WeatherCard key={index} data={item} />);
 
     return (
         <div>
@@ -121,11 +121,11 @@ const index = () => {
                 <MessageModal />
             </MuiModal>
         </div>
-    )
-}
+    );
+};
 
 index.propTypes = {
 
-}
+};
 
-export default index
+export default index;

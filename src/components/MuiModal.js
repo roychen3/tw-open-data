@@ -1,7 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import Modal from '@material-ui/core/Modal'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import Modal from '@material-ui/core/Modal';
 
 const StyledModalContainer = styled.div`
   position: absolute;
@@ -15,20 +15,20 @@ const StyledModalContainer = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-`
+`;
 
 const MuiModal = ({ open, handaleClose, children }) => {
   return (
     <Modal open={open} onClose={handaleClose}>
       <StyledModalContainer>{children}</StyledModalContainer>
     </Modal>
-  )
-}
+  );
+};
 
 MuiModal.propTypes = {
   open: PropTypes.bool.isRequired,
   handaleClose: PropTypes.func.isRequired,
   children: PropTypes.instanceOf(Object).isRequired,
-}
+};
 
-export default MuiModal
+export default MuiModal;

@@ -1,8 +1,8 @@
-import { createTheme } from '@material-ui/core/styles'
+import { createTheme } from '@material-ui/core/styles';
 import {
   lightTheme as lightWebTheme,
   darkTheme as darkWebTheme,
-} from './webTheme'
+} from './webTheme';
 
 export const lightTheme = createTheme({
   palette: {
@@ -24,7 +24,7 @@ export const lightTheme = createTheme({
       hover: lightWebTheme.hover,
     },
   },
-})
+});
 
 export const darkTheme = createTheme({
   palette: {
@@ -46,4 +46,4 @@ export const darkTheme = createTheme({
       hover: darkWebTheme.hover,
     },
   },
-})
+});

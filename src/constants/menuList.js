@@ -1,6 +1,6 @@
-import EventAvailableIcon from '@material-ui/icons/EventAvailable'
-import CloudIcon from '@material-ui/icons/Cloud'
-import CameraAltIcon from '@material-ui/icons/CameraAlt'
+import EventAvailableIcon from '@material-ui/icons/EventAvailable';
+import CloudIcon from '@material-ui/icons/Cloud';
+import CameraAltIcon from '@material-ui/icons/CameraAlt';
 
 export const menuList = [
     {
@@ -18,4 +18,4 @@ export const menuList = [
         itemName: '臺北市固定測速照相地點',
         icon: <CameraAltIcon />,
     },
-]
+];

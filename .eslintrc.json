@@ -14,7 +14,7 @@
   "plugins": ["react"],
   "rules": {
     "react/react-in-jsx-scope": "off",
-    "semi": ["error", "never"],
+    "semi": ["error", "always"],
     "quotes": ["error", "single"]
   },
   "ignorePatterns": ["*.test.js"]

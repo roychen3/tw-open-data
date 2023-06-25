@@ -1,13 +1,13 @@
-import React from 'react'
-import styled from 'styled-components'
-import ErrorIcon from '@material-ui/icons/Error'
+import React from 'react';
+import styled from 'styled-components';
+import ErrorIcon from '@material-ui/icons/Error';
 
 const StyledIcon = styled.div`
 color: ${({ theme }) => theme.highlight};
-`
+`;
 const StyledMessageContent = styled.div`
 text-align: left;
-`
+`;
 
 const MessageModal = () => {
   return (
@@ -24,11 +24,11 @@ const MessageModal = () => {
         <p><a href="https://data.ntpc.gov.tw/datasets/308DCD75-6434-45BC-A95F-584DA4FED251">新北市政府資料開放平臺</a></p>
       </StyledMessageContent>
     </>
-  )
-}
+  );
+};
 
 MessageModal.propTypes = {
 
-}
+};
 
-export default MessageModal
+export default MessageModal;

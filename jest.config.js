@@ -1,5 +1,5 @@
 module.exports = {
   testEnvironmentOptions: {
-    timezone: 'Asia/Taipei',
+    timezone: 'Etc/GMT+8',
   },
 };

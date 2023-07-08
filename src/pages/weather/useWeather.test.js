@@ -113,24 +113,24 @@ describe('useWeather', () => {
                 elementName: 'Wx',
                 time: [
                   {
-                    startTime: '2021-12-31T12:00:00+08:00',
-                    endTime: '2021-12-31T18:00:00+08:00',
+                    startTime: '2021-12-31T12:00:00',
+                    endTime: '2021-12-31T18:00:00',
                     parameter: {
                       parameterName: '陰天',
                       parameterValue: '7',
                     },
                   },
                   {
-                    startTime: '2021-12-31T18:00:00+08:00',
-                    endTime: '2022-01-01T06:00:00+08:00',
+                    startTime: '2021-12-31T18:00:00',
+                    endTime: '2022-01-01T06:00:00',
                     parameter: {
                       parameterName: '陰天',
                       parameterValue: '7',
                     },
                   },
                   {
-                    startTime: '2022-01-01T06:00:00+08:00',
-                    endTime: '2022-01-01T18:00:00+08:00',
+                    startTime: '2022-01-01T06:00:00',
+                    endTime: '2022-01-01T18:00:00',
                     parameter: {
                       parameterName: '陰天',
                       parameterValue: '7',
@@ -142,24 +142,24 @@ describe('useWeather', () => {
                 elementName: 'MaxT',
                 time: [
                   {
-                    startTime: '2021-12-31T12:00:00+08:00',
-                    endTime: '2021-12-31T18:00:00+08:00',
+                    startTime: '2021-12-31T12:00:00',
+                    endTime: '2021-12-31T18:00:00',
                     parameter: {
                       parameterName: '17',
                       parameterUnit: 'C',
                     },
                   },
                   {
-                    startTime: '2021-12-31T18:00:00+08:00',
-                    endTime: '2022-01-01T06:00:00+08:00',
+                    startTime: '2021-12-31T18:00:00',
+                    endTime: '2022-01-01T06:00:00',
                     parameter: {
                       parameterName: '16',
                       parameterUnit: 'C',
                     },
                   },
                   {
-                    startTime: '2022-01-01T06:00:00+08:00',
-                    endTime: '2022-01-01T18:00:00+08:00',
+                    startTime: '2022-01-01T06:00:00',
+                    endTime: '2022-01-01T18:00:00',
                     parameter: {
                       parameterName: '20',
                       parameterUnit: 'C',
@@ -171,24 +171,24 @@ describe('useWeather', () => {
                 elementName: 'MinT',
                 time: [
                   {
-                    startTime: '2021-12-31T12:00:00+08:00',
-                    endTime: '2021-12-31T18:00:00+08:00',
+                    startTime: '2021-12-31T12:00:00',
+                    endTime: '2021-12-31T18:00:00',
                     parameter: {
                       parameterName: '16',
                       parameterUnit: 'C',
                     },
                   },
                   {
-                    startTime: '2021-12-31T18:00:00+08:00',
-                    endTime: '2022-01-01T06:00:00+08:00',
+                    startTime: '2021-12-31T18:00:00',
+                    endTime: '2022-01-01T06:00:00',
                     parameter: {
                       parameterName: '15',
                       parameterUnit: 'C',
                     },
                   },
                   {
-                    startTime: '2022-01-01T06:00:00+08:00',
-                    endTime: '2022-01-01T18:00:00+08:00',
+                    startTime: '2022-01-01T06:00:00',
+                    endTime: '2022-01-01T18:00:00',
                     parameter: {
                       parameterName: '15',
                       parameterUnit: 'C',
@@ -200,22 +200,22 @@ describe('useWeather', () => {
                 elementName: 'CI',
                 time: [
                   {
-                    startTime: '2021-12-31T12:00:00+08:00',
-                    endTime: '2021-12-31T18:00:00+08:00',
+                    startTime: '2021-12-31T12:00:00',
+                    endTime: '2021-12-31T18:00:00',
                     parameter: {
                       parameterName: '稍有寒意',
                     },
                   },
                   {
-                    startTime: '2021-12-31T18:00:00+08:00',
-                    endTime: '2022-01-01T06:00:00+08:00',
+                    startTime: '2021-12-31T18:00:00',
+                    endTime: '2022-01-01T06:00:00',
                     parameter: {
                       parameterName: '寒冷至稍有寒意',
                     },
                   },
                   {
-                    startTime: '2022-01-01T06:00:00+08:00',
-                    endTime: '2022-01-01T18:00:00+08:00',
+                    startTime: '2022-01-01T06:00:00',
+                    endTime: '2022-01-01T18:00:00',
                     parameter: {
                       parameterName: '寒冷至稍有寒意',
                     },
@@ -226,24 +226,24 @@ describe('useWeather', () => {
                 elementName: 'PoP',
                 time: [
                   {
-                    startTime: '2021-12-31T12:00:00+08:00',
-                    endTime: '2021-12-31T18:00:00+08:00',
+                    startTime: '2021-12-31T12:00:00',
+                    endTime: '2021-12-31T18:00:00',
                     parameter: {
                       parameterName: '10',
                       parameterUnit: '百分比',
                     },
                   },
                   {
-                    startTime: '2021-12-31T18:00:00+08:00',
-                    endTime: '2022-01-01T06:00:00+08:00',
+                    startTime: '2021-12-31T18:00:00',
+                    endTime: '2022-01-01T06:00:00',
                     parameter: {
                       parameterName: '20',
                       parameterUnit: '百分比',
                     },
                   },
                   {
-                    startTime: '2022-01-01T06:00:00+08:00',
-                    endTime: '2022-01-01T18:00:00+08:00',
+                    startTime: '2022-01-01T06:00:00',
+                    endTime: '2022-01-01T18:00:00',
                     parameter: {
                       parameterName: '20',
                       parameterUnit: '百分比',
@@ -260,24 +260,24 @@ describe('useWeather', () => {
                 elementName: 'Wx',
                 time: [
                   {
-                    startTime: '2021-12-31T12:00:00+08:00',
-                    endTime: '2021-12-31T18:00:00+08:00',
+                    startTime: '2021-12-31T12:00:00',
+                    endTime: '2021-12-31T18:00:00',
                     parameter: {
                       parameterName: '陰天',
                       parameterValue: '7',
                     },
                   },
                   {
-                    startTime: '2021-12-31T18:00:00+08:00',
-                    endTime: '2022-01-01T06:00:00+08:00',
+                    startTime: '2021-12-31T18:00:00',
+                    endTime: '2022-01-01T06:00:00',
                     parameter: {
                       parameterName: '陰天',
                       parameterValue: '7',
                     },
                   },
                   {
-                    startTime: '2022-01-01T06:00:00+08:00',
-                    endTime: '2022-01-01T18:00:00+08:00',
+                    startTime: '2022-01-01T06:00:00',
+                    endTime: '2022-01-01T18:00:00',
                     parameter: {
                       parameterName: '陰天',
                       parameterValue: '7',
@@ -289,24 +289,24 @@ describe('useWeather', () => {
                 elementName: 'MaxT',
                 time: [
                   {
-                    startTime: '2021-12-31T12:00:00+08:00',
-                    endTime: '2021-12-31T18:00:00+08:00',
+                    startTime: '2021-12-31T12:00:00',
+                    endTime: '2021-12-31T18:00:00',
                     parameter: {
                       parameterName: '18',
                       parameterUnit: 'C',
                     },
                   },
                   {
-                    startTime: '2021-12-31T18:00:00+08:00',
-                    endTime: '2022-01-01T06:00:00+08:00',
+                    startTime: '2021-12-31T18:00:00',
+                    endTime: '2022-01-01T06:00:00',
                     parameter: {
                       parameterName: '16',
                       parameterUnit: 'C',
                     },
                   },
                   {
-                    startTime: '2022-01-01T06:00:00+08:00',
-                    endTime: '2022-01-01T18:00:00+08:00',
+                    startTime: '2022-01-01T06:00:00',
+                    endTime: '2022-01-01T18:00:00',
                     parameter: {
                       parameterName: '20',
                       parameterUnit: 'C',
@@ -318,24 +318,24 @@ describe('useWeather', () => {
                 elementName: 'MinT',
                 time: [
                   {
-                    startTime: '2021-12-31T12:00:00+08:00',
-                    endTime: '2021-12-31T18:00:00+08:00',
+                    startTime: '2021-12-31T12:00:00',
+                    endTime: '2021-12-31T18:00:00',
                     parameter: {
                       parameterName: '16',
                       parameterUnit: 'C',
                     },
                   },
                   {
-                    startTime: '2021-12-31T18:00:00+08:00',
-                    endTime: '2022-01-01T06:00:00+08:00',
+                    startTime: '2021-12-31T18:00:00',
+                    endTime: '2022-01-01T06:00:00',
                     parameter: {
                       parameterName: '15',
                       parameterUnit: 'C',
                     },
                   },
                   {
-                    startTime: '2022-01-01T06:00:00+08:00',
-                    endTime: '2022-01-01T18:00:00+08:00',
+                    startTime: '2022-01-01T06:00:00',
+                    endTime: '2022-01-01T18:00:00',
                     parameter: {
                       parameterName: '15',
                       parameterUnit: 'C',
@@ -347,22 +347,22 @@ describe('useWeather', () => {
                 elementName: 'CI',
                 time: [
                   {
-                    startTime: '2021-12-31T12:00:00+08:00',
-                    endTime: '2021-12-31T18:00:00+08:00',
+                    startTime: '2021-12-31T12:00:00',
+                    endTime: '2021-12-31T18:00:00',
                     parameter: {
                       parameterName: '稍有寒意',
                     },
                   },
                   {
-                    startTime: '2021-12-31T18:00:00+08:00',
-                    endTime: '2022-01-01T06:00:00+08:00',
+                    startTime: '2021-12-31T18:00:00',
+                    endTime: '2022-01-01T06:00:00',
                     parameter: {
                       parameterName: '寒冷至稍有寒意',
                     },
                   },
                   {
-                    startTime: '2022-01-01T06:00:00+08:00',
-                    endTime: '2022-01-01T18:00:00+08:00',
+                    startTime: '2022-01-01T06:00:00',
+                    endTime: '2022-01-01T18:00:00',
                     parameter: {
                       parameterName: '寒冷至稍有寒意',
                     },
@@ -373,24 +373,24 @@ describe('useWeather', () => {
                 elementName: 'PoP',
                 time: [
                   {
-                    startTime: '2021-12-31T12:00:00+08:00',
-                    endTime: '2021-12-31T18:00:00+08:00',
+                    startTime: '2021-12-31T12:00:00',
+                    endTime: '2021-12-31T18:00:00',
                     parameter: {
                       parameterName: '10',
                       parameterUnit: '百分比',
                     },
                   },
                   {
-                    startTime: '2021-12-31T18:00:00+08:00',
-                    endTime: '2022-01-01T06:00:00+08:00',
+                    startTime: '2021-12-31T18:00:00',
+                    endTime: '2022-01-01T06:00:00',
                     parameter: {
                       parameterName: '20',
                       parameterUnit: '百分比',
                     },
                   },
                   {
-                    startTime: '2022-01-01T06:00:00+08:00',
-                    endTime: '2022-01-01T18:00:00+08:00',
+                    startTime: '2022-01-01T06:00:00',
+                    endTime: '2022-01-01T18:00:00',
                     parameter: {
                       parameterName: '20',
                       parameterUnit: '百分比',

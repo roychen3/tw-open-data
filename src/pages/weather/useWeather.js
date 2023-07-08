@@ -95,6 +95,10 @@ const useWeather = () => {
 
             const startTime = new Date(item.startTime);
             const endTime = new Date(item.endTime);
+            console.log('=============================')
+            console.log('startTime', startTime)
+            console.log('endTime', endTime)
+            console.log('=============================')
             const weatherPeriodTime = `${determineDayDescription(startTime)}${determineTimeDescription(startTime.getHours())} 至 ${determineDayDescription(endTime)}${determineTimeDescription(endTime.getHours())}`;
             weatherCardList[index].weatherPeriodTime = weatherPeriodTime;
         });

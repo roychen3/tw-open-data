@@ -19,7 +19,10 @@ const useWeather = () => {
     const determineDayDescription = (date) => {
         const determineDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
         const currentDate = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
-
+        console.log('=============================')
+        console.log('determineDate', determineDate)
+        console.log('currentDate', currentDate)
+        console.log('=============================')
         const diffTime = determineDate - currentDate;
         const diffDays = diffTime / (1000 * 60 * 60 * 24);
 
@@ -95,10 +98,6 @@ const useWeather = () => {
 
             const startTime = new Date(item.startTime);
             const endTime = new Date(item.endTime);
-            console.log('=============================')
-            console.log('startTime', startTime)
-            console.log('endTime', endTime)
-            console.log('=============================')
             const weatherPeriodTime = `${determineDayDescription(startTime)}${determineTimeDescription(startTime.getHours())} 至 ${determineDayDescription(endTime)}${determineTimeDescription(endTime.getHours())}`;
             weatherCardList[index].weatherPeriodTime = weatherPeriodTime;
         });

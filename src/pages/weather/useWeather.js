@@ -19,10 +19,6 @@ const useWeather = () => {
     const determineDayDescription = (date) => {
         const determineDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
         const currentDate = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
-        console.log('=============================')
-        console.log('determineDate', determineDate)
-        console.log('currentDate', currentDate)
-        console.log('=============================')
         const diffTime = determineDate - currentDate;
         const diffDays = diffTime / (1000 * 60 * 60 * 24);
 

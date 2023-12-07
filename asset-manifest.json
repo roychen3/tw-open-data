@@ -5,12 +5,12 @@
     "main.css": "/tw-open-data/static/css/main.740555b5.chunk.css",
     "main.js": "/tw-open-data/static/js/main.3e8a302a.chunk.js",
     "main.js.map": "/tw-open-data/static/js/main.3e8a302a.chunk.js.map",
-    "runtime-main.js": "/tw-open-data/static/js/runtime-main.6fe232b5.js",
-    "runtime-main.js.map": "/tw-open-data/static/js/runtime-main.6fe232b5.js.map",
+    "runtime-main.js": "/tw-open-data/static/js/runtime-main.567a5112.js",
+    "runtime-main.js.map": "/tw-open-data/static/js/runtime-main.567a5112.js.map",
     "static/js/3.02e4fb01.chunk.js": "/tw-open-data/static/js/3.02e4fb01.chunk.js",
     "static/js/3.02e4fb01.chunk.js.map": "/tw-open-data/static/js/3.02e4fb01.chunk.js.map",
-    "static/js/4.b66f7b56.chunk.js": "/tw-open-data/static/js/4.b66f7b56.chunk.js",
-    "static/js/4.b66f7b56.chunk.js.map": "/tw-open-data/static/js/4.b66f7b56.chunk.js.map",
+    "static/js/4.2010fe8e.chunk.js": "/tw-open-data/static/js/4.2010fe8e.chunk.js",
+    "static/js/4.2010fe8e.chunk.js.map": "/tw-open-data/static/js/4.2010fe8e.chunk.js.map",
     "static/js/5.68ea7a86.chunk.js": "/tw-open-data/static/js/5.68ea7a86.chunk.js",
     "static/js/5.68ea7a86.chunk.js.map": "/tw-open-data/static/js/5.68ea7a86.chunk.js.map",
     "static/js/6.f2e17aa7.chunk.js": "/tw-open-data/static/js/6.f2e17aa7.chunk.js",
@@ -31,7 +31,7 @@
     "static/media/style.scss": "/tw-open-data/static/media/Quicksand-Regular.cffc2790.ttf"
   },
   "entrypoints": [
-    "static/js/runtime-main.6fe232b5.js",
+    "static/js/runtime-main.567a5112.js",
     "static/js/3.02e4fb01.chunk.js",
     "static/css/main.740555b5.chunk.css",
     "static/js/main.3e8a302a.chunk.js"

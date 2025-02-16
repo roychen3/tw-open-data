@@ -10050,6 +10050,832 @@
         "isHoliday": "是",
         "holidayCategory": "星期六、星期日",
         "description": ""
+      },
+      {
+        "date": "2025/01/01",
+        "name": "中華民國開國紀念日",
+        "isHoliday": "是",
+        "holidayCategory": "放假之紀念日及節日",
+        "description": ""
+      },
+      {
+        "date": "2025/01/04",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/01/05",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/01/11",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/01/12",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/01/18",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/01/19",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/01/25",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/01/26",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/01/27",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "調整放假日",
+        "description": ""
+      },
+      {
+        "date": "2025/01/28",
+        "name": "農曆除夕",
+        "isHoliday": "是",
+        "holidayCategory": "放假之紀念日及節日",
+        "description": "全國各機關學校放假一日，小年夜(一月二十七日)適逢星期一，調整為放假日，並於二月八日補行上班一日。"
+      },
+      {
+        "date": "2025/01/29",
+        "name": "春節",
+        "isHoliday": "是",
+        "holidayCategory": "放假之紀念日及節日",
+        "description": "全國各機關學校於一月二十九日至一月三十一日放假三日。"
+      },
+      {
+        "date": "2025/01/30",
+        "name": "春節",
+        "isHoliday": "是",
+        "holidayCategory": "放假之紀念日及節日",
+        "description": ""
+      },
+      {
+        "date": "2025/01/31",
+        "name": "春節",
+        "isHoliday": "是",
+        "holidayCategory": "放假之紀念日及節日",
+        "description": ""
+      },
+      {
+        "date": "2025/02/01",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/02/02",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/02/08",
+        "name": "",
+        "isHoliday": "否",
+        "holidayCategory": "補行上班日",
+        "description": ""
+      },
+      {
+        "date": "2025/02/09",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/02/15",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/02/16",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/02/22",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/02/23",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/02/28",
+        "name": "和平紀念日",
+        "isHoliday": "是",
+        "holidayCategory": "放假之紀念日及節日",
+        "description": ""
+      },
+      {
+        "date": "2025/03/01",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/03/02",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/03/08",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/03/09",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/03/15",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/03/16",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/03/22",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/03/23",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/03/29",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/03/30",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/04/03",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "補假",
+        "description": ""
+      },
+      {
+        "date": "2025/04/04",
+        "name": "兒童節及民族掃墓節",
+        "isHoliday": "是",
+        "holidayCategory": "放假之紀念日及節日",
+        "description": "全國各機關學校放假一日，兒童節與民族掃墓節同一日，於四月三日補假一日。"
+      },
+      {
+        "date": "2025/04/05",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/04/06",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/04/12",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/04/13",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/04/19",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/04/20",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/04/26",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/04/27",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/05/01",
+        "name": "勞動節",
+        "isHoliday": "是",
+        "holidayCategory": "特定節日",
+        "description": "勞工放假一日。"
+      },
+      {
+        "date": "2025/05/03",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/05/04",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/05/10",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/05/11",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/05/17",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/05/18",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/05/24",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/05/25",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/05/30",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "補假",
+        "description": ""
+      },
+      {
+        "date": "2025/05/31",
+        "name": "端午節",
+        "isHoliday": "是",
+        "holidayCategory": "放假之紀念日及節日",
+        "description": "全國各機關學校放假一日。"
+      },
+      {
+        "date": "2025/06/01",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/06/07",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/06/08",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/06/14",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/06/15",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/06/21",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/06/22",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/06/28",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/06/29",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/07/05",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/07/06",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/07/12",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/07/13",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/07/19",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/07/20",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/07/26",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/07/27",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/08/02",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/08/03",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/08/09",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/08/10",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/08/16",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/08/17",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/08/23",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/08/24",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/08/30",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/08/31",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/09/03",
+        "name": "軍人節",
+        "isHoliday": "是",
+        "holidayCategory": "特定節日",
+        "description": "軍人依國防部規定辦理。"
+      },
+      {
+        "date": "2025/09/06",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/09/07",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/09/13",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/09/14",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/09/20",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/09/21",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/09/27",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/09/28",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/10/04",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/10/05",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/10/06",
+        "name": "中秋節",
+        "isHoliday": "是",
+        "holidayCategory": "放假之紀念日及節日",
+        "description": "全國各機關學校放假一日。"
+      },
+      {
+        "date": "2025/10/10",
+        "name": "國慶日",
+        "isHoliday": "是",
+        "holidayCategory": "放假之紀念日及節日",
+        "description": "全國各機關學校放假一日。"
+      },
+      {
+        "date": "2025/10/11",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/10/12",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/10/18",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/10/19",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/10/25",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/10/26",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/11/01",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/11/02",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/11/08",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/11/09",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/11/15",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/11/16",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/11/22",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/11/23",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/11/29",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/11/30",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/12/06",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/12/07",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/12/13",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/12/14",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/12/20",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/12/21",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/12/27",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
+      },
+      {
+        "date": "2025/12/28",
+        "name": "",
+        "isHoliday": "是",
+        "holidayCategory": "星期六、星期日",
+        "description": ""
       }
     ]
   }
